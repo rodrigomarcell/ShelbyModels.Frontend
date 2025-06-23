@@ -6,6 +6,8 @@ import modelo5 from '../assets/img/modelo5.png'
 import modelo6 from '../assets/img/modelo6.png'
 import modelo7 from '../assets/img/modelo7.png'
 import modelo8 from '../assets/img/modelo8.png'
+import modelo9 from '../assets/img/modelo9.png'
+import modelo10 from '../assets/img/modelo10.png'
 
 // Sample model data
 const models = [
@@ -169,6 +171,45 @@ const models = [
       modelo8,
       'https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
       'https://images.pexels.com/photos/1342609/pexels-photo-1342609.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+    ]
+  },
+  {
+    id: '9',
+    name: 'Isabella Costa',
+    category: 'Companionships',
+    gender: 'Girls',
+    specialty: 'Fashion, Lifestyle',
+    location: 'Rio de Janeiro, RJ',
+    verified: true,
+    top: false,
+    image: modelo9,
+    socialMedia: {
+      instagram: '#',
+      tiktok: '#'
+    },
+    gallery: [
+      modelo9,
+      'https://images.pexels.com/photos/1587009/pexels-photo-1587009.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+      'https://images.pexels.com/photos/1130626/pexels-photo-1130626.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+    ]
+  },
+  {
+    id: '10',
+    name: 'Lucas Pereira',
+    category: 'Video Calls',
+    gender: 'Men',
+    specialty: 'Commercial, Fitness',
+    location: 'São Paulo, SP',
+    verified: false,
+    top: true,
+    image: modelo10,
+    socialMedia: {
+      instagram: '#'
+    },
+    gallery: [
+      modelo10,
+      'https://images.pexels.com/photos/842811/pexels-photo-842811.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+      'https://images.pexels.com/photos/1082962/pexels-photo-1082962.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
     ]
   }
 ]

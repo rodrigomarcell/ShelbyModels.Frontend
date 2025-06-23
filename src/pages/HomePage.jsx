@@ -5,7 +5,7 @@ import './HomePage.css'
 
 function HomePage({ favorites, toggleFavorite }) {
   const { models } = useModels()
-  const [visibleCount, setVisibleCount] = useState(8)
+  const [visibleCount, setVisibleCount] = useState(models.length)
   
   const handleShowMore = () => {
     setVisibleCount(prevCount => Math.min(prevCount + 8, models.length))
