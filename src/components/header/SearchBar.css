@@ -1,0 +1,139 @@
+.search-bar {
+  width: 100%;
+}
+
+.search-input-group {
+  display: flex;
+  gap: 16px;
+  width: 100%;
+}
+
+.location-input-container,
+.search-input-container {
+  position: relative;
+  display: flex;
+  flex: 1;
+}
+
+.location-input,
+.search-input {
+  border-radius: 4px 0 0 4px;
+  border-right: none;
+  border: 1px solid #ced4da;
+  padding: 10px 12px;
+  font-size: 14px;
+  background-color: white;
+  color: #495057;
+}
+
+.location-input:focus,
+.search-input:focus {
+  outline: none;
+  border-color: var(--color-primary-600);
+  box-shadow: 0 0 0 2px rgba(138, 43, 226, 0.25);
+}
+
+.radius-selector {
+  position: relative;
+}
+
+.radius-button {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 12px;
+  background-color: #f8f9fa;
+  border: 1px solid #ced4da;
+  border-left: none;
+  border-radius: 0 4px 4px 0;
+  color: #495057;
+  font-weight: 500;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.radius-button:hover {
+  background-color: #e9ecef;
+}
+
+.radius-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: white;
+  border-radius: 4px;
+  border: 1px solid #ced4da;
+  z-index: 10;
+  width: 120px;
+}
+
+.radius-option {
+  width: 100%;
+  padding: 10px 12px;
+  text-align: left;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  color: #495057;
+}
+
+.radius-option:hover,
+.radius-option.active {
+  background-color: #f8f9fa;
+  color: var(--color-primary-600);
+}
+
+.search-button {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 20px;
+  background-color: #dc3545;
+  border-radius: 0 4px 4px 0;
+  color: white;
+  font-weight: 600;
+  border: 1px solid #dc3545;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.search-button:hover {
+  background-color: #c82333;
+  border-color: #c82333;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .search-input-group {
+    flex-direction: column;
+  }
+  
+  .location-input,
+  .search-input {
+    width: 100%;
+    border-radius: 4px;
+    border: 1px solid #ced4da;
+  }
+  
+  .radius-button {
+    border-radius: 4px;
+    border: 1px solid #ced4da;
+  }
+  
+  .search-button {
+    border-radius: 4px;
+  }
+}
+
+@media (max-width: 480px) {
+  .search-button span {
+    display: none;
+  }
+  
+  .search-button {
+    padding: 0 16px;
+  }
+}
