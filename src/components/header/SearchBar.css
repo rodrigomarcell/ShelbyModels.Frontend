@@ -137,3 +137,7 @@
     padding: 0 16px;
   }
 }
+
+.header-bottom .form-control {
+  border-radius: 5px 0px 0px 5px;
+}

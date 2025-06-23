@@ -38,6 +38,20 @@
   z-index: 2;
 }
 
+.badge-top {
+  background: linear-gradient(45deg, #FFD700, #F0C400);
+  color: #4A2B00;
+  font-size: 0.75rem;
+  font-weight: bold;
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius-md);
+  text-transform: uppercase;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2), inset 0 -1px 1px rgba(0,0,0,0.1);
+  border: 1px solid #E0B800;
+  text-shadow: 0 1px 0 rgba(255,255,255,0.3);
+  transform: rotate(-5deg);
+}
+
 .favorite-button {
   position: absolute;
   top: 1rem;
@@ -65,34 +79,6 @@
 
 .favorite-button.active {
   color: var(--color-secondary-600);
-}
-
-.social-icons {
-  position: absolute;
-  top: 1rem;
-  right: 4rem;
-  display: flex;
-  gap: 0.5rem;
-  z-index: 2;
-}
-
-.social-icon {
-  background-color: rgba(255, 255, 255, 0.9);
-  border-radius: 50%;
-  width: 2rem;
-  height: 2rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--color-neutral-700);
-  transition: all var(--transition-quick);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.social-icon:hover {
-  background-color: white;
-  color: var(--color-primary-600);
-  transform: scale(1.1);
 }
 
 .model-card-overlay {

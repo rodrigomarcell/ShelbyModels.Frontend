@@ -53,8 +53,6 @@ function ModelCard({ model, isFavorite, onToggleFavorite }) {
           <FaHeart />
         </button>
         
-        {renderSocialIcons()}
-        
         <div className={`model-card-overlay ${isHovered ? 'visible' : ''}`}>
           <div className="play-icon">
             <FaPlay />
