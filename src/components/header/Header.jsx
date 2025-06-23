@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { FaHeart, FaUser, FaBars, FaTimes } from 'react-icons/fa'
+import { FaHeart, FaUser, FaBars, FaTimes, FaMapMarkerAlt, FaBullseye, FaChevronDown } from 'react-icons/fa'
 import { useModels } from '../../context/ModelContext'
 import Logo from '../Logo/Logo'
 import CategoryFilter from './CategoryFilter'
@@ -11,6 +11,7 @@ import './Header.css'
 function Header({ favoritesCount = 0 }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false)
+  const [isCityListOpen, setIsCityListOpen] = useState(false)
   const { filters, updateFilters } = useModels()
   
   const toggleMenu = () => {
@@ -20,6 +21,11 @@ function Header({ favoritesCount = 0 }) {
   const toggleUserMenu = () => {
     setIsUserMenuOpen(!isUserMenuOpen)
   }
+
+  const mainCities = [
+    'São Paulo', 'Rio de Janeiro', 'ABC Paulista', 'Campinas', 'Porto Alegre',
+    'Recife', 'Fortaleza', 'Curitiba', 'São José dos Campos', 'Belo Horizonte'
+  ];
 
   return (
     <header className="header">
@@ -41,6 +47,15 @@ function Header({ favoritesCount = 0 }) {
                     <span className="favorites-count">{favoritesCount}</span>
                   )}
                 </Link>
+              </div>
+              <div className="user-menu-container">
+                <button 
+                  className="btn-icon user-menu-toggle"
+                  onClick={toggleUserMenu}
+                >
+                  <FaUser />
+                </button>
+                {/* Lógica do menu dropdown do usuário pode ser adicionada aqui */}
               </div>
               <button 
                 className="menu-toggle"
@@ -79,14 +94,30 @@ function Header({ favoritesCount = 0 }) {
           />
           
           <div className="advanced-search-section">
-            <button className="city-list-btn">
-              Lista de cidades
-            </button>
-            <button className="locate-me-btn">
-              Me localize
-            </button>
+            <div className="advanced-search-group">
+              <div className="city-list-container">
+                <button className="city-list-btn" onClick={() => setIsCityListOpen(!isCityListOpen)}>
+                  Lista de cidades
+                  <FaChevronDown className={`chevron-icon ${isCityListOpen ? 'open' : ''}`} />
+                </button>
+                {isCityListOpen && (
+                  <div className="city-dropdown-list">
+                    {mainCities.map(city => (
+                      <Link to={`/city/${city}`} key={city} className="city-dropdown-item">{city}</Link>
+                    ))}
+                    <Link to="/all-cities" className="city-dropdown-item all-cities-link">Ver todas as cidades</Link>
+                  </div>
+                )}
+              </div>
+              <button className="locate-me-btn">
+                <FaBullseye />
+                Me localize
+              </button>
+            </div>
+
             <button className="advanced-filters-btn">
               Filtros de pesquisa
+              <FaChevronDown className="chevron-icon" />
             </button>
           </div>
         </div>
