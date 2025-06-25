@@ -5,9 +5,9 @@ function GenderFilter({ selectedGender, onGenderSelect }) {
   const { t } = useTranslation()
   
   const genders = [
-    { id: 'garotas', label: t('filters.genders.garotas') },
-    { id: 'trans', label: t('filters.genders.trans') },
-    { id: 'homens', label: t('filters.genders.homens') }
+    { id: 'Girls', label: t('filters.genders.garotas') },
+    { id: 'Trans', label: t('filters.genders.trans') },
+    { id: 'Men', label: t('filters.genders.homens') }
   ]
   
   return (
@@ -18,9 +18,7 @@ function GenderFilter({ selectedGender, onGenderSelect }) {
           <button
             key={gender.id}
             className={`tag ${selectedGender === gender.id ? 'active' : ''}`}
-            onClick={() => onGenderSelect(
-              selectedGender === gender.id ? '' : gender.id
-            )}
+            onClick={() => onGenderSelect(gender.id)}
           >
             {gender.label}
           </button>

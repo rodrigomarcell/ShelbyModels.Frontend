@@ -5,9 +5,9 @@ function CategoryFilter({ selectedCategory, onCategorySelect }) {
   const { t } = useTranslation()
   
   const categories = [
-    { id: 'acompanhantes', label: t('filters.categories.acompanhantes') },
-    { id: 'massagens', label: t('filters.categories.massagens') },
-    { id: 'videochamadas', label: t('filters.categories.videochamadas') }
+    { id: 'Companionships', label: t('filters.categories.acompanhantes') },
+    { id: 'Massages', label: t('filters.categories.massagens') },
+    { id: 'Video Calls', label: t('filters.categories.videochamadas') }
   ]
   
   return (
@@ -18,9 +18,7 @@ function CategoryFilter({ selectedCategory, onCategorySelect }) {
           <button
             key={category.id}
             className={`tag ${selectedCategory === category.id ? 'active' : ''}`}
-            onClick={() => onCategorySelect(
-              selectedCategory === category.id ? '' : category.id
-            )}
+            onClick={() => onCategorySelect(category.id)}
           >
             {category.label}
           </button>
