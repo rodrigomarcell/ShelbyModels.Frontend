@@ -33,6 +33,7 @@ function SearchBar({
             type="text"
             className="form-control location-input"
             placeholder="Onde está você?"
+            aria-label="Onde está você?"
             value={locationQuery}
             onChange={(e) => onLocationChange(e.target.value)}
           />
@@ -41,17 +42,20 @@ function SearchBar({
               className="radius-button"
               onClick={() => setIsRadiusOpen(!isRadiusOpen)}
               aria-expanded={isRadiusOpen ? 'true' : 'false'}
+              aria-haspopup="true"
+              aria-controls="radius-dropdown"
             >
               {radiusOptions.find(opt => opt.value === radius)?.label || '0 km'}
               <FaChevronDown />
             </button>
             {isRadiusOpen && (
-              <div className="radius-dropdown slide-up-fade">
+              <div className="radius-dropdown slide-up-fade" id="radius-dropdown" role="menu">
                 {radiusOptions.map((option) => (
                   <button
                     key={option.value}
                     className={`radius-option ${radius === option.value ? 'active' : ''}`}
                     onClick={() => handleRadiusSelection(option.value)}
+                    role="menuitem"
                   >
                     {option.label}
                   </button>
@@ -66,6 +70,7 @@ function SearchBar({
             type="text"
             className="form-control search-input"
             placeholder="O que procura?"
+            aria-label="O que procura?"
             value={searchQuery}
             onChange={(e) => onSearchChange(e.target.value)}
           />

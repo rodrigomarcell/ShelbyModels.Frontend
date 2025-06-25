@@ -126,6 +126,9 @@
   
   .search-button {
     border-radius: 4px;
+    height: auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
   }
 }
 
