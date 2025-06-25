@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { FaArrowLeft, FaCheck, FaInstagram, FaTwitter, FaTiktok } from 'react-icons/fa'
+import { useTranslation } from 'react-i18next'
 import { useModels } from '../context/ModelContext'
 import './ModelPage.css'
 
 function ModelPage() {
+  const { t } = useTranslation()
   const { id } = useParams()
   const { getModelById } = useModels()
   const [model, setModel] = useState(null)
@@ -23,7 +25,7 @@ function ModelPage() {
   if (loading) {
     return (
       <div className="container">
-        <div className="loading-indicator">Loading model information...</div>
+        <div className="loading-indicator">{t('modelPage.loading')}</div>
       </div>
     )
   }
@@ -31,8 +33,8 @@ function ModelPage() {
   if (!model) {
     return (
       <div className="container">
-        <div className="error-message">Model not found.</div>
-        <Link to="/" className="btn btn-primary">Back to Home</Link>
+        <div className="error-message">{t('modelPage.notFound')}</div>
+        <Link to="/" className="btn btn-primary">{t('modelPage.backToHome')}</Link>
       </div>
     )
   }
@@ -64,7 +66,7 @@ function ModelPage() {
     <div className="model-page container">
       <Link to="/" className="back-link">
         <FaArrowLeft />
-        <span>Back to Models</span>
+        <span>{t('modelPage.backToModels')}</span>
       </Link>
       
       <div className="model-profile">
@@ -92,7 +94,7 @@ function ModelPage() {
             {model.verified && (
               <div className="model-verified-badge">
                 <FaCheck />
-                <span>Verified</span>
+                <span>{t('modelPage.verified')}</span>
               </div>
             )}
           </div>
@@ -104,30 +106,31 @@ function ModelPage() {
           </div>
           
           <div className="model-info-section">
-            <h2 className="info-title">Specialty</h2>
+            <h2 className="info-title">{t('modelPage.specialty')}</h2>
             <p className="info-content">{model.specialty}</p>
           </div>
           
           <div className="model-info-section">
-            <h2 className="info-title">About</h2>
+            <h2 className="info-title">{t('modelPage.about')}</h2>
             <p className="info-content">
-              Professional model with expertise in {model.specialty.toLowerCase()}. 
-              Based in {model.location}.
-              Available for bookings and collaborations.
+              {t('modelPage.aboutDescription', { 
+                specialty: model.specialty.toLowerCase(), 
+                location: model.location 
+              })}
             </p>
           </div>
           
           <div className="model-info-section">
-            <h2 className="info-title">Connect</h2>
+            <h2 className="info-title">{t('modelPage.connect')}</h2>
             {renderSocialLinks()}
           </div>
           
           <div className="model-actions">
             <Link to="/contact" className="btn btn-primary">
-              Contact Now
+              {t('modelPage.contactNow')}
             </Link>
             <Link to={`/booking/${model.id}`} className="btn btn-outline">
-              Book Session
+              {t('modelPage.bookSession')}
             </Link>
           </div>
         </div>

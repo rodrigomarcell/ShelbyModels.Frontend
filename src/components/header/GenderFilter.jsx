@@ -1,15 +1,18 @@
+import { useTranslation } from 'react-i18next'
 import './Filters.css'
 
 function GenderFilter({ selectedGender, onGenderSelect }) {
+  const { t } = useTranslation()
+  
   const genders = [
-    { id: 'garotas', label: 'Garotas' },
-    { id: 'trans', label: 'Trans' },
-    { id: 'homens', label: 'Homens' }
+    { id: 'garotas', label: t('filters.genders.garotas') },
+    { id: 'trans', label: t('filters.genders.trans') },
+    { id: 'homens', label: t('filters.genders.homens') }
   ]
   
   return (
     <div className="filter-container gender-filter">
-      <span className="filter-label">Sexo:</span>
+      <span className="filter-label">{t('filters.gender')}</span>
       <div className="filter-options">
         {genders.map(gender => (
           <button

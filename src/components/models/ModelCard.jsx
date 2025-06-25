@@ -1,9 +1,11 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { FaPlay, FaHeart, FaCheck, FaInstagram, FaTwitter, FaTiktok } from 'react-icons/fa'
+import { useTranslation } from 'react-i18next'
 import './ModelCard.css'
 
 function ModelCard({ model, isFavorite, onToggleFavorite }) {
+  const { t } = useTranslation()
   const [isHovered, setIsHovered] = useState(false)
   
   const renderSocialIcons = () => {
@@ -39,7 +41,7 @@ function ModelCard({ model, isFavorite, onToggleFavorite }) {
         <img src={model.image} alt={model.name} className="model-card-image" />
         
         {model.top && (
-          <div className="model-badge badge-top">Top</div>
+          <div className="model-badge badge-top">{t('modelCard.top')}</div>
         )}
         
         <button 
@@ -58,7 +60,7 @@ function ModelCard({ model, isFavorite, onToggleFavorite }) {
             <FaPlay />
           </div>
           <Link to={`/model/${model.id}`} className="view-profile-btn">
-            View Profile
+            {t('modelCard.viewProfile')}
           </Link>
         </div>
       </div>
@@ -69,11 +71,11 @@ function ModelCard({ model, isFavorite, onToggleFavorite }) {
           {model.verified && (
             <div className="verified-badge">
               <FaCheck />
-              <span>Verified</span>
+              <span>{t('modelCard.verified')}</span>
             </div>
           )}
         </div>
-        <p className="model-specialty">Specialty: {model.specialty}</p>
+        <p className="model-specialty">{t('modelCard.specialty')} {model.specialty}</p>
       </div>
     </div>
   )

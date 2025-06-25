@@ -1,14 +1,17 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { FaHeart, FaUser, FaBars, FaTimes, FaMapMarkerAlt, FaBullseye, FaChevronDown } from 'react-icons/fa'
+import { useTranslation } from 'react-i18next'
 import { useModels } from '../../context/ModelContext'
 import Logo from '../Logo/Logo'
 import CategoryFilter from './CategoryFilter'
 import GenderFilter from './GenderFilter'
 import SearchBar from './SearchBar'
+import LanguageSwitcher from '../LanguageSwitcher/LanguageSwitcher'
 import './Header.css'
 
 function Header({ favoritesCount = 0 }) {
+  const { t } = useTranslation()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false)
   const [isCityListOpen, setIsCityListOpen] = useState(false)
@@ -38,7 +41,7 @@ function Header({ favoritesCount = 0 }) {
             
             <div className="header-actions">
               <Link to="/post-ad" className="btn btn-publish">
-                Publicar anúncio
+                {t('header.publishAd')}
               </Link>
               <div className="favorites-container">
                 <Link to="/favorites" className="btn-icon">
@@ -57,6 +60,7 @@ function Header({ favoritesCount = 0 }) {
                 </button>
                 {/* Lógica do menu dropdown do usuário pode ser adicionada aqui */}
               </div>
+              <LanguageSwitcher />
               <button 
                 className="menu-toggle"
                 onClick={toggleMenu}
@@ -97,26 +101,30 @@ function Header({ favoritesCount = 0 }) {
             <div className="advanced-search-group">
               <div className="city-list-container">
                 <button className="city-list-btn" onClick={() => setIsCityListOpen(!isCityListOpen)}>
-                  Lista de cidades
+                  {t('header.cityList')}
                   <FaChevronDown className={`chevron-icon ${isCityListOpen ? 'open' : ''}`} />
                 </button>
                 {isCityListOpen && (
                   <div className="city-dropdown-list">
                     {mainCities.map(city => (
-                      <Link to={`/city/${city}`} key={city} className="city-dropdown-item">{city}</Link>
+                      <Link to={`/city/${city}`} key={city} className="city-dropdown-item">
+                        {t(`cities.${city}`)}
+                      </Link>
                     ))}
-                    <Link to="/all-cities" className="city-dropdown-item all-cities-link">Ver todas as cidades</Link>
+                    <Link to="/all-cities" className="city-dropdown-item all-cities-link">
+                      {t('header.seeAllCities')}
+                    </Link>
                   </div>
                 )}
               </div>
               <button className="locate-me-btn">
                 <FaBullseye />
-                Me localize
+                {t('header.locateMe')}
               </button>
             </div>
 
             <button className="advanced-filters-btn">
-              Filtros de pesquisa
+              {t('header.searchFilters')}
               <FaChevronDown className="chevron-icon" />
             </button>
           </div>

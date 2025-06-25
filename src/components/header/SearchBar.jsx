@@ -1,5 +1,6 @@
 import { FaSearch, FaMapMarkerAlt, FaChevronDown } from 'react-icons/fa'
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import './SearchBar.css'
 
 function SearchBar({ 
@@ -10,6 +11,7 @@ function SearchBar({
   onLocationChange, 
   onRadiusChange
 }) {
+  const { t } = useTranslation()
   const [isRadiusOpen, setIsRadiusOpen] = useState(false)
   
   const radiusOptions = [
@@ -32,8 +34,8 @@ function SearchBar({
           <input
             type="text"
             className="form-control location-input"
-            placeholder="Onde está você?"
-            aria-label="Onde está você?"
+            placeholder={t('searchBar.locationPlaceholder')}
+            aria-label={t('searchBar.locationPlaceholder')}
             value={locationQuery}
             onChange={(e) => onLocationChange(e.target.value)}
           />
@@ -69,14 +71,14 @@ function SearchBar({
           <input
             type="text"
             className="form-control search-input"
-            placeholder="O que procura?"
-            aria-label="O que procura?"
+            placeholder={t('searchBar.searchPlaceholder')}
+            aria-label={t('searchBar.searchPlaceholder')}
             value={searchQuery}
             onChange={(e) => onSearchChange(e.target.value)}
           />
           <button className="search-button">
             <FaSearch />
-            <span>Procurar</span>
+            <span>{t('searchBar.searchButton')}</span>
           </button>
         </div>
       </div>
