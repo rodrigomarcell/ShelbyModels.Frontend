@@ -11,8 +11,8 @@ export function ModelProvider({ children }) {
   const [models, setModels] = useState(modelsData)
   const [filteredModels, setFilteredModels] = useState(modelsData)
   const [filters, setFilters] = useState({
-    category: '',
-    gender: '',
+    category: 'Companionships',
+    gender: 'Girls',
     search: '',
     location: '',
     radius: 0,
