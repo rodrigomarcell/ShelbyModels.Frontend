@@ -43,7 +43,15 @@ const resources = {
         verified: "Verificado",
         specialty: "Especialidade:",
         viewProfile: "Ver Perfil",
-        top: "Top"
+        top: "Top",
+        featured: "Destaque",
+        recorded: "Gravado",
+        online: "Online",
+        offline: "Offline",
+        years: "anos",
+        reviews: "avaliações",
+        lastSeen: "Visto por último",
+        ago: "atrás"
       },
       
       // Model Page
@@ -148,7 +156,15 @@ const resources = {
         verified: "Verified",
         specialty: "Specialty:",
         viewProfile: "View Profile",
-        top: "Top"
+        top: "Top",
+        featured: "Featured",
+        recorded: "Recorded",
+        online: "Online",
+        offline: "Offline",
+        years: "years old",
+        reviews: "reviews",
+        lastSeen: "Last seen",
+        ago: "ago"
       },
       
       // Model Page
