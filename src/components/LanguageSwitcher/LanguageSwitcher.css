@@ -84,6 +84,21 @@
 }
 
 /* Responsive */
+@media (max-width: 992px) {
+  .current-language-desktop {
+    display: none;
+  }
+
+  .language-button {
+    gap: 0;
+    font-size: 1.5rem;
+  }
+
+  .globe-icon {
+    font-size: 1.5rem;
+  }
+}
+
 @media (max-width: 768px) {
   .language-dropdown {
     right: -1rem;

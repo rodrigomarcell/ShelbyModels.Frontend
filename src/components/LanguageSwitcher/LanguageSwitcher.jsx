@@ -29,10 +29,12 @@ function LanguageSwitcher() {
         aria-controls="language-dropdown"
       >
         <FaGlobe className="globe-icon" />
-        <span className="current-language">
-          {currentLanguage.flag} {currentLanguage.code.toUpperCase()}
+        <span className="current-language-desktop">
+          <span className="current-language">
+            {currentLanguage.flag} {currentLanguage.code.toUpperCase()}
+          </span>
+          <FaChevronDown className={`chevron-icon ${isOpen ? 'open' : ''}`} />
         </span>
-        <FaChevronDown className={`chevron-icon ${isOpen ? 'open' : ''}`} />
       </button>
       
       {isOpen && (

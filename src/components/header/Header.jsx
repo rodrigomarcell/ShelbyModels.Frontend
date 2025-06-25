@@ -40,6 +40,7 @@ function Header({ favoritesCount = 0 }) {
             </Link>
             
             <div className="header-actions">
+            <LanguageSwitcher />
               <Link to="/post-ad" className="btn btn-publish">
                 {t('header.publishAd')}
               </Link>
@@ -60,7 +61,6 @@ function Header({ favoritesCount = 0 }) {
                 </button>
                 {/* Lógica do menu dropdown do usuário pode ser adicionada aqui */}
               </div>
-              <LanguageSwitcher />
               <button 
                 className="menu-toggle"
                 onClick={toggleMenu}
