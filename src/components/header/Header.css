@@ -113,9 +113,7 @@
 }
 
 .menu-toggle {
-  display: none; /* Hidden on desktop */
-  font-size: 1.5rem;
-  color: var(--color-neutral-700);
+  display: none; /* Completely hidden - no longer needed */
 }
 
 .header-bottom {
@@ -145,7 +143,7 @@
   padding-top: 0.5rem;
   border-top: 1px solid var(--border-color);
   position: relative;
-  min-height: 38px; /* To ensure it has height for absolute positioning */
+  min-height: 38px;
 }
 
 .advanced-search-group {
@@ -232,109 +230,89 @@
   font-weight: 500;
 }
 
-/* Responsive */
-@media (max-width: 992px) {
-  .header-actions {
-    gap: 1rem;
-  }
-
-  .btn-publish {
-    display: none;
-  }
-
-  .menu-toggle {
-    display: block;
-  }
-
+/* Mobile Layout - Reorganizes elements based on reference image */
+@media (max-width: 768px) {
   .header-bottom {
-    display: none;
-    position: absolute;
-    top: var(--header-top-height);
-    left: 0;
-    right: 0;
-    background-color: white;
-    z-index: 99;
-    box-shadow: var(--shadow-lg);
-    padding: 1rem;
-    border-top: 1px solid var(--border-color);
+    padding: 1rem 0;
   }
 
-  .header-bottom.active {
-    display: block;
+  .header-bottom > .container {
+    gap: 1.5rem;
   }
 
-  .header-bottom .container {
+  .filter-section {
+    display: flex;
     flex-direction: column;
+    gap: 1.25rem;
     align-items: stretch;
-    gap: 1rem;
   }
-  
-  .filter-section,
+
+  /* Category and Gender filters stacked vertically */
+  .filter-section > div {
+    width: 100%;
+  }
+
   .advanced-search-section {
     flex-direction: column;
-    align-items: flex-start;
     gap: 1rem;
-    border-top: none;
-    padding-top: 0;
+    border-top: 1px solid var(--border-color);
+    padding-top: 1rem;
     position: static;
+  }
+
+  .advanced-search-group {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+  }
+
+  .city-list-btn,
+  .locate-me-btn {
+    padding: 0.875rem 0.75rem;
+    background-color: var(--color-neutral-100);
+    border-radius: var(--radius-md);
+    font-size: 0.85rem;
+    text-align: center;
+    justify-content: center;
   }
 
   .advanced-filters-btn {
     position: static;
     transform: none;
-  }
-}
-
-@media (max-width: 768px) {
-  .menu-toggle {
-    display: flex;
-  }
-
-  .header-bottom {
-    display: none;
-    padding: 16px;
-  }
-  
-  .header-bottom.active {
-    display: block;
-  }
-  
-  .header-actions .btn-publish {
-    display: none;
-  }
-  
-  .filter-section {
-    flex-direction: column;
-    gap: 8px;
-  }
-  
-  .advanced-search-section {
-    flex-wrap: wrap;
-    gap: 8px;
-  }
-  
-  .advanced-filters-btn {
     width: 100%;
-    margin-top: 8px;
-    margin-left: 0;
+    justify-content: center;
+    padding: 0.875rem;
+    background-color: var(--color-neutral-100);
+    border-radius: var(--radius-md);
+    margin-top: 0.25rem;
+  }
+
+  /* Mobile publish button */
+  .btn-publish {
+    display: none;
+  }
+
+  .header-actions {
+    gap: 0.75rem;
   }
 }
 
+/* Very small screens */
 @media (max-width: 480px) {
   .header-bottom {
-    overflow-x: hidden;
+    padding: 0.875rem 0;
   }
-  
+
   .filter-section {
-    overflow-x: auto;
-    margin-bottom: 8px;
-    padding-bottom: 8px;
+    gap: 1rem;
   }
-  
-  .advanced-search-section {
-    flex-direction: column;
+
+  .advanced-search-group {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
   }
-  
+
   .city-list-btn,
   .locate-me-btn {
     width: 100%;

@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { FaHeart, FaUser, FaBars, FaTimes, FaMapMarkerAlt, FaBullseye, FaChevronDown } from 'react-icons/fa'
+import { FaHeart, FaUser, FaMapMarkerAlt, FaBullseye, FaChevronDown } from 'react-icons/fa'
 import { useTranslation } from 'react-i18next'
 import { useModels } from '../../context/ModelContext'
 import Logo from '../Logo/Logo'
@@ -12,14 +12,9 @@ import './Header.css'
 
 function Header({ favoritesCount = 0 }) {
   const { t } = useTranslation()
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false)
   const [isCityListOpen, setIsCityListOpen] = useState(false)
   const { filters, updateFilters } = useModels()
-  
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen)
-  }
   
   const toggleUserMenu = () => {
     setIsUserMenuOpen(!isUserMenuOpen)
@@ -40,7 +35,7 @@ function Header({ favoritesCount = 0 }) {
             </Link>
             
             <div className="header-actions">
-            <LanguageSwitcher />
+              <LanguageSwitcher />
               <Link to="/post-ad" className="btn btn-publish">
                 {t('header.publishAd')}
               </Link>
@@ -61,20 +56,12 @@ function Header({ favoritesCount = 0 }) {
                 </button>
                 {/* Lógica do menu dropdown do usuário pode ser adicionada aqui */}
               </div>
-              <button 
-                className="menu-toggle"
-                onClick={toggleMenu}
-                aria-expanded={isMenuOpen ? 'true' : 'false'}
-                aria-label={isMenuOpen ? 'Fechar menu' : 'Abrir menu'}
-              >
-                {isMenuOpen ? <FaTimes /> : <FaBars />}
-              </button>
             </div>
           </div>
         </div>
       </div>
       
-      <div className={`header-bottom ${isMenuOpen ? 'active' : ''}`}>
+      <div className="header-bottom">
         <div className="container">
           <div className="filter-section">
             <CategoryFilter 
