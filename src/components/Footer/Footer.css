@@ -1,72 +1,226 @@
 .footer {
-  background-color: var(--color-neutral-800);
-  color: white;
-  padding: var(--space-4) 0 var(--space-2);
-  margin-top: var(--space-4);
+  background-color: #ffffff;
+  color: #333333;
+  padding: 2rem 0 1rem;
+  margin-top: 2rem;
+  border-top: 1px solid #e5e7eb;
 }
 
-.footer-content {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: var(--space-3);
+/* Brazil description section */
+.footer-brazil-section {
+  margin-bottom: 2.5rem;
 }
 
-.footer-heading {
-  color: white;
+.brazil-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #333333;
+  margin-bottom: 1.5rem;
+  line-height: 1.3;
+}
+
+.brazil-content {
+  max-width: none;
+}
+
+.brazil-paragraph {
+  color: #4b5563;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
+  text-align: justify;
+}
+
+.brazil-subtitle {
   font-size: 1.125rem;
+  font-weight: 600;
+  color: #333333;
+  margin: 1.5rem 0 1rem 0;
+  line-height: 1.4;
+}
+
+/* Links sections */
+.footer-links-section {
+  margin-bottom: 2rem;
+}
+
+.section-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #333333;
+  margin-bottom: 1.5rem;
+}
+
+.subsection {
+  margin-bottom: 2rem;
+}
+
+.subsection-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333333;
   margin-bottom: 1rem;
 }
 
-.footer-description {
-  color: var(--color-neutral-300);
-  font-size: 0.875rem;
-  line-height: 1.5;
+.links-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.5rem;
+  line-height: 1.6;
 }
 
-.footer-links {
-  list-style: none;
-  padding: 0;
+.footer-link {
+  color: #3b82f6;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.2s ease;
 }
 
-.footer-links li {
-  margin-bottom: 0.5rem;
+.footer-link:hover {
+  color: var(--color-primary-600);
+  text-decoration: underline;
 }
 
-.footer-links a {
-  color: var(--color-neutral-300);
-  transition: color var(--transition-quick);
-  font-size: 0.875rem;
+.footer-link.see-all {
+  color: #3b82f6;
+  font-weight: 500;
 }
 
-.footer-links a:hover {
-  color: var(--color-primary-300);
-}
-
+/* Company info and legal section */
 .footer-bottom {
-  margin-top: var(--space-4);
-  padding-top: var(--space-2);
-  border-top: 1px solid var(--color-neutral-700);
+  border-top: 1px solid #e5e7eb;
+  padding-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.company-info {
   text-align: center;
 }
 
-.copyright {
-  color: var(--color-neutral-400);
-  font-size: 0.875rem;
+.company-details {
+  background-color: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 1rem;
+  display: inline-block;
 }
 
+.company-name {
+  font-weight: 600;
+  color: #333333;
+  margin-bottom: 0.25rem;
+  font-size: 0.9rem;
+}
+
+.company-address {
+  color: #6b7280;
+  font-size: 0.85rem;
+  margin-bottom: 0.125rem;
+}
+
+.company-address:last-child {
+  margin-bottom: 0;
+}
+
+.legal-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.legal-link {
+  color: #3b82f6;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.2s ease;
+}
+
+.legal-link:hover {
+  color: var(--color-primary-600);
+  text-decoration: underline;
+}
+
+/* Mobile responsiveness */
 @media (max-width: 768px) {
-  .footer-content {
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--space-2);
+  .footer {
+    padding: 1.5rem 0 1rem;
   }
   
-  .footer-section {
-    margin-bottom: var(--space-2);
+  .brazil-title {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+  }
+  
+  .brazil-paragraph {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+  
+  .brazil-subtitle {
+    font-size: 1rem;
+    margin: 1.25rem 0 0.75rem 0;
+  }
+  
+  .section-title {
+    font-size: 1.125rem;
+    margin-bottom: 1rem;
+  }
+  
+  .subsection-title {
+    font-size: 1rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .links-grid {
+    gap: 0.5rem 1rem;
+  }
+  
+  .footer-link {
+    font-size: 0.85rem;
+  }
+  
+  .footer-bottom {
+    padding-top: 1rem;
+    gap: 1rem;
+  }
+  
+  .legal-links {
+    gap: 1rem;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .company-details {
+    padding: 0.75rem;
   }
 }
 
 @media (max-width: 480px) {
-  .footer-content {
-    grid-template-columns: 1fr;
+  .footer {
+    padding: 1rem 0 0.75rem;
+  }
+  
+  .brazil-title {
+    font-size: 1.125rem;
+  }
+  
+  .brazil-paragraph {
+    font-size: 0.85rem;
+    line-height: 1.5;
+  }
+  
+  .links-grid {
+    gap: 0.4rem 0.75rem;
+  }
+  
+  .footer-link {
+    font-size: 0.8rem;
+  }
+  
+  .legal-links {
+    gap: 0.75rem;
   }
 }

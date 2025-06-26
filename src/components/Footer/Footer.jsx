@@ -6,50 +6,117 @@ function Footer() {
   const { t } = useTranslation()
   const currentYear = new Date().getFullYear()
   
+  // Cities data based on reference image
+  const mainCities = [
+    'São Paulo', 'Rio de Janeiro', 'ABC Paulista', 'Campinas', 'Porto Alegre',
+    'Recife', 'Fortaleza', 'Curitiba', 'São José dos Campos', 'Belo Horizonte',
+    'Sorocaba', 'Osasco', 'Guarulhos', 'Salvador', 'Praia Grande',
+    'Jundiaí', 'Santos', 'Duque de Caxias', 'Niterói', 'Brasília',
+    'Americana', 'Piracicaba', 'Manaus', 'Nova Iguaçu', 'Ribeirão Preto'
+  ]
+  
+  // Main searches data based on reference image
+  const mainSearches = [
+    'Peitudas', 'Com áudio', 'Sexo anal', 'Fetichismo', 'À domicílio',
+    'Com vídeo', 'PSE', 'De luxo', 'Com TD positivos', 'WhatsApp',
+    'Rosto visível', 'Econômicas', 'Massagem erótica', 'Gordinhas', 'Maduras',
+    'Telegram'
+  ]
+  
   return (
     <footer className="footer">
       <div className="container">
-        <div className="footer-content">
-          <div className="footer-section">
-            <h3 className="footer-heading">ShelbyModels</h3>
-            <p className="footer-description">
-              {t('footer.description')}
+        {/* Brazil description section */}
+        <div className="footer-brazil-section">
+          <h2 className="brazil-title">{t('footer.brazilTitle')}</h2>
+          
+          <div className="brazil-content">
+            <p className="brazil-paragraph">
+              {t('footer.brazilDescription1')}
             </p>
-          </div>
-          
-          <div className="footer-section">
-            <h3 className="footer-heading">{t('footer.quickLinks')}</h3>
-            <ul className="footer-links">
-              <li><Link to="/">{t('footer.links.home')}</Link></li>
-              <li><Link to="/about">{t('footer.links.aboutUs')}</Link></li>
-              <li><Link to="/models">{t('footer.links.models')}</Link></li>
-              <li><Link to="/categories">{t('footer.links.categories')}</Link></li>
-            </ul>
-          </div>
-          
-          <div className="footer-section">
-            <h3 className="footer-heading">{t('footer.legal')}</h3>
-            <ul className="footer-links">
-              <li><Link to="/terms">{t('footer.links.termsOfService')}</Link></li>
-              <li><Link to="/privacy">{t('footer.links.privacyPolicy')}</Link></li>
-              <li><Link to="/cookies">{t('footer.links.cookiePolicy')}</Link></li>
-            </ul>
-          </div>
-          
-          <div className="footer-section">
-            <h3 className="footer-heading">{t('footer.contact')}</h3>
-            <ul className="footer-links">
-              <li><Link to="/contact">{t('footer.links.contactUs')}</Link></li>
-              <li><Link to="/support">{t('footer.links.support')}</Link></li>
-              <li><Link to="/faq">{t('footer.links.faq')}</Link></li>
-            </ul>
+            
+            <p className="brazil-paragraph">
+              {t('footer.brazilDescription2')}
+            </p>
+            
+            <h3 className="brazil-subtitle">{t('footer.brazilDescription3')}</h3>
+            
+            <p className="brazil-paragraph">
+              {t('footer.brazilDescription4')}
+            </p>
+            
+            <h3 className="brazil-subtitle">{t('footer.brazilDescription5')}</h3>
+            
+            <p className="brazil-paragraph">
+              {t('footer.brazilDescription6')}
+            </p>
+            
+            <h3 className="brazil-subtitle">{t('footer.brazilDescription7')}</h3>
+            
+            <p className="brazil-paragraph">
+              {t('footer.brazilDescription8')}
+            </p>
           </div>
         </div>
         
+        {/* Main pages section */}
+        <div className="footer-links-section">
+          <h3 className="section-title">{t('footer.mainPages')}</h3>
+          
+          <div className="subsection">
+            <h4 className="subsection-title">{t('footer.mainCities')}</h4>
+            <div className="links-grid">
+              {mainCities.map((city, index) => (
+                <Link 
+                  key={city} 
+                  to={`/city/${city.toLowerCase().replace(/\s+/g, '-')}`} 
+                  className="footer-link"
+                >
+                  {city}
+                </Link>
+              ))}
+              <Link to="/all-cities" className="footer-link see-all">
+                + {t('footer.seeAll')}
+              </Link>
+            </div>
+          </div>
+          
+          <div className="subsection">
+            <h4 className="subsection-title">{t('footer.mainSearches')}</h4>
+            <div className="links-grid">
+              {mainSearches.map((search, index) => (
+                <Link 
+                  key={search} 
+                  to={`/search/${search.toLowerCase().replace(/\s+/g, '-')}`} 
+                  className="footer-link"
+                >
+                  {search}
+                </Link>
+              ))}
+              <Link to="/all-searches" className="footer-link see-all">
+                + {t('footer.seeAll')}
+              </Link>
+            </div>
+          </div>
+        </div>
+        
+        {/* Company info and legal section */}
         <div className="footer-bottom">
-          <p className="copyright">
-            &copy; {currentYear} ShelbyModels. {t('footer.copyright')}
-          </p>
+          <div className="company-info">
+            <div className="company-details">
+              <p className="company-name">{t('footer.companyName')}</p>
+              <p className="company-address">{t('footer.companyAddress')}</p>
+              <p className="company-address">{t('footer.companyDetails')}</p>
+              <p className="company-address">{t('footer.companyLocation')}</p>
+            </div>
+          </div>
+          
+          <div className="legal-links">
+            <Link to="/legal" className="legal-link">{t('footer.legalTexts')}</Link>
+            <Link to="/privacy" className="legal-link">{t('footer.privacyPolicy')}</Link>
+            <Link to="/cookies" className="legal-link">{t('footer.cookies')}</Link>
+            <Link to="/contact" className="legal-link">{t('footer.contact')}</Link>
+          </div>
         </div>
       </div>
     </footer>

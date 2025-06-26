@@ -93,7 +93,35 @@ const resources = {
           support: "Suporte",
           faq: "FAQ"
         },
-        copyright: "Todos os direitos reservados."
+        copyright: "Todos os direitos reservados.",
+        
+        // New footer content based on reference image
+        brazilTitle: "Brasil, país do Carnaval e das acompanhantes mais alegres do mundo!",
+        brazilDescription1: "Exuberante, misterioso e intenso, tão ultramoderno como antigo, com uma sociedade de várias etnias, vegetação incomparável e cidades imensas se encontram no Brasil, um país vasto de personalidade indecifrável. Localizada na América Latina e conhecido pelas suas famosas praias e festivais extravagantes, com mais de 212 milhões de cidadãos, é o mais povoado da região e conseguiu se transformar em uma das principais potências econômicas do hemisfério sul.",
+        brazilDescription2: "O país se estende desde a bacia do Amazonas até o Uruguai, passando pela costa atlântica, trazendo um intenso fluxo de turistas que chegam em busca de diversão, sensualidade, clima tropical e garotas de programa que se entregam aos encantos do sexo em um clima de festa.",
+        brazilDescription3: "A diversidade cultural deste país é tão fascinante quanto suas escorts",
+        brazilDescription4: "A cultura e costumes do Brasil são reflexo da mistura dos grupos que formaram a sua identidade: os portugueses, os povos nativos e os imigrantes que vieram da África. Podemos notar as influências europeias nas cidades mais importantes, como São Paulo, lugar de acompanhantes VIP dominado pelo glamour característico do Velho Mundo. Por outro lado, a importância e o destaque do povo indígena se refletem na cozinha brasileira, a qual se caracteriza pela grande variedade de pratos à base de carnes e frutas exóticas. Já as atrações deixadas pela marca da música e em diversos estilos, dança e música alta, gritos e risadas, expressões folclóricas inesquecíveis e celebrações populares intermináveis, construídas a partir de centenas de lendas e crenças tão antigas quanto originais.",
+        brazilDescription5: "Diversão e acompanhantes gostosas! Os brasileiros adoram festas",
+        brazilDescription6: "Carros alegóricos, fantasias exuberantes, dança e música alta, gritos e risadas, expressões folclóricas inesquecíveis e celebrações populares intermináveis, construídas a partir de centenas de lendas e crenças tão antigas quanto originais. O Brasil parece ser um país que vive em festa, que escolhe fugir da realidade mediante celebrações como o Carnaval, o qual é significativamente importante no Rio de Janeiro, cidade com garotas de programa fabulosas e onde se encontram festas desenhadas com o intuito de renovar a energia em um ambiente de alegria extraordinária.",
+        brazilDescription7: "Os desejos se tornam realidade com as garotas de programa do ShelbyModels",
+        brazilDescription8: "Prazer, relaxamento e excitação na companhia das garotas de programa de beleza incomparável. ShelbyModels oferece tudo isso e mais, dando a possibilidade de localizar as melhores escorts do Brasil. Os encontros sexuais destas prostitutas conseguem superar até mesmo os mais experientes e exigentes, pelo simples fato de que é na cama onde elas se movem com verdadeira audácia e ousadia. Estamos falando de acompanhantes que fazem dos encontros eróticos momentos em que a alegria e a dedicação estão sempre presentes, tanto de dia como de noite. O encanto de seus serviços otimiza ao máximo o fetichismo de seus clientes, transformando cada aventura íntima em uma memória inesquecível, às vezes de forma sutil ou poética, às vezes com força e intensidade sem limites.",
+        
+        mainPages: "Páginas principais de Brasil",
+        mainCities: "Cidades principais do Brasil",
+        mainSearches: "Principais pesquisas em Brasil",
+        
+        // Company info
+        companyName: "ShelbyModels Global Classifieds OOD",
+        companyAddress: "Boulevard Shipchenski Prohod",
+        companyDetails: "Number 18 • Floor 3 • Office 301",
+        companyLocation: "Slatina, Sofia 1113, Bulgaria",
+        
+        // Legal links
+        legalTexts: "Textos Legais",
+        privacyPolicy: "Política Privacidade", 
+        cookies: "Cookies",
+        contact: "Contatar",
+        seeAll: "Ver tudo"
       },
       
       // Cities
@@ -206,7 +234,35 @@ const resources = {
           support: "Support",
           faq: "FAQ"
         },
-        copyright: "All rights reserved."
+        copyright: "All rights reserved.",
+        
+        // New footer content based on reference image
+        brazilTitle: "Brazil, country of Carnival and the happiest companions in the world!",
+        brazilDescription1: "Exuberant, mysterious and intense, as ultramodern as ancient, with a society of various ethnicities, incomparable vegetation and immense cities are found in Brazil, a vast country with an indecipherable personality. Located in Latin America and known for its famous beaches and extravagant festivals, with more than 212 million citizens, it is the most populated in the region and has managed to become one of the main economic powers of the southern hemisphere.",
+        brazilDescription2: "The country extends from the Amazon basin to Uruguay, passing through the Atlantic coast, bringing an intense flow of tourists who arrive in search of fun, sensuality, tropical climate and program girls who surrender to the charms of sex in a festive atmosphere.",
+        brazilDescription3: "The cultural diversity of this country is as fascinating as its escorts",
+        brazilDescription4: "The culture and customs of Brazil are a reflection of the mixture of groups that formed its identity: the Portuguese, the native peoples and the immigrants who came from Africa. We can note the European influences in the most important cities, such as São Paulo, a place of VIP companions dominated by the characteristic glamour of the Old World. On the other hand, the importance and prominence of the indigenous people are reflected in Brazilian cuisine, which is characterized by the great variety of dishes based on meat and exotic fruits. The attractions left by the mark of music and in various styles, dance and loud music, screams and laughter, unforgettable folkloric expressions and endless popular celebrations, built from hundreds of legends and beliefs as ancient as they are original.",
+        brazilDescription5: "Fun and hot companions! Brazilians love parties",
+        brazilDescription6: "Allegorical cars, exuberant costumes, dance and loud music, screams and laughter, unforgettable folkloric expressions and endless popular celebrations, built from hundreds of legends and beliefs as ancient as they are original. Brazil seems to be a country that lives in celebration, that chooses to escape from reality through celebrations like Carnival, which is significantly important in Rio de Janeiro, a city with fabulous program girls and where parties are designed with the intention of renewing energy in an atmosphere of extraordinary joy.",
+        brazilDescription7: "Dreams come true with ShelbyModels program girls",
+        brazilDescription8: "Pleasure, relaxation and excitement in the company of program girls of incomparable beauty. ShelbyModels offers all this and more, giving the possibility to locate the best escorts in Brazil. The sexual encounters of these prostitutes manage to surpass even the most experienced and demanding, for the simple fact that it is in bed where they move with true audacity and boldness. We are talking about companions who make erotic encounters moments where joy and dedication are always present, both day and night. The charm of their services maximizes their clients' fetishism, transforming each intimate adventure into an unforgettable memory, sometimes subtly or poetically, sometimes with force and intensity without limits.",
+        
+        mainPages: "Main pages of Brazil",
+        mainCities: "Main cities of Brazil",
+        mainSearches: "Main searches in Brazil",
+        
+        // Company info
+        companyName: "ShelbyModels Global Classifieds OOD",
+        companyAddress: "Boulevard Shipchenski Prohod",
+        companyDetails: "Number 18 • Floor 3 • Office 301",
+        companyLocation: "Slatina, Sofia 1113, Bulgaria",
+        
+        // Legal links
+        legalTexts: "Legal Texts",
+        privacyPolicy: "Privacy Policy", 
+        cookies: "Cookies",
+        contact: "Contact",
+        seeAll: "See all"
       },
       
       // Cities
