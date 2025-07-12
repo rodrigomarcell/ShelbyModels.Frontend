@@ -14,7 +14,7 @@
 .footer-top {
   background-color: var(--color-neutral-900); /* Mais escuro que o resto */
   text-align: center;
-  padding: var(--space-2) 0;
+  padding: var(--space-1) 0;
   border-bottom: 1px solid var(--color-neutral-700);
 }
 
@@ -29,8 +29,8 @@
 .cities-label {
   font-weight: 600;
   color: var(--color-neutral-100);
-  margin-right: var(--space-2);
-  font-size: 0.9rem;
+  margin-right: var(--space-1);
+  font-size: 0.8rem; /* Reduzido de 0.9rem */
 }
 
 .cities-links {
@@ -42,7 +42,7 @@
 .city-link {
   color: white;
   text-decoration: none;
-  font-size: 0.875rem;
+  font-size: 0.75rem; /* Reduzido de 0.875rem */
   padding: 0.25rem 0.5rem;
   border-radius: var(--radius-sm);
   transition: all var(--transition-quick);
@@ -59,16 +59,16 @@
 .footer-middle {
   background-color: var(--color-neutral-800); /* Background normal */
   text-align: center;
-  padding: var(--space-2) 0;
+  padding: var(--space-1) 0;
   border-bottom: 1px solid var(--color-neutral-700);
 }
 
 .site-name {
-  margin-bottom: var(--space-2);
+  margin-bottom: var(--space-1);
 }
 
 .footer-brand {
-  font-size: 1.5rem;
+  font-size: 1.25rem; /* Reduzido de 1.5rem */
   font-weight: 700;
   color: white;
   margin: 0;
@@ -82,8 +82,8 @@
 
 .footer-disclaimer-text p {
   color: var(--color-neutral-300);
-  font-size: 0.85rem;
-  line-height: 1.6;
+  font-size: 0.75rem; /* Reduzido de 0.85rem */
+  line-height: 1.3; /* Reduzido de 1.4 para todos os tamanhos */
   margin: 0;
 }
 
@@ -93,8 +93,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--space-2);
-  padding: var(--space-2) 0;
+  gap: var(--space-1);
+  padding: var(--space-1) 0;
 }
 
 .legal-links {
@@ -108,7 +108,7 @@
 .legal-link {
   color: white;
   text-decoration: none;
-  font-size: 0.875rem;
+  font-size: 0.75rem; /* Reduzido de 0.875rem */
   font-weight: 500;
   transition: all var(--transition-quick);
   padding: 0.25rem 0.5rem;
@@ -127,23 +127,23 @@
 
 .footer-copyright p {
   color: var(--color-neutral-400);
-  font-size: 0.8rem;
+  font-size: 0.7rem; /* Reduzido de 0.8rem */
   margin: 0;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
   .footer-top {
-    padding: var(--space-2) 0;
+    padding: var(--space-1) 0;
   }
   
   .footer-middle {
-    padding: var(--space-2) 0;
+    padding: var(--space-1) 0;
   }
   
   .footer-bottom {
-    padding: var(--space-2) 0;
-    gap: var(--space-2);
+    padding: var(--space-1) 0;
+    gap: var(--space-1);
   }
   
   .footer-cities {
@@ -162,24 +162,25 @@
   }
   
   .city-link {
-    font-size: 0.8rem;
+    font-size: 0.7rem; /* Reduzido de 0.8rem */
     padding: 0.2rem 0.4rem;
   }
   
   .footer-brand {
-    font-size: 1.25rem;
+    font-size: 1.1rem; /* Reduzido de 1.25rem */
   }
   
   .footer-disclaimer-text p {
-    font-size: 0.8rem;
+    font-size: 0.7rem; /* Reduzido de 0.8rem */
+    line-height: 1.3; /* Mantido consistente */
   }
   
   .legal-links {
-    gap: var(--space-2);
+    gap: var(--space-1);
   }
   
   .legal-link {
-    font-size: 0.8rem;
+    font-size: 0.7rem; /* Reduzido de 0.8rem */
     padding: 0.2rem 0.4rem;
   }
   
@@ -207,30 +208,32 @@
   }
   
   .city-link {
-    font-size: 0.75rem;
+    font-size: 0.65rem; /* Reduzido de 0.75rem */
     padding: 0.15rem 0.3rem;
   }
   
   .footer-brand {
-    font-size: 1.125rem;
+    font-size: 1rem; /* Reduzido de 1.125rem */
   }
   
   .footer-disclaimer-text p {
-    font-size: 0.75rem;
-    line-height: 1.5;
+    font-size: 0.65rem; /* Reduzido de 0.75rem */
+    line-height: 1.2; /* Reduzido ainda mais para mobile */
   }
   
   .legal-links {
-    flex-direction: column;
+    flex-direction: row; /* Mudado de column para row */
+    flex-wrap: wrap;
+    justify-content: center;
     gap: var(--space-1);
   }
   
   .legal-link {
-    font-size: 0.75rem;
+    font-size: 0.65rem; /* Reduzido de 0.75rem */
   }
   
   .footer-copyright p {
-    font-size: 0.75rem;
+    font-size: 0.65rem; /* Reduzido de 0.75rem */
   }
   
   .site-name {
