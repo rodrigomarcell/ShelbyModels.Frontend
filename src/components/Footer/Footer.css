@@ -9,6 +9,9 @@
 /* Brazil description section */
 .footer-brazil-section {
   margin-bottom: 2.5rem;
+  background-color: #f9fafb; /* var(--color-neutral-50) */
+  padding: 2rem;
+  border-radius: var(--radius-lg);
 }
 
 .brazil-title {
@@ -42,6 +45,9 @@
 /* Links sections */
 .footer-links-section {
   margin-bottom: 2rem;
+  background-color: #f9fafb; /* var(--color-neutral-50) */
+  padding: 2rem;
+  border-radius: var(--radius-lg);
 }
 
 .section-title {
@@ -149,6 +155,11 @@
     padding: 1.5rem 0 1rem;
   }
   
+  .footer-brazil-section,
+  .footer-links-section {
+    padding: 1.5rem;
+  }
+  
   .brazil-title {
     font-size: 1.25rem;
     margin-bottom: 1rem;
@@ -201,6 +212,11 @@
 @media (max-width: 480px) {
   .footer {
     padding: 1rem 0 0.75rem;
+  }
+  
+  .footer-brazil-section,
+  .footer-links-section {
+    padding: 1rem;
   }
   
   .brazil-title {
