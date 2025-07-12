@@ -37,13 +37,6 @@ function App() {
           </Routes>
         </main>
         <Footer />
-        <div className="footer-disclaimer container">
-          <p>
-            <strong>{t('footer.disclaimer.attention')}</strong>
-            &nbsp;
-            {t('footer.disclaimer.text')}
-          </p>
-        </div>
       </div>
     </ModelProvider>
   );

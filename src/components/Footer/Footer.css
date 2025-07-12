@@ -1,242 +1,239 @@
 .footer {
-  background-color: #f4f4f4;
-  color: #333333;
-  padding: 2rem 0 1rem;
-  /*margin-top: 2rem;*/
-  border-top: 1px solid #e5e7eb;
+  background-color: var(--color-neutral-800);
+  color: var(--color-neutral-200);
+  padding: 0;
+  border-top: 1px solid var(--color-neutral-700);
 }
 
-/* Brazil description section */
-.footer-brazil-section {
-  margin-bottom: 2.5rem;
-  background-color: #ffffff; /* var(--color-neutral-50) */
-  padding: 2rem;
-  border-radius: var(--radius-lg);
+.footer .container {
+  padding: 0;
+  color: red;
 }
 
-.brazil-title {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #333333;
-  margin-bottom: 1.5rem;
-  line-height: 1.3;
+/* Top section with cities - darker background */
+.footer-top {
+  background-color: var(--color-neutral-900); /* Mais escuro que o resto */
+  text-align: center;
+  padding: var(--space-2) 0;
+  border-bottom: 1px solid var(--color-neutral-700);
 }
 
-.brazil-content {
-  max-width: none;
-}
-
-.brazil-paragraph {
-  color: #4b5563;
-  font-size: 0.95rem;
-  line-height: 1.6;
-  margin-bottom: 1.25rem;
-  text-align: justify;
-}
-
-.brazil-subtitle {
-  font-size: 1.125rem;
-  font-weight: 600;
-  color: #333333;
-  margin: 1.5rem 0 1rem 0;
-  line-height: 1.4;
-}
-
-/* Links sections */
-.footer-links-section {
-  margin-bottom: 2rem;
-  background-color: #ffffff; /* var(--color-neutral-50) */
-  padding: 2rem;
-  border-radius: var(--radius-lg);
-}
-
-.section-title {
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: #333333;
-  margin-bottom: 1.5rem;
-}
-
-.subsection {
-  margin-bottom: 2rem;
-}
-
-.subsection-title {
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #333333;
-  margin-bottom: 1rem;
-}
-
-.links-grid {
+.footer-cities {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.75rem 1.5rem;
-  line-height: 1.6;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-1);
 }
 
-.footer-link {
-  color: #3b82f6;
-  text-decoration: none;
+.cities-label {
+  font-weight: 600;
+  color: var(--color-neutral-100);
+  margin-right: var(--space-2);
   font-size: 0.9rem;
-  transition: color 0.2s ease;
 }
 
-.footer-link:hover {
-  color: var(--color-primary-600);
+.cities-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+}
+
+.city-link {
+  color: white;
+  text-decoration: none;
+  font-size: 0.875rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-quick);
+  white-space: nowrap;
+}
+
+.city-link:hover {
+  color: var(--color-primary-200);
+  background-color: var(--color-neutral-700);
   text-decoration: underline;
 }
 
-.footer-link.see-all {
-  color: #3b82f6;
-  font-weight: 500;
+/* Middle section with brand and disclaimer */
+.footer-middle {
+  background-color: var(--color-neutral-800); /* Background normal */
+  text-align: center;
+  padding: var(--space-2) 0;
+  border-bottom: 1px solid var(--color-neutral-700);
 }
 
-/* Company info and legal section */
+.site-name {
+  margin-bottom: var(--space-2);
+}
+
+.footer-brand {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: white;
+  margin: 0;
+  letter-spacing: 0.5px;
+}
+
+.footer-disclaimer-text {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.footer-disclaimer-text p {
+  color: var(--color-neutral-300);
+  font-size: 0.85rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Bottom section with legal links and copyright */
 .footer-bottom {
-  border-top: 1px solid #e5e7eb;
-  padding-top: 1.5rem;
+  background-color: var(--color-neutral-800); /* Background normal */
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
-}
-
-.company-info {
-  text-align: center;
-}
-
-.company-details {
-  background-color: #f9fafb;
-  border: 1px solid #e5e7eb;
-  border-radius: 8px;
-  padding: 1rem;
-  display: inline-block;
-}
-
-.company-name {
-  font-weight: 600;
-  color: #333333;
-  margin-bottom: 0.25rem;
-  font-size: 0.9rem;
-}
-
-.company-address {
-  color: #6b7280;
-  font-size: 0.85rem;
-  margin-bottom: 0.125rem;
-}
-
-.company-address:last-child {
-  margin-bottom: 0;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) 0;
 }
 
 .legal-links {
   display: flex;
-  justify-content: center;
-  gap: 1.5rem;
   flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-3);
+  color: white;
 }
 
 .legal-link {
-  color: #3b82f6;
+  color: white;
   text-decoration: none;
-  font-size: 0.9rem;
-  transition: color 0.2s ease;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all var(--transition-quick);
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--radius-sm);
 }
 
 .legal-link:hover {
-  color: var(--color-primary-600);
+  color: var(--color-primary-200);
+  background-color: var(--color-neutral-700);
   text-decoration: underline;
 }
 
-/* Mobile responsiveness */
+.footer-copyright {
+  text-align: center;
+}
+
+.footer-copyright p {
+  color: var(--color-neutral-400);
+  font-size: 0.8rem;
+  margin: 0;
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
-  .footer {
-    padding: 1.5rem 0 1rem;
+  .footer-top {
+    padding: var(--space-2) 0;
   }
   
-  .footer-brazil-section,
-  .footer-links-section {
-    padding: 1.5rem;
-  }
-  
-  .brazil-title {
-    font-size: 1.25rem;
-    margin-bottom: 1rem;
-  }
-  
-  .brazil-paragraph {
-    font-size: 0.9rem;
-    margin-bottom: 1rem;
-  }
-  
-  .brazil-subtitle {
-    font-size: 1rem;
-    margin: 1.25rem 0 0.75rem 0;
-  }
-  
-  .section-title {
-    font-size: 1.125rem;
-    margin-bottom: 1rem;
-  }
-  
-  .subsection-title {
-    font-size: 1rem;
-    margin-bottom: 0.75rem;
-  }
-  
-  .links-grid {
-    gap: 0.5rem 1rem;
-  }
-  
-  .footer-link {
-    font-size: 0.85rem;
+  .footer-middle {
+    padding: var(--space-2) 0;
   }
   
   .footer-bottom {
-    padding-top: 1rem;
-    gap: 1rem;
+    padding: var(--space-2) 0;
+    gap: var(--space-2);
   }
   
-  .legal-links {
-    gap: 1rem;
+  .footer-cities {
     flex-direction: column;
-    align-items: center;
+    gap: var(--space-1);
   }
   
-  .company-details {
-    padding: 0.75rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .footer {
-    padding: 1rem 0 0.75rem;
+  .cities-label {
+    margin-right: 0;
+    margin-bottom: var(--space-1);
   }
   
-  .footer-brazil-section,
-  .footer-links-section {
-    padding: 1rem;
+  .cities-links {
+    justify-content: center;
+    gap: 0.5rem;
   }
   
-  .brazil-title {
-    font-size: 1.125rem;
+  .city-link {
+    font-size: 0.8rem;
+    padding: 0.2rem 0.4rem;
   }
   
-  .brazil-paragraph {
-    font-size: 0.85rem;
-    line-height: 1.5;
+  .footer-brand {
+    font-size: 1.25rem;
   }
   
-  .links-grid {
-    gap: 0.4rem 0.75rem;
-  }
-  
-  .footer-link {
+  .footer-disclaimer-text p {
     font-size: 0.8rem;
   }
   
   .legal-links {
-    gap: 0.75rem;
+    gap: var(--space-2);
+  }
+  
+  .legal-link {
+    font-size: 0.8rem;
+    padding: 0.2rem 0.4rem;
+  }
+  
+  .site-name {
+    margin-bottom: var(--space-1);
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-top {
+    padding: var(--space-1) 0;
+  }
+  
+  .footer-middle {
+    padding: var(--space-1) 0;
+  }
+  
+  .footer-bottom {
+    padding: var(--space-1) 0;
+    gap: var(--space-1);
+  }
+  
+  .cities-links {
+    gap: 0.25rem;
+  }
+  
+  .city-link {
+    font-size: 0.75rem;
+    padding: 0.15rem 0.3rem;
+  }
+  
+  .footer-brand {
+    font-size: 1.125rem;
+  }
+  
+  .footer-disclaimer-text p {
+    font-size: 0.75rem;
+    line-height: 1.5;
+  }
+  
+  .legal-links {
+    flex-direction: column;
+    gap: var(--space-1);
+  }
+  
+  .legal-link {
+    font-size: 0.75rem;
+  }
+  
+  .footer-copyright p {
+    font-size: 0.75rem;
+  }
+  
+  .site-name {
+    margin-bottom: var(--space-1);
   }
 }

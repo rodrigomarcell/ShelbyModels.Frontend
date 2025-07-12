@@ -81,6 +81,12 @@ const resources = {
         quickLinks: "Links Rápidos",
         legal: "Legal",
         contact: "Contato",
+        
+        // New footer structure
+        cities: "CIDADES",
+        brandName: "SHELBY MODELS",
+        mainDisclaimer: "ShelbyModels.com.br é um magazine online de anúncios de acompanhantes. Não somos agência, nem intermediamos qualquer contato ou pagamento entre anunciantes e visitantes. O conteúdo exibido é de responsabilidade exclusiva das anunciantes, incluindo fotos, textos e informações de contato. Ao utilizar este site, o usuário declara ser maior de 18 anos e estar ciente de que o conteúdo possui natureza adulta. Todo e qualquer contato deve ser feito diretamente com as acompanhantes, via telefone ou redes sociais indicadas no perfil. O site não realiza agendamentos, não se responsabiliza por pagamentos ou serviços contratados.",
+        
         links: {
           home: "Início",
           aboutUs: "Sobre Nós",
@@ -227,6 +233,12 @@ const resources = {
         quickLinks: "Quick Links",
         legal: "Legal",
         contact: "Contact",
+        
+        // New footer structure
+        cities: "CITIES",
+        brandName: "SHELBY MODELS",
+        mainDisclaimer: "ShelbyModels.com.br is an online magazine for escort advertisements. We are not an agency, nor do we mediate any contact or payment between advertisers and visitors. The content displayed is the exclusive responsibility of the advertisers, including photos, texts and contact information. By using this site, the user declares to be over 18 years old and aware that the content is adult in nature. Any and all contact must be made directly with the companions, via phone or social networks indicated in the profile. The site does not make appointments, is not responsible for payments or contracted services.",
+        
         links: {
           home: "Home",
           aboutUs: "About Us",
