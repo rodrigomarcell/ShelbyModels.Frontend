@@ -48,7 +48,7 @@
   --space-6: 3rem;    /* 48px */
 
   /* Typography */
-  --font-primary: 'Poppins', sans-serif;
+  --font-primary: "Helvetica Neue", Helvetica, Arial, sans-serif;
   --line-height-body: 1.5;
   --line-height-heading: 1.2;
 
@@ -77,10 +77,16 @@
 
 html, body {
   font-family: var(--font-primary);
+  font-weight: 500; /* Aumenta o peso da fonte para maior nitidez */
   line-height: var(--line-height-body);
   background-color: var(--color-neutral-50);
   color: var(--color-neutral-900);
   min-height: 100vh;
+
+  /* --- Propriedades para maior nitidez da fonte --- */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 a {
