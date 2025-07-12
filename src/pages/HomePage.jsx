@@ -7,7 +7,7 @@ import './HomePage.css'
 function HomePage({ favorites, toggleFavorite }) {
   const { t } = useTranslation()
   const { models } = useModels()
-  const [visibleCount, setVisibleCount] = useState(models.length)
+  const [visibleCount, setVisibleCount] = useState(20) // Mostra 20 modelos por padrão
   
   const handleShowMore = () => {
     setVisibleCount(prevCount => Math.min(prevCount + 8, models.length))

@@ -1,15 +1,4 @@
-import modelo1 from '../assets/img/modelo1.png'
-import modelo2 from '../assets/img/modelo2.png'
-import modelo3 from '../assets/img/modelo3.png'
-import modelo4 from '../assets/img/modelo4.png'
-import modelo5 from '../assets/img/modelo5.png'
-import modelo6 from '../assets/img/modelo6.png'
-import modelo7 from '../assets/img/modelo7.png'
-import modelo8 from '../assets/img/modelo8.png'
-import modelo9 from '../assets/img/modelo9.png'
-import modelo10 from '../assets/img/modelo10.png'
-
-// Sample model data
+// Dados dos modelos sem importações fixas de imagens
 const models = [
   {
     id: '1',
@@ -29,14 +18,14 @@ const models = [
     reviewCount: 156,
     isOnline: true,
     lastSeen: 'online',
-    image: modelo1,
+    image: null, // Será preenchido dinamicamente
     socialMedia: {
       instagram: '#',
       twitter: '#',
       tiktok: '#'
     },
     gallery: [
-      modelo1,
+      null, // Será preenchido dinamicamente
       'https://images.pexels.com/photos/1043474/pexels-photo-1043474.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
       'https://images.pexels.com/photos/1642228/pexels-photo-1642228.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
     ]
@@ -59,13 +48,13 @@ const models = [
     reviewCount: 89,
     isOnline: false,
     lastSeen: '2h',
-    image: modelo2,
+    image: null, // Será preenchido dinamicamente
     socialMedia: {
       instagram: '#',
       twitter: '#'
     },
     gallery: [
-      modelo2,
+      null, // Será preenchido dinamicamente
       'https://images.pexels.com/photos/1300402/pexels-photo-1300402.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
       'https://images.pexels.com/photos/834863/pexels-photo-834863.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
     ]
@@ -88,13 +77,13 @@ const models = [
     reviewCount: 203,
     isOnline: true,
     lastSeen: 'online',
-    image: modelo3,
+    image: null, // Será preenchido dinamicamente
     socialMedia: {
       instagram: '#',
       tiktok: '#'
     },
     gallery: [
-      modelo3,
+      null, // Será preenchido dinamicamente
       'https://images.pexels.com/photos/1462637/pexels-photo-1462637.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
       'https://images.pexels.com/photos/1468379/pexels-photo-1468379.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
     ]
@@ -117,14 +106,14 @@ const models = [
     reviewCount: 127,
     isOnline: false,
     lastSeen: '5m',
-    image: modelo4,
+    image: null, // Será preenchido dinamicamente
     socialMedia: {
       instagram: '#',
       twitter: '#',
       tiktok: '#'
     },
     gallery: [
-      modelo4,
+      null, // Será preenchido dinamicamente
       'https://images.pexels.com/photos/1771383/pexels-photo-1771383.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
       'https://images.pexels.com/photos/1772475/pexels-photo-1772475.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
     ]
@@ -147,12 +136,12 @@ const models = [
     reviewCount: 78,
     isOnline: true,
     lastSeen: 'online',
-    image: modelo5,
+    image: null, // Será preenchido dinamicamente
     socialMedia: {
       instagram: '#'
     },
     gallery: [
-      modelo5,
+      null, // Será preenchido dinamicamente
       'https://images.pexels.com/photos/1270076/pexels-photo-1270076.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
       'https://images.pexels.com/photos/1042140/pexels-photo-1042140.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
     ]
@@ -175,14 +164,14 @@ const models = [
     reviewCount: 234,
     isOnline: false,
     lastSeen: '1h',
-    image: modelo6,
+    image: null, // Será preenchido dinamicamente
     socialMedia: {
       instagram: '#',
       twitter: '#',
       tiktok: '#'
     },
     gallery: [
-      modelo6,
+      null, // Será preenchido dinamicamente
       'https://images.pexels.com/photos/1386604/pexels-photo-1386604.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
       'https://images.pexels.com/photos/1374509/pexels-photo-1374509.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
     ]
@@ -205,13 +194,13 @@ const models = [
     reviewCount: 189,
     isOnline: true,
     lastSeen: 'online',
-    image: modelo7,
+    image: null, // Será preenchido dinamicamente
     socialMedia: {
       instagram: '#',
       twitter: '#'
     },
     gallery: [
-      modelo7,
+      null, // Será preenchido dinamicamente
       'https://images.pexels.com/photos/1989748/pexels-photo-1989748.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
       'https://images.pexels.com/photos/2010877/pexels-photo-2010877.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
     ]
@@ -234,13 +223,13 @@ const models = [
     reviewCount: 67,
     isOnline: false,
     lastSeen: '3h',
-    image: modelo8,
+    image: null, // Será preenchido dinamicamente
     socialMedia: {
       instagram: '#',
       tiktok: '#'
     },
     gallery: [
-      modelo8,
+      null, // Será preenchido dinamicamente
       'https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
       'https://images.pexels.com/photos/1342609/pexels-photo-1342609.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
     ]
@@ -263,13 +252,13 @@ const models = [
     reviewCount: 145,
     isOnline: true,
     lastSeen: 'online',
-    image: modelo9,
+    image: null, // Será preenchido dinamicamente
     socialMedia: {
       instagram: '#',
       tiktok: '#'
     },
     gallery: [
-      modelo9,
+      null, // Será preenchido dinamicamente
       'https://images.pexels.com/photos/1587009/pexels-photo-1587009.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
       'https://images.pexels.com/photos/1130626/pexels-photo-1130626.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
     ]
@@ -292,16 +281,16 @@ const models = [
     reviewCount: 92,
     isOnline: false,
     lastSeen: '30m',
-    image: modelo10,
+    image: null, // Será preenchido dinamicamente
     socialMedia: {
       instagram: '#'
     },
     gallery: [
-      modelo10,
+      null, // Será preenchido dinamicamente
       'https://images.pexels.com/photos/842811/pexels-photo-842811.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
       'https://images.pexels.com/photos/1082962/pexels-photo-1082962.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
     ]
   }
-]
+];
 
-export default models
+export default models;

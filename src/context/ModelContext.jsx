@@ -1,75 +1,132 @@
-import { createContext, useState, useContext, useEffect } from 'react'
-import modelsData from '../data/models'
+import React, { createContext, useState, useEffect, useContext } from 'react';
+import modelsData from '../data/models';
 
-const ModelContext = createContext()
+const ModelContext = createContext();
 
-export function useModels() {
-  return useContext(ModelContext)
-}
+// Hook personalizado para usar o contexto
+export const useModels = () => {
+  const context = useContext(ModelContext);
+  if (!context) {
+    throw new Error('useModels deve ser usado dentro de um ModelProvider');
+  }
+  return context;
+};
 
-export function ModelProvider({ children }) {
-  const [models, setModels] = useState(modelsData)
-  const [filteredModels, setFilteredModels] = useState(modelsData)
+// Função para embaralhar array (Fisher-Yates)
+const shuffleArray = (array) => {
+  const shuffled = [...array];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled;
+};
+
+export const ModelProvider = ({ children }) => {
+  const [models, setModels] = useState([]);
+  const [filteredModels, setFilteredModels] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [filters, setFilters] = useState({
-    category: 'Companionships',
-    gender: 'Girls',
+    category: 'all',
+    gender: 'all',
     search: '',
-    location: '',
-    radius: 0,
-  })
+    location: ''
+  });
 
-  // Effect to filter models when filters change
+  // Carregar modelos com imagens aleatórias
   useEffect(() => {
-    let result = [...models]
-    
-    if (filters.category) {
-      result = result.filter(model => model.category === filters.category)
+    const loadModelsWithRandomImages = async () => {
+      try {
+        setLoading(true);
+        
+        // Importar todas as imagens dinamicamente
+        const imageModules = import.meta.glob('/src/assets/img/modelo*.png');
+        const imagePromises = Object.values(imageModules).map(loader => loader());
+        const imageModulesResolved = await Promise.all(imagePromises);
+        
+        // Extrair as URLs das imagens
+        const imageUrls = imageModulesResolved.map(module => module.default);
+        
+        // Embaralhar as imagens
+        const shuffledImages = shuffleArray(imageUrls);
+        
+        // Atribuir imagens aleatórias aos modelos
+        const modelsWithRandomImages = modelsData.map((model, index) => ({
+          ...model,
+          image: shuffledImages[index % shuffledImages.length], // Usa módulo para repetir se necessário
+          gallery: [
+            shuffledImages[index % shuffledImages.length],
+            ...model.gallery.slice(1) // Mantém as outras imagens da galeria
+          ]
+        }));
+        
+        setModels(modelsWithRandomImages);
+        setFilteredModels(modelsWithRandomImages);
+        
+      } catch (error) {
+        console.error('Erro ao carregar modelos:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadModelsWithRandomImages();
+  }, []); // Executa apenas uma vez quando o componente monta
+
+  // Filtrar modelos
+  useEffect(() => {
+    let filtered = [...models];
+
+    if (filters.category && filters.category !== 'all') {
+      filtered = filtered.filter(model => model.category === filters.category);
     }
-    
-    if (filters.gender) {
-      result = result.filter(model => model.gender === filters.gender)
+
+    if (filters.gender && filters.gender !== 'all') {
+      filtered = filtered.filter(model => model.gender === filters.gender);
     }
-    
+
     if (filters.search) {
-      const searchTerm = filters.search.toLowerCase()
-      result = result.filter(model => 
-        model.name.toLowerCase().includes(searchTerm) || 
-        model.specialty.toLowerCase().includes(searchTerm)
-      )
+      const searchTerm = filters.search.toLowerCase();
+      filtered = filtered.filter(model =>
+        model.name.toLowerCase().includes(searchTerm) ||
+        model.specialty.toLowerCase().includes(searchTerm) ||
+        model.location.toLowerCase().includes(searchTerm)
+      );
     }
-    
-    if (filters.location) {
-      // In a real app, this would involve distance calculations
-      // Simplified version for demo purposes
-      result = result.filter(model => 
-        model.location.toLowerCase().includes(filters.location.toLowerCase())
-      )
-    }
-    
-    setFilteredModels(result)
-  }, [filters, models])
-  
-  // Function to update filters
+
+    setFilteredModels(filtered);
+  }, [models, filters]);
+
+  // Função para atualizar filtros
   const updateFilters = (newFilters) => {
-    setFilters(prev => ({ ...prev, ...newFilters }))
-  }
-  
-  // Function to get a single model by ID
+    setFilters(prev => ({ ...prev, ...newFilters }));
+  };
+
+  // Função para obter modelo por ID
   const getModelById = (id) => {
-    return models.find(model => model.id === id) || null
-  }
-  
+    return models.find(model => model.id === id);
+  };
+
+  // Função para filtrar modelos (compatibilidade com Header)
+  const filterModels = (filterData) => {
+    updateFilters(filterData);
+  };
+
   const value = {
     models: filteredModels,
     allModels: models,
+    loading,
     filters,
     updateFilters,
-    getModelById
-  }
-  
+    getModelById,
+    filterModels
+  };
+
   return (
     <ModelContext.Provider value={value}>
       {children}
     </ModelContext.Provider>
-  )
-}
+  );
+};
+
+export default ModelContext;
