@@ -100,6 +100,14 @@
 }
 
 @media (max-width: 768px) {
+  .language-button {
+    font-size: 1.25rem;
+  }
+
+  .globe-icon {
+    font-size: 1.25rem;
+  }
+  
   .language-dropdown {
     right: -1rem;
     left: auto;
