@@ -231,25 +231,40 @@
   font-weight: 500;
 }
 
-/* Mobile Layout - Espaçamento padronizado entre seções */
+/* Mobile Layout - Header Actions Otimizado com Máxima Especificidade */
 @media (max-width: 768px) {
   .header-top {
-    padding: 6px 0;
+    padding: 8px 0;
   }
   
-  .header-actions {
-    gap: 0.75rem;
+  /* Aumentando a especificidade para garantir a sobreposição */
+  .header-top .header-top-content .header-actions {
+    gap: 0.75rem; /* Espaçamento ajustado entre os ícones */
+    align-items: center;
   }
   
-  .btn-publish {
-    display: inline-flex; /* Reativar o botão */
-    padding: 4px 8px;
+  .header-top .header-top-content .header-actions .btn-publish {
+    display: inline-flex;
+    padding: 5px 8px;
     font-size: 0.7rem;
     font-weight: 600;
+    line-height: 1;
+    white-space: nowrap;
   }
   
-  .btn-icon {
-    font-size: 1.25rem;
+  /* Regra de alta especificidade para os ícones de coração e usuário */
+  .header-top .header-top-content .header-actions .btn-icon {
+    font-size: 1.25rem !important; /* Tamanho final dos ícones */
+    color: var(--color-neutral-700);
+  }
+
+  /* Ícones com máxima especificidade, mirando no SVG interno */
+  .header-top .header-top-content .header-actions .btn-icon,
+  .header-top .header-top-content .header-actions .btn-icon svg {
+    font-size: 1.25rem !important;
+    color: var(--color-neutral-700);
+    width: 1.25rem !important;  /* Força a largura do SVG */
+    height: 1.25rem !important; /* Força a altura do SVG */
   }
 
   .header-bottom {
