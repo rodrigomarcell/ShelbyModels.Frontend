@@ -120,23 +120,26 @@
   border-color: var(--color-primary-700);
 }
 
-/* Responsive - Reduzido para ganhar espaço vertical */
+/* Responsive - Layout de grupo para inputs no 768px */
 @media (max-width: 768px) {
   .search-input-group {
-    flex-direction: column;
-    gap: 0.3rem;
+    flex-direction: column; /* Mantém a coluna para os grupos principais */
+    gap: 0.5rem; /* Aumenta o gap entre as linhas */
+  }
+
+  .location-input-container,
+  .search-input-container {
+    flex-direction: row; /* Inputs e botões na mesma linha */
   }
   
   .location-input,
   .search-input {
     width: 100%;
-    border-radius: var(--radius-md);
+    border-radius: 4px 0 0 4px; /* Raio à esquerda */
     border: 1px solid #ced4da;
-    padding: 0.625rem 0.3rem !important;
+    padding: 0.625rem 0.75rem !important;
     font-size: 0.7rem !important;
-    min-height: 32px;
-    display: flex;
-    align-items: center;
+    min-height: 36px;
     background-color: white;
     color: #495057;
     transition: all var(--transition-quick);
@@ -152,18 +155,19 @@
   /* Sobrescrever form-control no mobile */
   .search-bar .form-control.location-input,
   .search-bar .form-control.search-input {
-    padding: 0.625rem 0.3rem !important;
+    padding: 0.625rem 0.75rem !important;
     font-size: 0.7rem !important;
-    border-radius: var(--radius-md);
-    min-height: 32px;
+    border-radius: 4px 0 0 4px; /* Raio à esquerda */
+    min-height: 36px;
   }
   
   .radius-button {
-    border-radius: var(--radius-md);
+    border-radius: 0 4px 4px 0; /* Raio à direita */
     border: 1px solid #ced4da;
-    padding: 0.625rem 0.3rem;
+    border-left: none; /* Remove a borda esquerda para unir */
+    padding: 0.625rem 0.75rem;
     font-size: 0.7rem;
-    min-height: 32px;
+    min-height: 36px;
     justify-content: center;
     background-color: #f8f9fa;
     color: #495057;
@@ -177,11 +181,11 @@
   }
   
   .search-button {
-    border-radius: var(--radius-md);
+    border-radius: 0 4px 4px 0; /* Raio à direita */
     height: auto;
-    padding: 0.625rem 0.875rem;
+    padding: 0.625rem 1rem;
     font-size: 0.7rem;
-    min-height: 32px;
+    min-height: 36px;
     justify-content: center;
     background-color: var(--color-primary-600);
     border: 1px solid var(--color-primary-600);
