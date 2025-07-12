@@ -48,12 +48,12 @@ function Header({ favoritesCount = 0 }) {
                 </Link>
               </div>
               <div className="user-menu-container">
-                <button 
+              <button 
                   className="btn-icon user-menu-toggle"
                   onClick={toggleUserMenu}
                 >
                   <FaUser />
-                </button>
+              </button>
                 {/* Lógica do menu dropdown do usuário pode ser adicionada aqui */}
               </div>
             </div>
@@ -90,7 +90,7 @@ function Header({ favoritesCount = 0 }) {
                 <button className="city-list-btn" onClick={() => setIsCityListOpen(!isCityListOpen)}>
                   {t('header.cityList')}
                   <FaChevronDown className={`chevron-icon ${isCityListOpen ? 'open' : ''}`} />
-                </button>
+            </button>
                 {isCityListOpen && (
                   <div className="city-dropdown-list">
                     {mainCities.map(city => (
@@ -104,10 +104,10 @@ function Header({ favoritesCount = 0 }) {
                   </div>
                 )}
               </div>
-              <button className="locate-me-btn">
+            <button className="locate-me-btn">
                 <FaBullseye />
                 {t('header.locateMe')}
-              </button>
+            </button>
             </div>
 
             <button className="advanced-filters-btn">

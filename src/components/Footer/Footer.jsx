@@ -96,7 +96,7 @@ function Footer() {
               <Link to="/all-searches" className="footer-link see-all">
                 + {t('footer.seeAll')}
               </Link>
-            </div>
+          </div>
           </div>
         </div>
         

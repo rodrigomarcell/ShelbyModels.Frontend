@@ -56,11 +56,11 @@ function ModelCard({ model, isFavorite, onToggleFavorite }) {
           {model.hasRecorded && (
             <div className="badge badge-recorded">{t('modelCard.recorded')}</div>
           )}
-          {model.top && (
+        {model.top && (
             <div className="badge badge-top">{t('modelCard.top')}</div>
-          )}
+        )}
         </div>
-
+        
         {/* Botão de favoritar */}
         <button 
           className={`favorite-button ${isFavorite ? 'active' : ''}`}
@@ -88,7 +88,7 @@ function ModelCard({ model, isFavorite, onToggleFavorite }) {
       <div className="model-card-content">
         <div className="model-header">
           <div className="name-and-status">
-            <h3 className="model-name">{model.name}</h3>
+          <h3 className="model-name">{model.name}</h3>
             <div className={`online-status ${onlineStatus.color}`}>
               <FaCircle className="status-dot" />
               <span className="status-text">{onlineStatus.text}</span>
