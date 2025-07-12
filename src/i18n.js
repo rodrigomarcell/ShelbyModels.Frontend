@@ -110,6 +110,11 @@ const resources = {
         mainCities: "Cidades principais do Brasil",
         mainSearches: "Principais pesquisas em Brasil",
         
+        disclaimer: {
+          attention: "ATENÇÃO:",
+          text: "Não somos agência, somos um site de anúncios de acompanhantes. O site não intermedia os serviços anunciados, se isentando de qualquer responsabilidade. Toda a negociação é feita diretamente com a anunciante através do número de telefone que consta no perfil. Nunca efetue pagamento de PIX adiantado antes de ver a anunciante pessoalmente. Caso não seja a mesma das fotos, recuse o serviço e denuncie."
+        },
+
         // Company info
         companyName: "ShelbyModels Global Classifieds OOD",
         companyAddress: "Boulevard Shipchenski Prohod",
@@ -251,6 +256,11 @@ const resources = {
         mainCities: "Main cities of Brazil",
         mainSearches: "Main searches in Brazil",
         
+        disclaimer: {
+          attention: "ATTENTION:",
+          text: "We are not an agency; we are an escort ad site. The site does not mediate the advertised services, thus disclaiming any liability. All negotiation is done directly with the advertiser through the phone number listed on the profile. Never make an advance PIX payment before seeing the advertiser in person. If she is not the same as in the photos, refuse the service and report it."
+        },
+
         // Company info
         companyName: "ShelbyModels Global Classifieds OOD",
         companyAddress: "Boulevard Shipchenski Prohod",
