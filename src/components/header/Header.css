@@ -231,7 +231,7 @@
   font-weight: 500;
 }
 
-/* Mobile Layout - Reorganizes elements based on reference image */
+/* Mobile Layout - Mantém comportamento visual consistente */
 @media (max-width: 768px) {
   .header-bottom {
     padding: 0.875rem 0;
@@ -270,30 +270,70 @@
 
   .city-list-btn,
   .locate-me-btn {
+    /* Mantém background transparente como no desktop */
+    background: none;
+    border: 1px solid var(--color-neutral-300);
+    color: var(--color-neutral-700);
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;
+    
+    /* Apenas tamanhos proporcionais */
     padding: 0.75rem 0.375rem;
-    background-color: var(--color-neutral-100);
     border-radius: var(--radius-md);
     font-size: 0.75rem;
     text-align: center;
     justify-content: center;
     min-height: 38px;
-    display: flex;
-    align-items: center;
+    transition: all var(--transition-quick);
+  }
+
+  .city-list-btn:hover,
+  .locate-me-btn:hover {
+    background-color: var(--color-neutral-100);
+    border-color: var(--color-neutral-400);
+  }
+
+  .locate-me-btn {
+    color: var(--color-primary-600);
+    border-color: var(--color-primary-300);
+  }
+
+  .locate-me-btn:hover {
+    background-color: var(--color-primary-50);
+    border-color: var(--color-primary-400);
   }
 
   .advanced-filters-btn {
     position: static;
     transform: none;
     width: 100%;
+    
+    /* Mantém background transparente */
+    background: none;
+    border: 1px solid var(--color-neutral-300);
+    color: var(--color-neutral-700);
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;
+    
+    /* Apenas tamanhos proporcionais */
     justify-content: center;
     padding: 0.75rem;
-    background-color: var(--color-neutral-100);
     border-radius: var(--radius-md);
     margin-top: 0.25rem;
     font-size: 0.75rem;
     min-height: 38px;
-    display: flex;
-    align-items: center;
+    transition: all var(--transition-quick);
+  }
+
+  .advanced-filters-btn:hover {
+    background-color: var(--color-neutral-100);
+    border-color: var(--color-neutral-400);
   }
 
   /* Mobile publish button */
@@ -306,7 +346,7 @@
   }
 }
 
-/* Very small screens */
+/* Very small screens - mantém consistência */
 @media (max-width: 480px) {
   .header-bottom {
     padding: 0.75rem 0;
@@ -327,11 +367,42 @@
     padding: 0.625rem 0.25rem;
     font-size: 0.7rem;
     min-height: 34px;
+    
+    /* Mantém cores consistentes */
+    background: none;
+    border: 1px solid var(--color-neutral-300);
+    color: var(--color-neutral-700);
+  }
+
+  .city-list-btn:hover,
+  .locate-me-btn:hover {
+    background-color: var(--color-neutral-100);
+    border-color: var(--color-neutral-400);
+  }
+
+  .locate-me-btn {
+    color: var(--color-primary-600);
+    border-color: var(--color-primary-300);
+  }
+
+  .locate-me-btn:hover {
+    background-color: var(--color-primary-50);
+    border-color: var(--color-primary-400);
   }
 
   .advanced-filters-btn {
     padding: 0.625rem;
     font-size: 0.7rem;
     min-height: 34px;
+    
+    /* Mantém cores consistentes */
+    background: none;
+    border: 1px solid var(--color-neutral-300);
+    color: var(--color-neutral-700);
+  }
+
+  .advanced-filters-btn:hover {
+    background-color: var(--color-neutral-100);
+    border-color: var(--color-neutral-400);
   }
 }
