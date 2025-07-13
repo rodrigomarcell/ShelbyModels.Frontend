@@ -5,14 +5,15 @@ import autoprefixer from 'autoprefixer'
 
 export default defineConfig(() => {
   return {
-    base: './',
+    // Caminho base para GitHub Pages (repositório nomeado)
+    base: '/ShelbyModels.Frontend/',
     build: {
-      outDir: 'build',
+      outDir: 'dist', // ou 'dist' se preferir
     },
     css: {
       postcss: {
         plugins: [
-          autoprefixer({}), // add options if needed
+          autoprefixer({}),
         ],
       },
     },
