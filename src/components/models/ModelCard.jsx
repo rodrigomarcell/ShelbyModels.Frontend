@@ -4,9 +4,45 @@ import { FaPlay, FaHeart, FaCheck, FaStar, FaCircle } from 'react-icons/fa'
 import { useTranslation } from 'react-i18next'
 import './ModelCard.css'
 
-function ModelCard({ model, isFavorite, onToggleFavorite }) {
+function ModelCard({ 
+  model, 
+  isFavorite, 
+  onToggleFavorite,
+  // Novas props
+  nome,
+  idade,
+  cidade,
+  preco,
+  nota,
+  totalAvaliacoes,
+  online,
+  verificado,
+  ultimaAtividade,
+  descricao,
+  imagemUrl,
+  destaque,
+  badges
+}) {
   const { t } = useTranslation()
   const [isHovered, setIsHovered] = useState(false)
+  
+  // Se as novas props não forem fornecidas, use os dados do model existente
+  const modelData = {
+    name: nome || model?.name,
+    age: idade || model?.age,
+    location: cidade || (model?.location ? model.location.split(',')[0] : ''),
+    price: preco || model?.price,
+    rating: nota || model?.rating,
+    reviewCount: totalAvaliacoes || model?.reviewCount,
+    isOnline: online !== undefined ? online : model?.isOnline,
+    verified: verificado !== undefined ? verificado : model?.verified,
+    lastSeen: ultimaAtividade || model?.lastSeen,
+    description: descricao || model?.description,
+    image: imagemUrl || model?.image,
+    featured: destaque !== undefined ? destaque : model?.featured,
+    currency: model?.currency || 'USD',
+    badges: badges || []
+  }
   
   const formatPrice = (price, currency) => {
     if (currency === 'BRL') {
@@ -16,26 +52,19 @@ function ModelCard({ model, isFavorite, onToggleFavorite }) {
   }
 
   const formatRating = (rating) => {
-    return rating.toFixed(1)
+    return rating?.toFixed(1) || '0.0'
   }
 
   const getOnlineStatus = () => {
-    if (model.isOnline) {
+    if (modelData.isOnline) {
       return {
-        text: t('modelCard.online'),
-        color: 'online'
-      }
-    }
-    
-    if (model.lastSeen === 'online') {
-      return {
-        text: t('modelCard.online'),
+        text: 'Online agora',
         color: 'online'
       }
     }
     
     return {
-      text: `${t('modelCard.lastSeen')} ${model.lastSeen} ${t('modelCard.ago')}`,
+      text: modelData.lastSeen || 'Visto por último há muito tempo',
       color: 'offline'
     }
   }
@@ -44,85 +73,110 @@ function ModelCard({ model, isFavorite, onToggleFavorite }) {
   
   return (
     <div 
-      className={`model-card ${model.featured ? 'featured' : ''}`}
+      className={`model-card ${modelData.featured ? 'card-destaque' : 'card-normal'}`}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
       <div className="model-card-image-container">
-        <img src={model.image} alt={model.name} className="model-card-image" />
+        {/* Imagem como background */}
+        <div 
+          className="modelo-imagem" 
+          style={{ backgroundImage: `url(${modelData.image})` }}
+        />
         
-        {/* Apenas badges essenciais na imagem */}
-        <div className="top-badges">
-          {model.hasRecorded && (
-            <div className="badge badge-recorded">{t('modelCard.recorded')}</div>
-          )}
-        {model.top && (
-            <div className="badge badge-top">{t('modelCard.top')}</div>
+        {/* Badges dinâmicos no canto superior esquerdo */}
+        {modelData.badges && modelData.badges.length > 0 && (
+          <div className="badges-container">
+            {modelData.badges.map((badge, index) => (
+              <span key={index} className={`badge ${getBadgeClass(badge)}`}>
+                {badge}
+              </span>
+            ))}
+          </div>
         )}
-        </div>
         
-        {/* Botão de favoritar */}
+        {/* Botão de favoritar melhorado */}
         <button 
-          className={`favorite-button ${isFavorite ? 'active' : ''}`}
+          className={`btn-favorito ${isFavorite ? 'active' : ''}`}
           onClick={(e) => {
             e.preventDefault()
-            onToggleFavorite(model.id)
+            if (onToggleFavorite && model?.id) {
+              onToggleFavorite(model.id)
+            }
           }}
-          aria-label={isFavorite ? 'Remove from favorites' : 'Add to favorites'}
+          aria-label={isFavorite ? 'Remover dos favoritos' : 'Adicionar aos favoritos'}
         >
           <FaHeart />
         </button>
         
-        {/* Hover overlay apenas com botão de ação */}
+        {/* Hover overlay */}
         <div className={`model-card-overlay ${isHovered ? 'visible' : ''}`}>
           <div className="play-icon">
             <FaPlay />
           </div>
-          <Link to={`/model/${model.id}`} className="view-profile-btn">
-            {t('modelCard.viewProfile')}
-          </Link>
+          {model?.id && (
+            <Link to={`/model/${model.id}`} className="view-profile-btn">
+              Ver Perfil
+            </Link>
+          )}
         </div>
       </div>
       
-      {/* Seção branca com todas as informações */}
-      <div className="model-card-content">
-        <div className="model-header">
-          <div className="name-and-status">
-          <h3 className="model-name">{model.name}</h3>
-            <div className={`online-status ${onlineStatus.color}`}>
-              <FaCircle className="status-dot" />
-              <span className="status-text">{onlineStatus.text}</span>
-            </div>
-          </div>
-          
-          {model.verified && (
-            <div className="verified-badge">
-              <FaCheck />
-              <span>{t('modelCard.verified')}</span>
-            </div>
-          )}
+      {/* Corpo do card reorganizado */}
+      <div className="card-conteudo">
+        {/* Nome */}
+        <div className="modelo-nome">
+          {modelData.name}
         </div>
         
-        <div className="model-info">
-          <div className="age-location">
-            <span className="age">{model.age} {t('modelCard.years')}</span>
-            <span className="location">{model.location.split(',')[0]}</span>
+        {/* Idade e cidade juntos */}
+        <div className="idade-cidade">
+          {modelData.age} anos · {modelData.location}
+        </div>
+        
+        {/* Verificado */}
+        {modelData.verified && (
+          <div className="verificado-badge">
+            ✅ Verificada
           </div>
-          
-          <div className="rating-price">
-            <div className="rating">
-              <FaStar className="star-icon" />
-              <span className="rating-value">{formatRating(model.rating)}</span>
-              <span className="review-count">({model.reviewCount})</span>
-            </div>
-            <div className="price">
-              {formatPrice(model.price, model.currency)}
-            </div>
+        )}
+        
+        {/* Status online */}
+        <div className={`info-status ${onlineStatus.color}`}>
+          {onlineStatus.color === 'online' ? '● ' : ''}{onlineStatus.text}
+        </div>
+        
+        {/* Descrição curta */}
+        {modelData.description && (
+          <div className="descricao-curta">
+            {modelData.description}
+          </div>
+        )}
+        
+        {/* Avaliação e preço */}
+        <div className="avaliacao-preco">
+          <div className="info-avaliacao">
+            <FaStar className="star-icon" />
+            <span className="rating-value">{formatRating(modelData.rating)}</span>
+            <span className="review-count">({modelData.reviewCount || 0})</span>
+          </div>
+          <div className="info-preco">
+            {formatPrice(modelData.price, modelData.currency)}
           </div>
         </div>
       </div>
     </div>
   )
+}
+
+// Função auxiliar para determinar a classe do badge
+function getBadgeClass(badge) {
+  const badgeText = badge.toLowerCase()
+  if (badgeText.includes('nova') || badgeText.includes('🔥')) return 'badge-nova'
+  if (badgeText.includes('vip') || badgeText.includes('👑')) return 'badge-vip'
+  if (badgeText.includes('vídeo') || badgeText.includes('🎥')) return 'badge-video'
+  if (badgeText.includes('responde') || badgeText.includes('💬')) return 'badge-resposta'
+  return 'badge-default'
 }
 
 export default ModelCard

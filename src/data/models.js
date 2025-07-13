@@ -18,6 +18,8 @@ const models = [
     reviewCount: 156,
     isOnline: true,
     lastSeen: 'online',
+    description: 'Modelo profissional especializada em fotografia editorial e comercial. Experiência internacional.',
+    badges: ['🔥 NOVA', '👑 VIP'],
     image: null, // Será preenchido dinamicamente
     socialMedia: {
       instagram: '#',
@@ -47,7 +49,9 @@ const models = [
     rating: 4.9,
     reviewCount: 89,
     isOnline: false,
-    lastSeen: '2h',
+    lastSeen: 'Visto por último 2h atrás',
+    description: 'Especialista em runway e fitness modeling com portfólio diversificado e experiência em campanhas de moda.',
+    badges: ['🎥 Vídeo novo'],
     image: null, // Será preenchido dinamicamente
     socialMedia: {
       instagram: '#',
@@ -77,6 +81,8 @@ const models = [
     reviewCount: 203,
     isOnline: true,
     lastSeen: 'online',
+    description: 'Modelo versátil com experiência em fotografia comercial e campanhas publicitárias de grande escala.',
+    badges: ['💬 Responde rápido'],
     image: null, // Será preenchido dinamicamente
     socialMedia: {
       instagram: '#',
@@ -105,7 +111,9 @@ const models = [
     rating: 4.7,
     reviewCount: 127,
     isOnline: false,
-    lastSeen: '5m',
+    lastSeen: 'Visto por último 5m atrás',
+    description: 'Focada em glamour e editorial fashion, com trabalhos publicados em revistas internacionais.',
+    badges: [],
     image: null, // Será preenchido dinamicamente
     socialMedia: {
       instagram: '#',
@@ -136,6 +144,8 @@ const models = [
     reviewCount: 78,
     isOnline: true,
     lastSeen: 'online',
+    description: 'Especialista em lifestyle e fitness, trabalha com grandes marcas esportivas e de bem-estar.',
+    badges: ['👑 VIP', '🔥 NOVA'],
     image: null, // Será preenchido dinamicamente
     socialMedia: {
       instagram: '#'
@@ -163,7 +173,9 @@ const models = [
     rating: 4.9,
     reviewCount: 234,
     isOnline: false,
-    lastSeen: '1h',
+    lastSeen: 'Visto por último 1h atrás',
+    description: 'Jovem talento com forte presença em editoriais e passarelas de moda contemporânea.',
+    badges: ['💬 Responde rápido'],
     image: null, // Será preenchido dinamicamente
     socialMedia: {
       instagram: '#',
@@ -194,6 +206,8 @@ const models = [
     reviewCount: 189,
     isOnline: true,
     lastSeen: 'online',
+    description: 'Modelo de alta costura com experiência em campanhas de luxo e fashion weeks internacionais.',
+    badges: ['🎥 Vídeo novo', '👑 VIP'],
     image: null, // Será preenchido dinamicamente
     socialMedia: {
       instagram: '#',
@@ -222,7 +236,9 @@ const models = [
     rating: 4.4,
     reviewCount: 67,
     isOnline: false,
-    lastSeen: '3h',
+    lastSeen: 'Visto por último 3h atrás',
+    description: 'Focado em fotografia comercial e campanhas print, com estilo natural e autêntico.',
+    badges: [],
     image: null, // Será preenchido dinamicamente
     socialMedia: {
       instagram: '#',
@@ -252,6 +268,8 @@ const models = [
     reviewCount: 145,
     isOnline: true,
     lastSeen: 'online',
+    description: 'Modelo brasileira com forte presença na moda nacional e internacional, especialista em lifestyle.',
+    badges: ['🔥 NOVA', '💬 Responde rápido'],
     image: null, // Será preenchido dinamicamente
     socialMedia: {
       instagram: '#',
@@ -280,7 +298,9 @@ const models = [
     rating: 4.6,
     reviewCount: 92,
     isOnline: false,
-    lastSeen: '30m',
+    lastSeen: 'Visto por último 30m atrás',
+    description: 'Modelo fitness com experiência em campanhas comerciais e publicidade esportiva.',
+    badges: ['🎥 Vídeo novo'],
     image: null, // Será preenchido dinamicamente
     socialMedia: {
       instagram: '#'

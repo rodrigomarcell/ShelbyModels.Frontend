@@ -307,3 +307,221 @@
     font-size: 0.9rem;
   }
 }
+
+/* Destaque Premium */
+.card-destaque {
+  border: 3px solid #f4b400 !important;
+  box-shadow: 0 6px 25px rgba(244, 180, 0, 0.3) !important;
+}
+
+.card-destaque:hover {
+  box-shadow: 0 10px 35px rgba(244, 180, 0, 0.4) !important;
+}
+
+.card-normal {
+  border: 1px solid var(--color-neutral-300);
+  box-shadow: var(--shadow-md);
+}
+
+/* Imagem como background */
+.modelo-imagem {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: transform var(--transition-smooth);
+}
+
+.model-card:hover .modelo-imagem {
+  transform: scale(1.05);
+}
+
+/* Badges dinâmicos container */
+.badges-container {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  z-index: 3;
+  max-width: 60%;
+}
+
+/* Badges específicos */
+.badge-nova {
+  background: linear-gradient(45deg, #FF6B35, #F7931E);
+}
+
+.badge-vip {
+  background: linear-gradient(45deg, #FFD700, #FFA500);
+  color: #000;
+}
+
+.badge-video {
+  background: linear-gradient(45deg, #8E2DE2, #4A00E0);
+}
+
+.badge-resposta {
+  background: linear-gradient(45deg, #00C9FF, #92FE9D);
+  color: #000;
+}
+
+.badge-default {
+  background: linear-gradient(45deg, var(--color-primary-600), var(--color-primary-500));
+}
+
+/* Botão de favoritar melhorado */
+.btn-favorito {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  color: var(--color-neutral-400);
+  transition: all var(--transition-quick);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+  z-index: 5;
+}
+
+.btn-favorito:hover {
+  background-color: white;
+  color: var(--color-secondary-600);
+  transform: scale(1.15);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn-favorito.active {
+  color: var(--color-secondary-600);
+  background-color: white;
+  transform: scale(1.1);
+}
+
+/* Conteúdo do card reorganizado */
+.card-conteudo {
+  background-color: white;
+  padding: 16px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Nome do modelo */
+.modelo-nome {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--color-neutral-800);
+  margin: 0;
+  line-height: 1.2;
+}
+
+/* Idade e cidade */
+.idade-cidade {
+  font-size: 0.875rem;
+  color: var(--color-neutral-500);
+  font-weight: 500;
+}
+
+/* Badge verificado */
+.verificado-badge {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.75rem;
+  color: #059669;
+  font-weight: 600;
+  background-color: #ECFDF5;
+  padding: 4px 8px;
+  border-radius: var(--radius-sm);
+  border: 1px solid #A7F3D0;
+  width: fit-content;
+}
+
+/* Status online/offline */
+.info-status {
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.info-status.online {
+  color: #10B981;
+}
+
+.info-status.offline {
+  color: #F59E0B;
+}
+
+/* Descrição curta com truncamento */
+.descricao-curta {
+  font-size: 0.875rem;
+  color: var(--color-neutral-600);
+  font-style: italic;
+  line-height: 1.4;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  max-height: 2.8em;
+  opacity: 0.9;
+}
+
+/* Avaliação e preço */
+.avaliacao-preco {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 4px;
+  padding-top: 8px;
+  border-top: 1px solid var(--color-neutral-200);
+}
+
+.info-avaliacao {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.875rem;
+}
+
+.info-avaliacao .star-icon {
+  color: #FBBF24;
+  font-size: 0.875rem;
+}
+
+.info-avaliacao .rating-value {
+  font-weight: 600;
+  color: var(--color-neutral-700);
+}
+
+.info-avaliacao .review-count {
+  color: var(--color-neutral-500);
+  font-size: 0.75rem;
+}
+
+.info-preco {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--color-primary-600);
+  text-align: right;
+}
+
+/* Ajustes para card com destaque */
+.card-destaque .card-conteudo {
+  background: linear-gradient(135deg, #FFFBEB 0%, #FEF3C7 100%);
+}
+
+.card-destaque .modelo-nome {
+  color: #92400E;
+}
+
+.card-destaque .info-preco {
+  color: #D97706;
+}
