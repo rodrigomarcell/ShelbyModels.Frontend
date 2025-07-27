@@ -1,21 +1,33 @@
+/* === PREMIUM DARK FOOTER === */
 .footer {
-  background-color: var(--color-neutral-800);
-  color: var(--color-neutral-200);
+  background: var(--color-bg-dark);
+  color: var(--color-text-secondary);
   padding: 0;
-  border-top: 1px solid var(--color-neutral-700);
+  border-top: 1px solid var(--border-color);
+  position: relative;
+}
+
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--gradient-primary);
+  opacity: 0.6;
 }
 
 .footer .container {
   padding: 0;
-  color: red;
 }
 
-/* Top section with cities - darker background */
+/* === TOP SECTION WITH CITIES === */
 .footer-top {
-  background-color: var(--color-neutral-900); /* Mais escuro que o resto */
+  background: var(--color-bg-dark);
   text-align: center;
-  padding: var(--space-1) 0;
-  border-bottom: 1px solid var(--color-neutral-700);
+  padding: var(--space-4) 0;
+  border-bottom: 1px solid var(--border-color);
 }
 
 .footer-cities {
@@ -23,102 +35,115 @@
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  gap: var(--space-1);
+  gap: var(--space-3);
 }
 
 .cities-label {
-  font-weight: 600;
-  color: var(--color-neutral-100);
-  margin-right: var(--space-1);
-  font-size: 0.8rem; /* Reduzido de 0.9rem */
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text);
+  margin-right: var(--space-3);
+  font-size: 0.875rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
 }
 
 .cities-links {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--space-1);
+  gap: var(--space-3);
 }
 
 .city-link {
-  color: white;
+  color: var(--color-text-secondary);
   text-decoration: none;
-  font-size: 0.75rem; /* Reduzido de 0.875rem */
-  padding: 0.25rem 0.5rem;
-  border-radius: var(--radius-sm);
-  transition: all var(--transition-quick);
+  font-size: 0.875rem;
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-normal);
   white-space: nowrap;
+  border: 1px solid transparent;
 }
 
 .city-link:hover {
-  color: var(--color-primary-200);
-  background-color: var(--color-neutral-700);
-  text-decoration: underline;
+  color: var(--color-text);
+  background: var(--color-bg-elevated);
+  border-color: var(--color-primary);
+  text-decoration: none;
+  transform: translateY(-1px);
 }
 
-/* Middle section with brand and disclaimer */
+/* === MIDDLE SECTION WITH BRAND === */
 .footer-middle {
-  background-color: var(--color-neutral-800); /* Background normal */
+  background: var(--color-bg-dark);
   text-align: center;
-  padding: var(--space-1) 0;
-  border-bottom: 1px solid var(--color-neutral-700);
+  padding: var(--space-6) 0;
+  border-bottom: 1px solid var(--border-color);
 }
 
 .site-name {
-  margin-bottom: var(--space-1);
+  margin-bottom: var(--space-4);
 }
 
 .footer-brand {
-  font-size: 1.25rem; /* Reduzido de 1.5rem */
-  font-weight: 700;
-  color: white;
+  font-size: 1.5rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text);
   margin: 0;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.05em;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .footer-disclaimer-text {
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto;
 }
 
 .footer-disclaimer-text p {
-  color: var(--color-neutral-300);
-  font-size: 0.75rem; /* Reduzido de 0.85rem */
-  line-height: 1.3; /* Reduzido de 1.4 para todos os tamanhos */
+  color: var(--color-text-muted);
+  font-size: 0.875rem;
+  line-height: var(--line-height-relaxed);
   margin: 0;
 }
 
-/* Bottom section with legal links and copyright */
+/* === BOTTOM SECTION WITH LEGAL === */
 .footer-bottom {
-  background-color: var(--color-neutral-800); /* Background normal */
+  background: var(--color-bg-dark);
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--space-1);
-  padding: var(--space-1) 0;
+  gap: var(--space-4);
+  padding: var(--space-5) 0;
 }
 
 .legal-links {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: var(--space-3);
-  color: white;
+  gap: var(--space-6);
+  color: var(--color-text);
 }
 
 .legal-link {
-  color: white;
+  color: var(--color-text-secondary);
   text-decoration: none;
-  font-size: 0.75rem; /* Reduzido de 0.875rem */
-  font-weight: 500;
-  transition: all var(--transition-quick);
-  padding: 0.25rem 0.5rem;
-  border-radius: var(--radius-sm);
+  font-size: 0.875rem;
+  font-weight: var(--font-weight-medium);
+  transition: all var(--transition-normal);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-md);
+  border: 1px solid transparent;
 }
 
 .legal-link:hover {
-  color: var(--color-primary-200);
-  background-color: var(--color-neutral-700);
-  text-decoration: underline;
+  color: var(--color-primary);
+  background: var(--color-bg-elevated);
+  border-color: var(--border-color);
+  text-decoration: none;
+  transform: translateY(-1px);
 }
 
 .footer-copyright {
@@ -126,117 +151,118 @@
 }
 
 .footer-copyright p {
-  color: var(--color-neutral-400);
-  font-size: 0.7rem; /* Reduzido de 0.8rem */
+  color: var(--color-text-disabled);
+  font-size: 0.8rem;
   margin: 0;
 }
 
-/* Responsive Design */
+/* === RESPONSIVE DESIGN === */
 @media (max-width: 768px) {
   .footer-top {
-    padding: var(--space-1) 0;
+    padding: var(--space-3) 0;
   }
   
   .footer-middle {
-    padding: var(--space-1) 0;
+    padding: var(--space-5) 0;
   }
   
   .footer-bottom {
-    padding: var(--space-1) 0;
-    gap: var(--space-1);
+    padding: var(--space-4) 0;
+    gap: var(--space-3);
   }
   
   .footer-cities {
     flex-direction: column;
-    gap: var(--space-1);
+    gap: var(--space-3);
   }
   
   .cities-label {
     margin-right: 0;
-    margin-bottom: var(--space-1);
+    margin-bottom: var(--space-2);
   }
   
   .cities-links {
     justify-content: center;
-    gap: 0.5rem;
+    gap: var(--space-2);
   }
   
   .city-link {
-    font-size: 0.7rem; /* Reduzido de 0.8rem */
-    padding: 0.2rem 0.4rem;
+    font-size: 0.8rem;
+    padding: var(--space-2);
   }
   
   .footer-brand {
-    font-size: 1.1rem; /* Reduzido de 1.25rem */
+    font-size: 1.375rem;
   }
   
   .footer-disclaimer-text p {
-    font-size: 0.7rem; /* Reduzido de 0.8rem */
-    line-height: 1.3; /* Mantido consistente */
+    font-size: 0.8rem;
+    line-height: var(--line-height-relaxed);
   }
   
   .legal-links {
-    gap: var(--space-1);
+    gap: var(--space-3);
   }
   
   .legal-link {
-    font-size: 0.7rem; /* Reduzido de 0.8rem */
-    padding: 0.2rem 0.4rem;
+    font-size: 0.8rem;
+    padding: var(--space-2);
   }
   
   .site-name {
-    margin-bottom: var(--space-1);
+    margin-bottom: var(--space-3);
   }
 }
 
 @media (max-width: 480px) {
   .footer-top {
-    padding: var(--space-1) 0;
+    padding: var(--space-3) 0;
   }
   
   .footer-middle {
-    padding: var(--space-1) 0;
+    padding: var(--space-4) 0;
   }
   
   .footer-bottom {
-    padding: var(--space-1) 0;
-    gap: var(--space-1);
+    padding: var(--space-3) 0;
+    gap: var(--space-3);
   }
   
   .cities-links {
-    gap: 0.25rem;
-  }
-  
-  .city-link {
-    font-size: 0.65rem; /* Reduzido de 0.75rem */
-    padding: 0.15rem 0.3rem;
-  }
-  
-  .footer-brand {
-    font-size: 1rem; /* Reduzido de 1.125rem */
-  }
-  
-  .footer-disclaimer-text p {
-    font-size: 0.65rem; /* Reduzido de 0.75rem */
-    line-height: 1.2; /* Reduzido ainda mais para mobile */
-  }
-  
-  .legal-links {
-    flex-direction: row; /* Mudado de column para row */
-    flex-wrap: wrap;
-    justify-content: center;
     gap: var(--space-1);
   }
   
+  .city-link {
+    font-size: 0.75rem;
+    padding: var(--space-1) var(--space-2);
+  }
+  
+  .footer-brand {
+    font-size: 1.25rem;
+  }
+  
+  .footer-disclaimer-text p {
+    font-size: 0.75rem;
+    line-height: var(--line-height-normal);
+  }
+  
+  .legal-links {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-2);
+  }
+  
   .legal-link {
-    font-size: 0.65rem; /* Reduzido de 0.75rem */
+    font-size: 0.75rem;
+    padding: var(--space-1) var(--space-2);
   }
   
   .footer-copyright p {
-    font-size: 0.65rem; /* Reduzido de 0.75rem */
+    font-size: 0.75rem;
   }
   
   .site-name {
-    margin-bottom: var(--space-1);
+    margin-bottom: var(--space-3);
   }
 }

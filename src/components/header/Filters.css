@@ -1,133 +1,176 @@
+/* === PREMIUM DARK FILTERS === */
 .filter-container {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: var(--space-4);
 }
 
 .filter-label {
-  font-weight: 600;
-  color: #495057;
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text);
   white-space: nowrap;
-  font-size: 0.8rem;
+  font-size: 0.875rem;
+  letter-spacing: 0.025em;
 }
 
 .filter-options {
   display: flex;
-  gap: 6px;
+  gap: var(--space-2);
   flex-wrap: wrap;
 }
 
+/* === PREMIUM TAG SYSTEM === */
 .tag {
-  background-color: var(--color-neutral-200);
-  border: 1px solid var(--color-neutral-300);
-  color: var(--color-neutral-700);
-  padding: 0.5rem 1rem;
-  border-radius: var(--radius-md);
-  font-weight: 500;
-  transition: all var(--transition-quick);
-  font-size: 0.8rem;
+  background: var(--color-bg-card);
+  border: 1px solid var(--border-color);
+  color: var(--color-text-secondary);
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-lg);
+  font-weight: var(--font-weight-medium);
+  transition: all var(--transition-normal);
+  font-size: 0.875rem;
   line-height: 1;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.tag::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(136, 1, 8, 0.1), transparent);
+  transition: left var(--transition-slow);
 }
 
 .tag:hover {
-  background-color: var(--color-neutral-300);
-  border-color: var(--color-neutral-400);
+  background: var(--color-bg-elevated);
+  border-color: var(--color-primary);
+  color: var(--color-text);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.tag:hover::before {
+  left: 100%;
 }
 
 .tag.active {
-  background-color: var(--color-primary-600);
-  color: white;
-  border-color: var(--color-primary-600);
-  box-shadow: var(--shadow-sm);
+  background: var(--gradient-primary);
+  color: var(--color-text);
+  border-color: var(--color-primary-light);
+  box-shadow: var(--glow-primary);
+  transform: translateY(-1px);
 }
 
-/* Mobile layout - Labels na mesma linha dos botões */
+.tag.active::before {
+  display: none;
+}
+
+/* === RESPONSIVE DESIGN === */
 @media (max-width: 768px) {
   .filter-container {
     width: 100%;
     flex-direction: row;
     align-items: center;
-    gap: 0.75rem;
+    gap: var(--space-3);
   }
   
   .filter-label {
-    font-size: 0.7rem;
-    font-weight: 600;
-    color: #495057;
+    font-size: 0.8rem;
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text);
     margin: 0;
     white-space: nowrap;
     flex-shrink: 0;
-    min-width: 60px;
+    min-width: 70px;
   }
   
   .filter-options {
     display: flex;
-    gap: 0.3rem;
+    gap: var(--space-2);
     flex: 1;
     flex-wrap: nowrap;
   }
   
   .tag {
-    padding: 0.625rem 0.5rem;
+    padding: var(--space-3) var(--space-3);
     text-align: center;
-    font-size: 0.7rem;
-    font-weight: 500;
+    font-size: 0.8rem;
+    font-weight: var(--font-weight-medium);
     white-space: nowrap;
-    min-height: 32px;
+    min-height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: var(--radius-md);
+    border-radius: var(--radius-lg);
     flex: 1;
     
-    /* Mantém mesmas cores do desktop */
-    background-color: var(--color-neutral-200);
-    border: 1px solid var(--color-neutral-300);
-    color: var(--color-neutral-700);
-    transition: all var(--transition-quick);
+    /* Dark theme colors */
+    background: var(--color-bg-card);
+    border: 1px solid var(--border-color);
+    color: var(--color-text-secondary);
+    transition: all var(--transition-normal);
   }
   
   .tag:hover {
-    background-color: var(--color-neutral-300);
-    border-color: var(--color-neutral-400);
+    background: var(--color-bg-elevated);
+    border-color: var(--color-primary);
+    color: var(--color-text);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
   }
   
   .tag.active {
-    background-color: var(--color-primary-600);
-    border-color: var(--color-primary-600);
-    color: white;
-    font-weight: 600;
-    box-shadow: var(--shadow-sm);
+    background: var(--gradient-primary);
+    border-color: var(--color-primary-light);
+    color: var(--color-text);
+    font-weight: var(--font-weight-semibold);
+    box-shadow: var(--glow-primary);
   }
 }
 
-/* Very small screens - mantém consistência visual */
 @media (max-width: 480px) {
+  .filter-container {
+    gap: var(--space-2);
+  }
+  
+  .filter-label {
+    font-size: 0.75rem;
+    min-width: 60px;
+  }
+  
   .filter-options {
+    display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 0.3rem;
+    gap: var(--space-2);
+    flex: 1;
   }
   
   .tag {
-    padding: 0.625rem 0.25rem;
-    font-size: 0.7rem;
-    min-height: 34px;
+    padding: var(--space-3) var(--space-2);
+    font-size: 0.75rem;
+    min-height: 42px;
     
-    /* Mantém mesmas cores do desktop */
-    background-color: var(--color-neutral-200);
-    border: 1px solid var(--color-neutral-300);
-    color: var(--color-neutral-700);
+    /* Maintain dark theme colors */
+    background: var(--color-bg-card);
+    border: 1px solid var(--border-color);
+    color: var(--color-text-secondary);
   }
   
   .tag:hover {
-    background-color: var(--color-neutral-300);
-    border-color: var(--color-neutral-400);
+    background: var(--color-bg-elevated);
+    border-color: var(--color-primary);
+    color: var(--color-text);
   }
   
   .tag.active {
-    background-color: var(--color-primary-600);
-    border-color: var(--color-primary-600);
-    color: white;
-    box-shadow: var(--shadow-sm);
+    background: var(--gradient-primary);
+    border-color: var(--color-primary-light);
+    color: var(--color-text);
+    box-shadow: var(--glow-primary);
   }
 }
