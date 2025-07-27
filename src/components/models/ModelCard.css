@@ -129,26 +129,7 @@
   opacity: 1;
 }
 
-.play-icon {
-  width: 40px;
-  height: 40px;
-  background-color: rgba(255, 255, 255, 0.2);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-size: 1rem;
-  margin-bottom: 0.875rem;
-  transition: all var(--transition-smooth);
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
-}
-
-.play-icon:hover {
-  background-color: rgba(255, 255, 255, 0.3);
-  transform: scale(1.1);
-}
+/* Removido .play-icon - será reimplementado futuramente quando houver vídeo */
 
 .view-profile-btn {
   background-color: var(--color-primary);

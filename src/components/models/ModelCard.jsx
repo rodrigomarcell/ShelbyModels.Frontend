@@ -111,9 +111,7 @@ function ModelCard({
         
         {/* Hover overlay */}
         <div className={`model-card-overlay ${isHovered ? 'visible' : ''}`}>
-          <div className="play-icon">
-            <FaPlay />
-          </div>
+          {/* TODO: Futuramente, adicionar botão de play aqui quando o perfil da modelo tiver vídeo disponível */}
           {model?.id && (
             <Link to={`/model/${model.id}`} className="view-profile-btn">
               Ver Perfil

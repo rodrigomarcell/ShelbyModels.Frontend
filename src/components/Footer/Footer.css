@@ -3,11 +3,32 @@
   color: #aaaaaa; /* Cinza claro para texto */
   padding: var(--space-4) 0;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative; /* Necessário para o pseudo-elemento */
+  overflow: hidden; /* Garante que o gradiente não vaze */
+}
+
+/* Efeito de gradiente sutil na parte inferior */
+.footer::after {
+  content: '';
+  position: absolute;
+  bottom: -50%; /* Posiciona o gradiente na metade inferior */
+  left: 0;
+  right: 0;
+  height: 100%;
+  background: radial-gradient(
+    circle at 50% 100%, /* Começa no centro da base */
+    rgba(136, 1, 8, 0.35), /* Vermelho vinho com 35% de opacidade */
+    transparent 55% /* Transição para transparente mais suave */
+  );
+  z-index: 0;
+  pointer-events: none; /* Garante que não interfere com cliques */
 }
 
 .footer .container {
   padding: 0 var(--space-4);
   color: inherit;
+  position: relative; /* Garante que o conteúdo fique sobre o gradiente */
+  z-index: 1;
 }
 
 /* Seções unificadas com um único fundo */
@@ -132,6 +153,15 @@
 
 /* Responsive Design */
 @media (max-width: 768px) {
+  /* Gradiente mais forte para mobile */
+  .footer::after {
+    background: radial-gradient(
+      circle at 50% 100%,
+      rgba(136, 1, 8, 0.5), /* Opacidade aumentada para 50% */
+      transparent 70% /* Alcance do gradiente aumentado */
+    );
+  }
+
   .footer-top {
     padding: var(--space-1) 0;
   }

@@ -27,8 +27,8 @@ export const ModelProvider = ({ children }) => {
   const [filteredModels, setFilteredModels] = useState([]);
   const [loading, setLoading] = useState(true);
   const [filters, setFilters] = useState({
-    category: 'all',
-    gender: 'all',
+    category: 'Companionships', // Valor padrão para categoria
+    gender: 'Girls',           // Valor padrão para gênero
     search: '',
     location: ''
   });
@@ -38,18 +38,18 @@ export const ModelProvider = ({ children }) => {
     const loadModelsWithRandomImages = async () => {
       try {
         setLoading(true);
-        
+
         // Importar todas as imagens dinamicamente
         const imageModules = import.meta.glob('/src/assets/img/modelo*.png');
         const imagePromises = Object.values(imageModules).map(loader => loader());
         const imageModulesResolved = await Promise.all(imagePromises);
-        
+
         // Extrair as URLs das imagens
         const imageUrls = imageModulesResolved.map(module => module.default);
-        
+
         // Embaralhar as imagens
         const shuffledImages = shuffleArray(imageUrls);
-        
+
         // Atribuir imagens aleatórias aos modelos
         const modelsWithRandomImages = modelsData.map((model, index) => ({
           ...model,
@@ -59,10 +59,10 @@ export const ModelProvider = ({ children }) => {
             ...model.gallery.slice(1) // Mantém as outras imagens da galeria
           ]
         }));
-        
+
         setModels(modelsWithRandomImages);
         setFilteredModels(modelsWithRandomImages);
-        
+
       } catch (error) {
         console.error('Erro ao carregar modelos:', error);
       } finally {

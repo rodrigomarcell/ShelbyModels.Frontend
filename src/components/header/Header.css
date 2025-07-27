@@ -5,9 +5,7 @@
   border-top: 3px solid transparent;
   border-image-source: linear-gradient(to right, var(--color-text), var(--color-primary));
   border-image-slice: 1;
-  position: sticky;
-  top: 0;
-  left: 0;
+  /* Removido position: sticky para que o header não seja fixo */
   width: 100%;
   z-index: 1000;
 }
