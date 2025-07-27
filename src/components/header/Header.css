@@ -1,7 +1,11 @@
 .header {
   background-color: var(--color-bg);
   border-bottom: 1px solid var(--color-border);
-  position: sticky; /* Mantém o header fixo no topo */
+  /* Gradiente sutil no topo para desktop */
+  border-top: 3px solid transparent;
+  border-image-source: linear-gradient(to right, var(--color-text), var(--color-primary));
+  border-image-slice: 1;
+  position: sticky;
   top: 0;
   left: 0;
   width: 100%;
@@ -253,6 +257,12 @@
 
 /* Mobile Layout - Simplificado para nova paleta */
 @media (max-width: 768px) {
+  .header {
+    /* Remove o gradiente em telas menores para um visual mais limpo */
+    border-top: none;
+    border-image: none;
+  }
+
   .header-top {
     padding: 8px 0;
   }
@@ -269,7 +279,7 @@
     font-size: 0.8rem;
   }
 
-  /* Regra de alta especificidade para os ícones de coração e usuário */
+  /* Regra unificada e corrigida para ícones */
   .header-top .header-top-content .header-actions .btn-icon,
   .header-top .header-top-content .header-actions .btn-icon svg {
     font-size: 1.3rem !important;
@@ -277,15 +287,7 @@
     opacity: 0.7;
     width: 1.3rem !important;
     height: 1.3rem !important;
-  }
-
-  /* Ícones com máxima especificidade, mirando no SVG interno */
-  .header-top .header-top-content .header-actions .btn-icon,
-  .header-top .header-top-content .header-actions .btn-icon svg {
-    font-size: 1.25rem !important;
-    color: var(--color-neutral-700);
-    width: 1.25rem !important;  /* Força a largura do SVG */
-    height: 1.25rem !important; /* Força a altura do SVG */
+    transition: all var(--transition-quick);
   }
 
   .header-top .header-top-content .header-actions .btn-icon:hover,
