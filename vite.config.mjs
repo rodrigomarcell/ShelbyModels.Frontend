@@ -3,12 +3,15 @@ import react from '@vitejs/plugin-react'
 import path from 'node:path'
 import autoprefixer from 'autoprefixer'
 
-export default defineConfig(() => {
+export default defineConfig(({ command, mode }) => {
+  // Configuração condicional baseada no ambiente
+  const isProduction = command === 'build'
+
   return {
-    // Caminho base para GitHub Pages (repositório nomeado)
-    base: '/ShelbyModels.Frontend/',
+    // Base path condicional: GitHub Pages para produção, raiz para desenvolvimento
+    base: isProduction ? '/ShelbyModels.Frontend/' : '/',
     build: {
-      outDir: 'dist', // ou 'dist' se preferir
+      outDir: 'dist',
     },
     css: {
       postcss: {
