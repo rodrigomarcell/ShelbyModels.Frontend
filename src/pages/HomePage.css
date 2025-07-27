@@ -5,9 +5,10 @@
 .section-title {
   font-size: 1.75rem;
   margin-bottom: 1.5rem;
-  color: var(--color-neutral-800);
+  color: var(--color-dark);
   position: relative;
   display: inline-block;
+  font-weight: 700; /* Título em bold */
 }
 
 .section-title::after {
@@ -15,9 +16,9 @@
   position: absolute;
   bottom: -0.5rem;
   left: 0;
-  width: 3rem;
-  height: 3px;
-  background: linear-gradient(45deg, var(--color-secondary-600), var(--color-primary-600));
+  width: 3.5rem; /* Levemente maior */
+  height: 4px;
+  background: var(--color-primary); /* Cor primária sólida */
   border-radius: 3px;
 }
 
@@ -40,7 +41,7 @@
   .section-title {
     font-size: 1.5rem;
   }
-  
+
   .show-more-btn {
     width: 100%;
   }

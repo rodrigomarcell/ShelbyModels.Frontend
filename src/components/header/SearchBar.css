@@ -17,13 +17,13 @@
 
 .location-input,
 .search-input {
-  border-radius: 4px 0 0 4px;
+  border-radius: var(--radius-sm) 0 0 var(--radius-sm);
   border-right: none;
-  border: 1px solid #ced4da;
+  border: 1px solid var(--color-border);
   padding: 0.5rem 0.75rem !important;
   font-size: 0.8rem !important;
-  background-color: white;
-  color: #495057;
+  background-color: var(--color-bg);
+  color: var(--color-text);
   height: auto;
   line-height: 1;
 }
@@ -33,15 +33,15 @@
 .search-bar .form-control.search-input {
   padding: 0.5rem 0.75rem !important;
   font-size: 0.8rem !important;
-  border-radius: 4px 0 0 4px;
+  border-radius: var(--radius-sm) 0 0 var(--radius-sm);
   line-height: 1;
 }
 
 .location-input:focus,
 .search-input:focus {
   outline: none;
-  border-color: var(--color-primary-600);
-  box-shadow: 0 0 0 2px rgba(138, 43, 226, 0.25);
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(136, 1, 8, 0.1);
 }
 
 .radius-selector {
@@ -54,11 +54,11 @@
   align-items: center;
   gap: 0.375rem;
   padding: 0.5rem 0.75rem;
-  background-color: #f8f9fa;
-  border: 1px solid #ced4da;
+  background-color: #f9f9f9;
+  border: 1px solid var(--color-border);
   border-left: none;
-  border-radius: 0 4px 4px 0;
-  color: #495057;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  color: var(--color-dark-soft);
   font-weight: 500;
   cursor: pointer;
   font-size: 0.8rem;
@@ -67,7 +67,7 @@
 }
 
 .radius-button:hover {
-  background-color: #e9ecef;
+  background-color: #f1f1f1;
 }
 
 .radius-dropdown {
@@ -75,10 +75,11 @@
   top: 100%;
   right: 0;
   background-color: white;
-  border-radius: 4px;
-  border: 1px solid #ced4da;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
   z-index: 10;
   width: 120px;
+  box-shadow: var(--shadow-md);
 }
 
 .radius-option {
@@ -89,13 +90,13 @@
   border: none;
   cursor: pointer;
   font-size: 0.8rem;
-  color: #495057;
+  color: var(--color-text);
 }
 
 .radius-option:hover,
 .radius-option.active {
-  background-color: #f8f9fa;
-  color: var(--color-primary-600);
+  background-color: #f8f8f8;
+  color: var(--color-primary);
 }
 
 .search-button {
@@ -104,11 +105,11 @@
   align-items: center;
   gap: 0.375rem;
   padding: 0.5rem 1rem;
-  background-color: var(--color-primary-600);
-  border-radius: 0 4px 4px 0;
+  background-color: var(--color-primary);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
   color: white;
   font-weight: 600;
-  border: 1px solid var(--color-primary-600);
+  border: 1px solid var(--color-primary);
   cursor: pointer;
   font-size: 0.8rem;
   transition: background-color var(--transition-quick);
@@ -116,8 +117,8 @@
 }
 
 .search-button:hover {
-  background-color: var(--color-primary-700);
-  border-color: var(--color-primary-700);
+  background-color: var(--color-primary-hover);
+  border-color: var(--color-primary-hover);
 }
 
 /* Responsive - Layout de grupo para inputs no 768px */
@@ -131,7 +132,7 @@
   .search-input-container {
     flex-direction: row; /* Inputs e botões na mesma linha */
   }
-  
+
   .location-input,
   .search-input {
     width: 100%;
@@ -144,14 +145,14 @@
     color: #495057;
     transition: all var(--transition-quick);
   }
-  
+
   .location-input:focus,
   .search-input:focus {
     outline: none;
     border-color: var(--color-primary-600);
     box-shadow: 0 0 0 2px rgba(138, 43, 226, 0.25);
   }
-  
+
   /* Sobrescrever form-control no mobile */
   .search-bar .form-control.location-input,
   .search-bar .form-control.search-input {
@@ -160,7 +161,7 @@
     border-radius: 4px 0 0 4px; /* Raio à esquerda */
     min-height: 36px;
   }
-  
+
   .radius-button {
     border-radius: 0 4px 4px 0; /* Raio à direita */
     border: 1px solid #ced4da;
@@ -174,12 +175,12 @@
     font-weight: 500;
     transition: all var(--transition-quick);
   }
-  
+
   .radius-button:hover {
     background-color: #e9ecef;
     border-color: var(--color-neutral-400);
   }
-  
+
   .search-button {
     border-radius: 0 4px 4px 0; /* Raio à direita */
     height: auto;
@@ -193,7 +194,7 @@
     font-weight: 600;
     transition: all var(--transition-quick);
   }
-  
+
   .search-button:hover {
     background-color: var(--color-primary-700);
     border-color: var(--color-primary-700);
@@ -204,14 +205,14 @@
   .search-input-group {
     gap: 0.3rem;
   }
-  
+
   .location-input,
   .search-input {
     padding: 0.625rem 0.25rem !important;
     font-size: 0.7rem !important;
     min-height: 34px;
   }
-  
+
   /* Sobrescrever form-control no mobile pequeno */
   .search-bar .form-control.location-input,
   .search-bar .form-control.search-input {
@@ -219,17 +220,17 @@
     font-size: 0.7rem !important;
     min-height: 34px;
   }
-  
+
   .radius-button {
     padding: 0.625rem 0.25rem;
     font-size: 0.7rem;
     min-height: 34px;
   }
-  
+
   .search-button span {
     display: none;
   }
-  
+
   .search-button {
     padding: 0.625rem 0.75rem;
     font-size: 0.7rem;

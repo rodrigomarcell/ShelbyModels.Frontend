@@ -1,16 +1,17 @@
 .header {
+  background-color: var(--color-bg);
+  border-bottom: 1px solid var(--color-border);
+  position: sticky; /* Mantém o header fixo no topo */
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 100;
-  background-color: #f8f9fa;
-  border-bottom: 1px solid #dee2e6;
+  z-index: 1000;
 }
 
 .header-top {
-  padding: 8px 0;
-  background-color: #ffffff;
-  border-bottom: 1px solid #dee2e6;
+  padding: 0.75rem 0; /* Ajuste no padding */
+  background-color: var(--color-bg);
+  border-bottom: 1px solid var(--color-border);
 }
 
 .header-top-content {
@@ -28,23 +29,23 @@
 .header-actions {
   display: flex;
   align-items: center;
-  gap: 1.5rem;
+  gap: 1.2rem; /* Leve ajuste no espaçamento */
 }
 
 .btn-publish {
-  background-color: #ffc107;
-  color: #212529;
-  padding: 6px 12px;
-  border-radius: 4px;
+  background: var(--color-primary);
+  color: var(--color-bg);
+  padding: 0.6rem 1.2rem;
+  border-radius: var(--radius-sm);
   font-weight: 600;
   text-decoration: none;
-  border: 1px solid #ffc107;
+  border: none;
   font-size: 0.875rem;
+  transition: background var(--transition-smooth);
 }
 
 .btn-publish:hover {
-  background-color: #e0a800;
-  border-color: #e0a800;
+  background: linear-gradient(45deg, var(--color-primary), var(--color-primary-hover));
 }
 
 .favorites-container {
@@ -54,19 +55,26 @@
 .btn-icon {
   background: none;
   border: none;
-  color: var(--color-neutral-600);
-  font-size: 1.5rem;
+  color: var(--color-dark);
+  opacity: 0.7; /* Opacidade para ícones inativos */
+  font-size: 1.4rem; /* Tamanho ajustado */
   cursor: pointer;
   padding: 0;
   display: flex;
   align-items: center;
+  transition: all var(--transition-quick);
+}
+
+.btn-icon:hover {
+  color: var(--color-primary);
+  opacity: 1;
 }
 
 .favorites-count {
   position: absolute;
-  top: -0.25rem;
-  right: -0.5rem;
-  background-color: var(--color-secondary-500);
+  top: -0.3rem;
+  right: -0.6rem;
+  background-color: var(--color-primary); /* Cor primária para destaque */
   color: white;
   border-radius: 50%;
   width: 1.25rem;
@@ -118,10 +126,10 @@
 }
 
 .header-bottom {
-  background-color: white;
-  border-top: 1px solid var(--border-color);
-  border-bottom: 1px solid var(--border-color);
-  padding: 1rem 0;
+  background-color: var(--color-bg);
+  border-top: none; /* Removido para um visual mais limpo */
+  border-bottom: 1px solid var(--color-border);
+  padding: 0.75rem 0;
 }
 
 .header-bottom > .container {
@@ -161,32 +169,44 @@
 .locate-me-btn {
   background: none;
   border: none;
-  color: var(--color-neutral-700);
+  color: var(--color-dark-soft);
   font-weight: 500;
   cursor: pointer;
   display: flex;
   align-items: center;
   gap: 0.375rem;
-  font-size: 0.8rem;
+  font-size: 0.875rem; /* Tamanho de fonte ajustado */
+  transition: color var(--transition-quick);
+}
+
+.city-list-btn:hover,
+.locate-me-btn:hover {
+  color: var(--color-primary);
 }
 
 .advanced-filters-btn {
   background: none;
   border: none;
-  color: var(--color-neutral-700);
+  color: var(--color-dark-soft);
   font-weight: 500;
   cursor: pointer;
   display: flex;
   align-items: center;
   gap: 0.375rem;
-  font-size: 0.8rem;
+  font-size: 0.875rem; /* Tamanho de fonte ajustado */
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
+  transition: color var(--transition-quick);
+}
+
+.advanced-filters-btn:hover {
+  color: var(--color-primary);
 }
 
 .locate-me-btn {
-  color: var(--color-primary-600);
+  color: var(--color-primary); /* Destaque para ação principal */
+  font-weight: 600;
 }
 
 .chevron-icon {
@@ -213,49 +233,50 @@
 .city-dropdown-item {
   display: block;
   padding: 0.5rem 0.875rem;
-  color: var(--color-neutral-800);
+  color: var(--color-dark);
   text-decoration: none;
-  font-size: 0.8rem;
+  font-size: 0.875rem;
   transition: all var(--transition-quick);
 }
 
 .city-dropdown-item:hover {
-  background-color: var(--color-neutral-100);
-  color: var(--color-primary-600);
+  background-color: transparent;
+  color: var(--color-primary);
   padding-left: 1rem;
 }
 
 .all-cities-link {
-  border-top: 1px solid var(--border-color);
-  color: var(--color-primary-600);
-  font-weight: 500;
+  border-top: 1px solid var(--color-border);
+  color: var(--color-primary);
+  font-weight: 600;
 }
 
-/* Mobile Layout - Header Actions Otimizado com Máxima Especificidade */
+/* Mobile Layout - Simplificado para nova paleta */
 @media (max-width: 768px) {
   .header-top {
     padding: 8px 0;
   }
-  
+
   /* Aumentando a especificidade para garantir a sobreposição */
   .header-top .header-top-content .header-actions {
     gap: 0.75rem; /* Espaçamento ajustado entre os ícones */
     align-items: center;
   }
-  
+
   .header-top .header-top-content .header-actions .btn-publish {
     display: inline-flex;
-    padding: 5px 8px;
-    font-size: 0.7rem;
-    font-weight: 600;
-    line-height: 1;
-    white-space: nowrap;
+    padding: 0.5rem 0.8rem;
+    font-size: 0.8rem;
   }
-  
+
   /* Regra de alta especificidade para os ícones de coração e usuário */
-  .header-top .header-top-content .header-actions .btn-icon {
-    font-size: 1.25rem !important; /* Tamanho final dos ícones */
-    color: var(--color-neutral-700);
+  .header-top .header-top-content .header-actions .btn-icon,
+  .header-top .header-top-content .header-actions .btn-icon svg {
+    font-size: 1.3rem !important;
+    color: var(--color-dark) !important;
+    opacity: 0.7;
+    width: 1.3rem !important;
+    height: 1.3rem !important;
   }
 
   /* Ícones com máxima especificidade, mirando no SVG interno */
@@ -265,6 +286,12 @@
     color: var(--color-neutral-700);
     width: 1.25rem !important;  /* Força a largura do SVG */
     height: 1.25rem !important; /* Força a altura do SVG */
+  }
+
+  .header-top .header-top-content .header-actions .btn-icon:hover,
+  .header-top .header-top-content .header-actions .btn-icon:hover svg {
+    color: var(--color-primary) !important;
+    opacity: 1;
   }
 
   .header-bottom {
@@ -306,18 +333,18 @@
   .locate-me-btn {
     /* Mantém background transparente como no desktop */
     background: none;
-    border: 1px solid var(--color-neutral-300);
-    color: var(--color-neutral-700);
+    border: 1px solid var(--color-border);
+    color: var(--color-dark-soft);
     font-weight: 500;
     cursor: pointer;
     display: flex;
     align-items: center;
     gap: 0.3rem;
-    
+
     /* Tamanhos reduzidos */
-    padding: 0.625rem 0.3rem;
-    border-radius: var(--radius-md);
-    font-size: 0.7rem;
+    padding: 0.75rem 0.5rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.8rem;
     text-align: center;
     justify-content: center;
     min-height: 32px;
@@ -326,110 +353,60 @@
 
   .city-list-btn:hover,
   .locate-me-btn:hover {
-    background-color: var(--color-neutral-100);
-    border-color: var(--color-neutral-400);
+    background-color: transparent;
+    border-color: var(--color-primary);
+    color: var(--color-primary);
   }
 
   .locate-me-btn {
-    color: var(--color-primary-600);
-    border-color: var(--color-primary-300);
+    color: var(--color-primary);
+    border-color: var(--color-primary);
   }
 
   .locate-me-btn:hover {
-    background-color: var(--color-primary-50);
-    border-color: var(--color-primary-400);
+    background-color: var(--color-primary-hover);
+    border-color: var(--color-primary-hover);
+    color: var(--color-bg);
   }
 
   .advanced-filters-btn {
     position: static;
     transform: none;
     width: 100%;
-    
+
     /* Mantém background transparente */
     background: none;
-    border: 1px solid var(--color-neutral-300);
-    color: var(--color-neutral-700);
+    border: 1px solid var(--color-border);
+    color: var(--color-dark-soft);
     font-weight: 500;
     cursor: pointer;
     display: flex;
     align-items: center;
     gap: 0.3rem;
-    
+
     /* Tamanhos reduzidos */
     justify-content: center;
-    padding: 0.625rem;
-    border-radius: var(--radius-md);
+    padding: 0.75rem;
+    border-radius: var(--radius-sm);
     margin-top: 0.2rem;
-    font-size: 0.7rem;
+    font-size: 0.8rem;
     min-height: 32px;
     transition: all var(--transition-quick);
   }
 
   .advanced-filters-btn:hover {
-    background-color: var(--color-neutral-100);
-    border-color: var(--color-neutral-400);
+    background-color: transparent;
+    border-color: var(--color-primary);
+    color: var(--color-primary);
   }
 
   /* Ocultar o botão de publicar aqui não é mais necessário, a regra foi movida para cima */
 }
 
-/* Very small screens - mantém consistência */
+/* Remoção de regras desnecessárias de telas menores para simplificar */
 @media (max-width: 480px) {
-  .header-bottom {
-    padding: 0.75rem 0;
-  }
-
-  .filter-section {
-    gap: 0.875rem;
-  }
-
   .advanced-search-group {
     grid-template-columns: 1fr;
-    gap: 0.3rem;
-  }
-
-  .city-list-btn,
-  .locate-me-btn {
-    width: 100%;
-    padding: 0.625rem 0.25rem;
-    font-size: 0.7rem;
-    min-height: 34px;
-    
-    /* Mantém cores consistentes */
-    background: none;
-    border: 1px solid var(--color-neutral-300);
-    color: var(--color-neutral-700);
-  }
-
-  .city-list-btn:hover,
-  .locate-me-btn:hover {
-    background-color: var(--color-neutral-100);
-    border-color: var(--color-neutral-400);
-  }
-
-  .locate-me-btn {
-    color: var(--color-primary-600);
-    border-color: var(--color-primary-300);
-  }
-
-  .locate-me-btn:hover {
-    background-color: var(--color-primary-50);
-    border-color: var(--color-primary-400);
-  }
-
-  .advanced-filters-btn {
-    padding: 0.625rem;
-    font-size: 0.7rem;
-    min-height: 34px;
-    
-    /* Mantém cores consistentes */
-    background: none;
-    border: 1px solid var(--color-neutral-300);
-    color: var(--color-neutral-700);
-  }
-
-  .advanced-filters-btn:hover {
-    background-color: var(--color-neutral-100);
-    border-color: var(--color-neutral-400);
+    gap: 0.5rem;
   }
 }

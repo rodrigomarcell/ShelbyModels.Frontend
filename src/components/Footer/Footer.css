@@ -1,13 +1,28 @@
 .footer {
-  background-color: var(--color-neutral-800);
-  color: var(--color-neutral-200);
-  padding: 0;
-  border-top: 1px solid var(--color-neutral-700);
+  background-color: var(--color-text); /* Preto profundo */
+  color: #aaaaaa; /* Cinza claro para texto */
+  padding: var(--space-4) 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .footer .container {
+  padding: 0 var(--space-4);
+  color: inherit;
+}
+
+/* Seções unificadas com um único fundo */
+.footer-top,
+.footer-middle,
+.footer-bottom {
+  background-color: transparent;
+  text-align: center;
   padding: 0;
-  color: red;
+  border-bottom: none;
+  margin-bottom: var(--space-4);
+}
+
+.footer-bottom {
+  margin-bottom: 0;
 }
 
 /* Top section with cities - darker background */
@@ -28,73 +43,64 @@
 
 .cities-label {
   font-weight: 600;
-  color: var(--color-neutral-100);
-  margin-right: var(--space-1);
-  font-size: 0.8rem; /* Reduzido de 0.9rem */
+  color: #ffffff;
+  margin-right: var(--space-2);
+  font-size: 0.9rem;
 }
 
 .cities-links {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--space-1);
+  gap: var(--space-2);
 }
 
 .city-link {
-  color: white;
+  color: #aaaaaa;
   text-decoration: none;
-  font-size: 0.75rem; /* Reduzido de 0.875rem */
-  padding: 0.25rem 0.5rem;
-  border-radius: var(--radius-sm);
+  font-size: 0.875rem;
   transition: all var(--transition-quick);
   white-space: nowrap;
 }
 
 .city-link:hover {
-  color: var(--color-primary-200);
-  background-color: var(--color-neutral-700);
-  text-decoration: underline;
+  color: var(--color-primary);
+  text-decoration: none;
+  background-color: transparent;
 }
 
-/* Middle section with brand and disclaimer */
+/* Seção do meio com marca e aviso */
 .footer-middle {
-  background-color: var(--color-neutral-800); /* Background normal */
-  text-align: center;
-  padding: var(--space-1) 0;
-  border-bottom: 1px solid var(--color-neutral-700);
+  padding: var(--space-3) 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .site-name {
-  margin-bottom: var(--space-1);
+  margin-bottom: var(--space-2);
 }
 
 .footer-brand {
-  font-size: 1.25rem; /* Reduzido de 1.5rem */
+  font-size: 1.5rem;
   font-weight: 700;
-  color: white;
+  color: #ffffff;
   margin: 0;
   letter-spacing: 0.5px;
 }
 
-.footer-disclaimer-text {
-  max-width: 800px;
-  margin: 0 auto;
-}
-
 .footer-disclaimer-text p {
-  color: var(--color-neutral-300);
-  font-size: 0.75rem; /* Reduzido de 0.85rem */
-  line-height: 1.3; /* Reduzido de 1.4 para todos os tamanhos */
+  color: #aaaaaa;
+  font-size: 0.85rem;
+  line-height: 1.5;
   margin: 0;
 }
 
-/* Bottom section with legal links and copyright */
+/* Seção inferior com links legais e copyright */
 .footer-bottom {
-  background-color: var(--color-neutral-800); /* Background normal */
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--space-1);
-  padding: var(--space-1) 0;
+  gap: var(--space-2);
+  padding-top: var(--space-3);
 }
 
 .legal-links {
@@ -102,32 +108,25 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: var(--space-3);
-  color: white;
 }
 
 .legal-link {
-  color: white;
+  color: #aaaaaa;
   text-decoration: none;
-  font-size: 0.75rem; /* Reduzido de 0.875rem */
+  font-size: 0.875rem;
   font-weight: 500;
   transition: all var(--transition-quick);
-  padding: 0.25rem 0.5rem;
-  border-radius: var(--radius-sm);
 }
 
 .legal-link:hover {
-  color: var(--color-primary-200);
-  background-color: var(--color-neutral-700);
-  text-decoration: underline;
-}
-
-.footer-copyright {
-  text-align: center;
+  color: var(--color-primary);
+  text-decoration: none;
+  background-color: transparent;
 }
 
 .footer-copyright p {
-  color: var(--color-neutral-400);
-  font-size: 0.7rem; /* Reduzido de 0.8rem */
+  color: #777777; /* Cinza um pouco mais escuro para o copyright */
+  font-size: 0.8rem;
   margin: 0;
 }
 
@@ -136,54 +135,54 @@
   .footer-top {
     padding: var(--space-1) 0;
   }
-  
+
   .footer-middle {
     padding: var(--space-1) 0;
   }
-  
+
   .footer-bottom {
     padding: var(--space-1) 0;
     gap: var(--space-1);
   }
-  
+
   .footer-cities {
     flex-direction: column;
     gap: var(--space-1);
   }
-  
+
   .cities-label {
     margin-right: 0;
     margin-bottom: var(--space-1);
   }
-  
+
   .cities-links {
     justify-content: center;
     gap: 0.5rem;
   }
-  
+
   .city-link {
     font-size: 0.7rem; /* Reduzido de 0.8rem */
     padding: 0.2rem 0.4rem;
   }
-  
+
   .footer-brand {
     font-size: 1.1rem; /* Reduzido de 1.25rem */
   }
-  
+
   .footer-disclaimer-text p {
     font-size: 0.7rem; /* Reduzido de 0.8rem */
     line-height: 1.3; /* Mantido consistente */
   }
-  
+
   .legal-links {
     gap: var(--space-1);
   }
-  
+
   .legal-link {
     font-size: 0.7rem; /* Reduzido de 0.8rem */
     padding: 0.2rem 0.4rem;
   }
-  
+
   .site-name {
     margin-bottom: var(--space-1);
   }
@@ -193,49 +192,49 @@
   .footer-top {
     padding: var(--space-1) 0;
   }
-  
+
   .footer-middle {
     padding: var(--space-1) 0;
   }
-  
+
   .footer-bottom {
     padding: var(--space-1) 0;
     gap: var(--space-1);
   }
-  
+
   .cities-links {
     gap: 0.25rem;
   }
-  
+
   .city-link {
     font-size: 0.65rem; /* Reduzido de 0.75rem */
     padding: 0.15rem 0.3rem;
   }
-  
+
   .footer-brand {
     font-size: 1rem; /* Reduzido de 1.125rem */
   }
-  
+
   .footer-disclaimer-text p {
     font-size: 0.65rem; /* Reduzido de 0.75rem */
     line-height: 1.2; /* Reduzido ainda mais para mobile */
   }
-  
+
   .legal-links {
     flex-direction: row; /* Mudado de column para row */
     flex-wrap: wrap;
     justify-content: center;
     gap: var(--space-1);
   }
-  
+
   .legal-link {
     font-size: 0.65rem; /* Reduzido de 0.75rem */
   }
-  
+
   .footer-copyright p {
     font-size: 0.65rem; /* Reduzido de 0.75rem */
   }
-  
+
   .site-name {
     margin-bottom: var(--space-1);
   }

@@ -1,9 +1,10 @@
 .model-card {
   position: relative;
   border-radius: var(--radius-lg);
-  background-color: white;
+  background-color: var(--color-bg);
   overflow: hidden;
-  box-shadow: var(--shadow-md);
+  border: 1px solid var(--color-border);
+  box-shadow: none; /* Remover sombra padrão */
   transition: all var(--transition-smooth);
   height: 100%;
   cursor: pointer;
@@ -13,21 +14,22 @@
 
 .model-card:hover {
   transform: translateY(-5px);
-  box-shadow: var(--shadow-lg);
+  border-color: rgba(136, 1, 8, 0.3); /* Borda sutil vermelha no hover */
+  box-shadow: 0 8px 20px rgba(136, 1, 8, 0.1); /* Sombra leve avermelhada */
 }
 
-/* Featured Card - destaque amarelo/dourado */
+/* Destaque premium com a nova paleta */
 .model-card.featured {
-  border: 2px solid var(--color-accent-500);
-  box-shadow: 0 4px 20px rgba(255, 193, 39, 0.25);
+  border: 2px solid var(--color-primary);
+  box-shadow: 0 4px 20px rgba(136, 1, 8, 0.15);
 }
 
 .model-card.featured:hover {
-  box-shadow: 0 8px 30px rgba(255, 193, 39, 0.35);
+  box-shadow: 0 8px 30px rgba(136, 1, 8, 0.25);
 }
 
 .model-card.featured .model-card-content {
-  background: linear-gradient(135deg, #FFF8E1 0%, #FFECB3 100%);
+  background: linear-gradient(135deg, #ffffff 0%, #fff8f8 100%); /* Gradiente muito sutil */
 }
 
 /* Image Container */
@@ -149,10 +151,10 @@
 }
 
 .view-profile-btn {
-  background-color: var(--color-primary-600);
+  background-color: var(--color-primary);
   color: white;
   padding: 8px 16px;
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-sm);
   font-weight: 600;
   font-size: 0.8rem;
   transition: all var(--transition-smooth);
@@ -162,7 +164,7 @@
 }
 
 .view-profile-btn:hover {
-  background-color: var(--color-primary-700);
+  background-color: var(--color-primary-hover);
   transform: translateY(-2px);
 }
 
@@ -190,7 +192,7 @@
   font-size: 1rem;
   font-weight: 600;
   margin: 0 0 3px 0;
-  color: var(--color-neutral-800);
+  color: var(--color-dark);
 }
 
 .online-status {
@@ -203,11 +205,11 @@
 }
 
 .online-status.online {
-  color: #4CAF50;
+  color: #10B981; /* Mantido verde para status online */
 }
 
 .online-status.offline {
-  color: #FF9800;
+  color: #F59E0B; /* Mantido laranja/amarelo para offline */
 }
 
 .status-dot {
@@ -217,14 +219,14 @@
 .verified-badge {
   display: flex;
   align-items: center;
-  gap: 3px;
-  font-size: 0.675rem;
-  color: #4CAF50;
+  gap: 4px;
+  font-size: 0.7rem;
+  color: #059669;
   font-weight: 600;
-  background-color: var(--color-neutral-100);
-  padding: 3px 6px;
+  background-color: #F0FDF4; /* Fundo mais suave */
+  padding: 3px 7px;
   border-radius: var(--radius-sm);
-  border: 1px solid #E8F5E8;
+  border: 1px solid #A7F3D0; /* Borda mais suave */
 }
 
 .model-info {
@@ -271,7 +273,7 @@
 
 .rating-value {
   font-weight: 600;
-  color: var(--color-neutral-700);
+  color: var(--color-dark);
 }
 
 .review-count {
@@ -282,7 +284,7 @@
 .price {
   font-size: 1rem;
   font-weight: 700;
-  color: var(--color-primary-600);
+  color: var(--color-primary);
 }
 
 /* Responsive */
@@ -290,19 +292,19 @@
   .model-card {
     max-width: 100%;
   }
-  
+
   .model-card-content {
     padding: 10px;
   }
-  
+
   .model-name {
     font-size: 0.9rem;
   }
-  
+
   .model-info {
     font-size: 0.75rem;
   }
-  
+
   .price {
     font-size: 0.9rem;
   }
@@ -310,12 +312,12 @@
 
 /* Destaque Premium */
 .card-destaque {
-  border: 3px solid #f4b400 !important;
-  box-shadow: 0 6px 25px rgba(244, 180, 0, 0.3) !important;
+  border: 2px solid var(--color-primary) !important;
+  box-shadow: 0 6px 25px rgba(136, 1, 8, 0.2) !important;
 }
 
 .card-destaque:hover {
-  box-shadow: 0 10px 35px rgba(244, 180, 0, 0.4) !important;
+  box-shadow: 0 10px 35px rgba(136, 1, 8, 0.3) !important;
 }
 
 .card-normal {
@@ -394,13 +396,13 @@
 
 .btn-favorito:hover {
   background-color: white;
-  color: var(--color-secondary-600);
+  color: var(--color-primary);
   transform: scale(1.15);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 15px rgba(136, 1, 8, 0.1);
 }
 
 .btn-favorito.active {
-  color: var(--color-secondary-600);
+  color: var(--color-primary);
   background-color: white;
   transform: scale(1.1);
 }
@@ -419,7 +421,7 @@
 .modelo-nome {
   font-size: 1.125rem;
   font-weight: 700;
-  color: var(--color-neutral-800);
+  color: var(--color-dark);
   margin: 0;
   line-height: 1.2;
 }
@@ -427,7 +429,7 @@
 /* Idade e cidade */
 .idade-cidade {
   font-size: 0.875rem;
-  color: var(--color-neutral-500);
+  color: var(--color-dark-soft);
   font-weight: 500;
 }
 
@@ -436,12 +438,12 @@
   display: inline-flex;
   align-items: center;
   font-size: 0.75rem;
-  color: #059669;
+  color: #059669; /* Mantido verde por acessibilidade e padrão */
   font-weight: 600;
-  background-color: #ECFDF5;
+  background-color: #F0FDF4;
   padding: 4px 8px;
   border-radius: var(--radius-sm);
-  border: 1px solid #A7F3D0;
+  border: 1px solid #A7F3D0; /* Borda suave */
   width: fit-content;
 }
 
@@ -452,17 +454,18 @@
 }
 
 .info-status.online {
-  color: #10B981;
+  color: #10B981; /* Verde para online */
 }
 
 .info-status.offline {
-  color: #F59E0B;
+  color: #737373; /* Cinza para offline */
 }
 
 /* Descrição curta com truncamento */
 .descricao-curta {
   font-size: 0.875rem;
-  color: var(--color-neutral-600);
+  color: var(--color-text);
+  opacity: 0.8;
   font-style: italic;
   line-height: 1.4;
   overflow: hidden;
@@ -481,7 +484,7 @@
   align-items: center;
   margin-top: 4px;
   padding-top: 8px;
-  border-top: 1px solid var(--color-neutral-200);
+  border-top: 1px solid var(--color-border);
 }
 
 .info-avaliacao {
@@ -498,30 +501,30 @@
 
 .info-avaliacao .rating-value {
   font-weight: 600;
-  color: var(--color-neutral-700);
+  color: var(--color-dark);
 }
 
 .info-avaliacao .review-count {
-  color: var(--color-neutral-500);
+  color: var(--color-dark-soft);
   font-size: 0.75rem;
 }
 
 .info-preco {
   font-size: 1.125rem;
   font-weight: 700;
-  color: var(--color-primary-600);
+  color: var(--color-primary);
   text-align: right;
 }
 
 /* Ajustes para card com destaque */
 .card-destaque .card-conteudo {
-  background: linear-gradient(135deg, #FFFBEB 0%, #FEF3C7 100%);
+  background: linear-gradient(135deg, #ffffff 0%, #fff5f5 100%);
 }
 
 .card-destaque .modelo-nome {
-  color: #92400E;
+  color: var(--color-primary);
 }
 
 .card-destaque .info-preco {
-  color: #D97706;
+  color: var(--color-primary-hover);
 }
