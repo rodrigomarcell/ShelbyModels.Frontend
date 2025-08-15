@@ -127,12 +127,7 @@
   display: none; /* Completely hidden - no longer needed */
 }
 
-.header-bottom {
-  background-color: var(--color-bg);
-  border-top: none; /* Removido para um visual mais limpo */
-  border-bottom: 1px solid var(--color-border);
-  padding: 0.75rem 0;
-}
+.header-bottom { display:none; }
 
 .header-bottom > .container {
   display: flex;

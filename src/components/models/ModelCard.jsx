@@ -1,12 +1,12 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { FaPlay, FaHeart, FaCheck, FaStar, FaCircle } from 'react-icons/fa'
+import { FaHeart, FaStar } from 'react-icons/fa'
 import { useTranslation } from 'react-i18next'
 import './ModelCard.css'
 
-function ModelCard({ 
-  model, 
-  isFavorite, 
+function ModelCard({
+  model,
+  isFavorite,
   onToggleFavorite,
   // Novas props
   nome,
@@ -25,7 +25,7 @@ function ModelCard({
 }) {
   const { t } = useTranslation()
   const [isHovered, setIsHovered] = useState(false)
-  
+
   // Se as novas props não forem fornecidas, use os dados do model existente
   const modelData = {
     name: nome || model?.name,
@@ -43,7 +43,7 @@ function ModelCard({
     currency: model?.currency || 'USD',
     badges: badges || []
   }
-  
+
   const formatPrice = (price, currency) => {
     if (currency === 'BRL') {
       return `R$ ${price}`
@@ -62,7 +62,7 @@ function ModelCard({
         color: 'online'
       }
     }
-    
+
     return {
       text: modelData.lastSeen || 'Visto por último há muito tempo',
       color: 'offline'
@@ -70,97 +70,49 @@ function ModelCard({
   }
 
   const onlineStatus = getOnlineStatus()
-  
+
   return (
-    <div 
-      className={`model-card ${modelData.featured ? 'card-destaque' : 'card-normal'}`}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
+    <div className={`model-card ${modelData.featured ? 'card-destaque' : 'card-normal'}`}>
       <div className="model-card-image-container">
-        {/* Imagem como background */}
-        <div 
-          className="modelo-imagem" 
-          style={{ backgroundImage: `url(${modelData.image})` }}
-        />
-        
-        {/* Badges dinâmicos no canto superior esquerdo */}
-        {modelData.badges && modelData.badges.length > 0 && (
+        <div className="modelo-imagem" style={{ backgroundImage: `url(${modelData.image})` }} />
+        {(model?.hasVideo ?? model?.hasRecorded ?? false) && (
           <div className="badges-container">
-            {modelData.badges.map((badge, index) => (
-              <span key={index} className={`badge ${getBadgeClass(badge)}`}>
-                {badge}
-              </span>
-            ))}
+            <span className="badge badge-video">{`▶ ${t('card.video')}`}</span>
           </div>
         )}
-        
-        {/* Botão de favoritar melhorado */}
-        <button 
+        <button
           className={`btn-favorito ${isFavorite ? 'active' : ''}`}
           onClick={(e) => {
             e.preventDefault()
-            if (onToggleFavorite && model?.id) {
-              onToggleFavorite(model.id)
-            }
+            if (onToggleFavorite && model?.id) onToggleFavorite(model.id)
           }}
           aria-label={isFavorite ? 'Remover dos favoritos' : 'Adicionar aos favoritos'}
         >
           <FaHeart />
         </button>
-        
-        {/* Hover overlay */}
-        <div className={`model-card-overlay ${isHovered ? 'visible' : ''}`}>
-          {/* TODO: Futuramente, adicionar botão de play aqui quando o perfil da modelo tiver vídeo disponível */}
-          {model?.id && (
-            <Link to={`/model/${model.id}`} className="view-profile-btn">
-              Ver Perfil
-            </Link>
-          )}
-        </div>
       </div>
-      
-      {/* Corpo do card reorganizado */}
+
       <div className="card-conteudo">
-        {/* Nome */}
-        <div className="modelo-nome">
-          {modelData.name}
-        </div>
-        
-        {/* Idade e cidade juntos */}
-        <div className="idade-cidade">
-          {modelData.age} anos · {modelData.location}
-        </div>
-        
-        {/* Verificado */}
-        {modelData.verified && (
-          <div className="verificado-badge">
-            ✅ Verificada
-          </div>
-        )}
-        
-        {/* Status online */}
-        <div className={`info-status ${onlineStatus.color}`}>
-          {onlineStatus.color === 'online' ? '● ' : ''}{onlineStatus.text}
-        </div>
-        
-        {/* Descrição curta */}
+        {/* Descrição curta em 2 linhas, sem nome */}
         {modelData.description && (
-          <div className="descricao-curta">
+          <div className="descricao-curta two-lines">
             {modelData.description}
           </div>
         )}
-        
-        {/* Avaliação e preço */}
-        <div className="avaliacao-preco">
-          <div className="info-avaliacao">
-            <FaStar className="star-icon" />
-            <span className="rating-value">{formatRating(modelData.rating)}</span>
-            <span className="review-count">({modelData.reviewCount || 0})</span>
-          </div>
-          <div className="info-preco">
-            {formatPrice(modelData.price, modelData.currency)}
-          </div>
+        {/* Metadados: cidade | idade | preço/h */}
+        <div className="idade-cidade">
+          {modelData.location} | {modelData.age} | R$ {modelData.price}/h
+        </div>
+        {/* Rodapé: badge verificada/não verificada + ver perfil */}
+        <div className="card-footer-row">
+          <span className={`verify-badge ${modelData.verified ? 'is-verified' : 'not-verified'}`}>
+            {modelData.verified ? t('card.verified') : t('card.notVerified')}
+          </span>
+          {model?.id && (
+            <Link to={`/model/${model.id}`} className="view-profile-btn">
+              {t('card.view')}
+            </Link>
+          )}
         </div>
       </div>
     </div>

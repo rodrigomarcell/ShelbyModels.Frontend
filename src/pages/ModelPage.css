@@ -138,10 +138,7 @@
   line-height: 1.6;
 }
 
-.model-social-links {
-  display: flex;
-  gap: 1rem;
-}
+.model-social-links { display: none; }
 
 .social-link {
   width: 2.5rem;

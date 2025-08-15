@@ -27,8 +27,8 @@ export const ModelProvider = ({ children }) => {
   const [filteredModels, setFilteredModels] = useState([]);
   const [loading, setLoading] = useState(true);
   const [filters, setFilters] = useState({
-    category: 'Companionships', // Valor padrão para categoria
-    gender: 'Girls',           // Valor padrão para gênero
+    category: 'all',
+    gender: 'all',
     search: '',
     location: ''
   });
