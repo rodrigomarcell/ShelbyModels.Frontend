@@ -1,11 +1,15 @@
 import { useEffect, useState } from 'react';
 import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { useTranslation, Trans } from 'react-i18next';
-import Header from './components/Header/Header';
+import Header from './components/header/Header';
 import FiltersBar from './components/filters/FiltersBar';
 import HomePage from './pages/HomePage';
 import ModelPage from './pages/ModelPage';
 import AgeGate from './pages/AgeGate';
+import AgeGuard from './components/AgeGuard';
+import Wizard from './pages/Dashboard/Wizard';
+import LoginPage from './pages/LoginPage';
+import SignupPage from './pages/SignupPage';
 import { FavoritesService } from './services/FavoritesService';
 import Footer from './components/Footer/Footer';
 import { ModelProvider } from './context/ModelContext';
@@ -49,17 +53,19 @@ function App() {
         <main className="main-content">
           <Routes>
             <Route path="/age" element={<AgeGate />} />
-            {!ageConfirmed && location.pathname !== '/age' && (
-              <Route path="*" element={<Navigate to="/age" replace />} />
-            )}
-            <Route
-              path="/"
-              element={<HomePage
-                favorites={favorites}
-                toggleFavorite={toggleFavorite}
-              />}
-            />
-            <Route path="/model/:id" element={<ModelPage />} />
+            <Route element={<AgeGuard />}>
+              <Route
+                path="/"
+                element={<HomePage
+                  favorites={favorites}
+                  toggleFavorite={toggleFavorite}
+                />}
+              />
+              <Route path="/model/:id" element={<ModelPage />} />
+              <Route path="/dashboard" element={<Wizard />} />
+              <Route path="/login" element={<LoginPage />} />
+              <Route path="/signup" element={<SignupPage />} />
+            </Route>
           </Routes>
         </main>
         <Footer />

@@ -25,7 +25,7 @@ function Header({ favoritesCount = 0 }) {
 
             <div className="header-actions">
               <LanguageSwitcher />
-              <Link to="/signup" className="btn btn-publish">
+              <Link to={(localStorage.getItem('auth.logged')==='1' ? '/dashboard' : '/signup')} className="btn btn-publish">
                 {t('header.publish')}
               </Link>
               <div className="favorites-container">

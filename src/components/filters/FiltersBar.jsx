@@ -3,6 +3,7 @@ import { useLocation, useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import CityAutocomplete from './CityAutocomplete'
 import AdvancedFiltersModal from './AdvancedFiltersModal'
+import { GeoService } from '../../services/GeoService'
 import './Filters.css'
 
 function useQueryParams(){
@@ -20,16 +21,9 @@ export default function FiltersBar(){
   const [gender, setGender] = useState('')
   const [modalOpen, setModalOpen] = useState(false)
 
-  // load from query and LS
+  // load from query -> LS -> default
   useEffect(() => {
-    const cityId = query.get('cityId')
-    const cityName = query.get('cityName')
-    const lastCityRaw = localStorage.getItem('lastCity')
-    let initialCity = null
-    if (cityId && cityName) initialCity = { id: cityId, name: cityName }
-    else if (lastCityRaw) {
-      try { initialCity = JSON.parse(lastCityRaw) } catch(_) {}
-    }
+    const initialCity = GeoService.resolveEffectiveCity()
     setCity(initialCity)
     setQ(query.get('q') || '')
     setGender(query.get('gender') || '')
@@ -49,13 +43,13 @@ export default function FiltersBar(){
 
   const confirmCity = (c) => {
     setCity(c)
-    if (c) localStorage.setItem('lastCity', JSON.stringify(c))
+    if (c) GeoService.persistLastCity(c)
     writeQuery({ city: c, q, gender, page: 1 })
   }
 
   const onChangeCity = (c) => {
     setCity(c)
-    if (!c) writeQuery({ city: null, q, gender, page: 1 })
+    if (!c) writeQuery({ city: GeoService.getDefaultCity(), q, gender, page: 1 })
   }
 
   const onChangeSearch = (val) => {

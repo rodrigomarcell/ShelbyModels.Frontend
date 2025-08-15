@@ -3,7 +3,8 @@ import { useEffect } from 'react'
 export default function AgeGate(){
   const accept = () => {
     localStorage.setItem('ageConfirmed','1')
-    window.location.hash = '#/'
+    const next = sessionStorage.getItem('age.next') || '#/'
+    window.location.hash = next
   }
   useEffect(()=>{
     if(localStorage.getItem('ageConfirmed')==='1')

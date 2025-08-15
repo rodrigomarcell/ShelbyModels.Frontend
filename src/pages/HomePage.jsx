@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useLocation } from 'react-router-dom'
+import { GeoService } from '../services/GeoService'
 import { useModels } from '../context/ModelContext'
 import ModelGrid from '../components/Models/ModelGrid'
 import './HomePage.css'
@@ -13,13 +14,13 @@ function HomePage({ favorites, toggleFavorite }) {
   const [city, setCity] = useState(null)
   const [q, setQ] = useState('')
   const [gender, setGender] = useState('')
-  const unknownCity = !city && !localStorage.getItem('lastCity')
+  const unknownCity = false // fallback global: sempre exibir com cidade default se não houver
 
   useEffect(() => {
     const params = new URLSearchParams(search)
-    const cityId = params.get('cityId')
-    const cityName = params.get('cityName')
-    setCity(cityId && cityName ? { id: cityId, name: cityName } : null)
+    const qp = GeoService.readCityFromQuery()
+    const lc = GeoService.readLastCity()
+    setCity(qp || lc || GeoService.getDefaultCity())
     setQ(params.get('q') || '')
     setGender(params.get('gender') || '')
   }, [search])
@@ -30,6 +31,7 @@ function HomePage({ favorites, toggleFavorite }) {
 
   const filtered = useMemo(() => {
     let data = [...models]
+    // filtro por cidade real (não projetar cidade)
     if (city?.name) {
       const cityLower = city.name.toLowerCase()
       data = data.filter(m => (m.location||'').toLowerCase().includes(cityLower))
@@ -50,20 +52,20 @@ function HomePage({ favorites, toggleFavorite }) {
     return data
   }, [models, city?.id, q, gender])
 
-  const visibleModels = (unknownCity ? [] : filtered.slice(0, visibleCount))
-  const hasMoreModels = !unknownCity && (visibleCount < filtered.length)
+  const visibleModels = filtered.slice(0, visibleCount)
+  const hasMoreModels = (visibleCount < filtered.length)
 
   return (
     <div className="home-page container">
       <section className="models-section">
-        {!city && !localStorage.getItem('lastCity') ? (
+        {!GeoService.readLastCity() ? (
           <div className="card" style={{padding:16,marginBottom:16}}>
             <div style={{marginBottom:8,fontWeight:600}}>{t('home.selectCity')}</div>
             <div style={{display:'flex',flexWrap:'wrap',gap:8}}>
               {['São Paulo','Rio de Janeiro','Belo Horizonte','Curitiba','Porto Alegre','Brasília','Goiânia','Salvador','Fortaleza','Recife','Cuiabá'].map(name => (
                 <button key={name} className="chip" onClick={() => {
                   const c = { id: name.toLowerCase().replace(/\s+/g,'-'), name }
-                  localStorage.setItem('lastCity', JSON.stringify(c))
+                  GeoService.persistLastCity(c)
                   const params = new URLSearchParams(window.location.search)
                   params.set('cityId', c.id)
                   params.set('cityName', c.name)
@@ -76,13 +78,11 @@ function HomePage({ favorites, toggleFavorite }) {
         ) : null}
         <h2 className="section-title">{t('homePage.featuredModels')}</h2>
 
-        {!unknownCity && (
-          <ModelGrid
-            models={visibleModels}
-            favorites={favorites}
-            onToggleFavorite={toggleFavorite}
-          />
-        )}
+        <ModelGrid
+          models={visibleModels}
+          favorites={favorites}
+          onToggleFavorite={toggleFavorite}
+        />
 
         {hasMoreModels && (
           <div className="show-more-container">
