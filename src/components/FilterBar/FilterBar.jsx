@@ -58,7 +58,7 @@ function FilterBar() {
         </div>
 
         {/* Gênero */}
-        <div className="filters-item">
+        <div className="gender-filters">
           <div className="gender-row">
             {genderOptions.map(option => (
               <button
@@ -74,7 +74,7 @@ function FilterBar() {
         </div>
 
         {/* Avançados */}
-        <div className="filters-item">
+        <div className="advanced-filters">
           <button
             type="button"
             className="btn btn-outline"

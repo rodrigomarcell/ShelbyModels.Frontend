@@ -14,7 +14,9 @@
   padding: 10px;
 }
 
-.filters-item {
+/* Componentes específicos dos filtros */
+.gender-filters,
+.advanced-filters {
   display: flex;
   flex-direction: column;
   gap: 6px;
@@ -25,6 +27,7 @@
   color: var(--color-dark-soft);
 }
 
+/* Container dos botões de gênero */
 .gender-row {
   display: flex;
   flex-wrap: wrap;
@@ -73,11 +76,13 @@
 }
 
 .capsule-city {
-  min-width: 180px;
+  min-width: 220px;
+  max-width: 220px;
 }
 
 .capsule-search {
   flex: 1;
+  position: relative;
 }
 
 .capsule-divider {
