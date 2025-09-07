@@ -76,17 +76,19 @@
 }
 
 .capsule-city {
-  min-width: 220px;
-  max-width: 220px;
+  flex: 0 0 30%;
+  min-width: 0;
 }
 
 .capsule-search {
-  flex: 1;
+  flex: 0 0 70%;
   position: relative;
 }
 
 .capsule-divider {
   width: 1px;
+  min-width: 1px;
+  flex-shrink: 0;
   background: var(--color-border);
   height: 100%;
 }
@@ -193,8 +195,8 @@
   }
 
   .capsule-city {
-    min-width: 140px;
-    max-width: 140px;
+    flex: 0 0 30%;
+    min-width: 0;
   }
 
   .search-button {
