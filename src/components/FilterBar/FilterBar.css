@@ -201,18 +201,22 @@
   }
 
   .capsule-city {
-    flex: 0 0 30%;
+    flex: 0 0 40%;
     min-width: 0;
   }
 
   .search-button {
-    height: 24px;
-    padding: 3px 6px;
-    font-size: 0.7rem;
-    right: 4px;
+    height: 28px;
+    padding: 4px 8px;
+    font-size: 0.75rem;
+    right: 6px;
+    min-width: 40px;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
   }
 
   .capsule-search .form-control {
-    padding-right: 50px !important;
+    padding-right: 60px !important;
   }
 }
