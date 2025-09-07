@@ -25,10 +25,10 @@ function FilterBar() {
   }
 
   const genderOptions = [
-    { value: 'Girls', label: 'Garotas' },
-    { value: 'Men', label: 'Homens' },
-    { value: 'Trans Women', label: 'Mulher Trans' },
-    { value: 'Trans Men', label: 'Homem Trans' }
+    { value: 'Girls', key: 'F', label: t('gender.F') },
+    { value: 'Men', key: 'M', label: t('gender.M') },
+    { value: 'Trans Women', key: 'TW', label: t('gender.TW') },
+    { value: 'Trans Men', key: 'TM', label: t('gender.TM') }
   ]
 
   return (
@@ -42,7 +42,7 @@ function FilterBar() {
               type="text"
               value={filters.location || ''}
               onChange={handleCityChange}
-              placeholder="Cidade"
+              placeholder={t('filters.city')}
             />
           </div>
           <span className="capsule-divider" aria-hidden="true" />
@@ -52,7 +52,7 @@ function FilterBar() {
               type="search"
               value={filters.search || ''}
               onChange={handleSearchChange}
-              placeholder="Buscar por nome, especialidade..."
+              placeholder={t('filters.search')}
             />
           </div>
         </div>
@@ -80,7 +80,7 @@ function FilterBar() {
             className="btn btn-outline"
             onClick={handleAdvancedToggle}
           >
-            Filtros Avançados
+            {t('filters.advanced')}
           </button>
         </div>
       </div>
@@ -89,7 +89,7 @@ function FilterBar() {
       {isAdvancedOpen && (
         <div className="advanced-filters-panel">
           <p style={{ textAlign: 'center', padding: '1rem', color: '#666' }}>
-            Filtros avançados serão implementados aqui
+            {t('modal.advancedTitle')} - Em desenvolvimento
           </p>
         </div>
       )}
