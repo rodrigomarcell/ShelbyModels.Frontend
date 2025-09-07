@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import { FaSearch } from 'react-icons/fa'
 import { useModels } from '../../context/ModelContext'
 import './FilterBar.css'
 
@@ -22,6 +23,22 @@ function FilterBar() {
 
   const handleAdvancedToggle = () => {
     setIsAdvancedOpen(!isAdvancedOpen)
+  }
+
+  const handleSearch = () => {
+    // Aplica os filtros atuais (forçando uma nova busca)
+    updateFilters({
+      location: filters.location,
+      search: filters.search,
+      // Trigger para forçar aplicação dos filtros
+      timestamp: Date.now()
+    })
+  }
+
+  const handleKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      handleSearch()
+    }
   }
 
   const genderOptions = [
@@ -52,8 +69,17 @@ function FilterBar() {
               type="search"
               value={filters.search || ''}
               onChange={handleSearchChange}
+              onKeyPress={handleKeyPress}
               placeholder={t('filters.search')}
             />
+            <button
+              type="button"
+              className="search-button"
+              onClick={handleSearch}
+              aria-label="Buscar"
+            >
+              <FaSearch />
+            </button>
           </div>
         </div>
 
