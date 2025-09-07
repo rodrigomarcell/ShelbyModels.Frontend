@@ -48,6 +48,9 @@ function FilterBar() {
     { value: 'Trans Men', key: 'TM', label: t('gender.TM') }
   ]
 
+  // Garantir que sempre tenha um gênero selecionado (padrão: Garotas)
+  const selectedGender = filters.gender || 'Girls'
+
   return (
     <div className="filters-bar">
       <div className="filters-row">
@@ -89,7 +92,7 @@ function FilterBar() {
             {genderOptions.map(option => (
               <button
                 key={option.value}
-                className={`tag ${filters.gender === option.value ? 'active' : ''}`}
+                className={`tag ${selectedGender === option.value ? 'active' : ''}`}
                 onClick={() => handleGenderChange(option.value)}
                 type="button"
               >
@@ -103,7 +106,7 @@ function FilterBar() {
         <div className="advanced-filters">
           <button
             type="button"
-            className="btn btn-outline"
+            className="btn btn-publish"
             onClick={handleAdvancedToggle}
           >
             {t('filters.advanced')}

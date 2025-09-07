@@ -28,7 +28,7 @@ export const ModelProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [filters, setFilters] = useState({
     category: 'all',
-    gender: 'all',
+    gender: 'Girls', // Padrão sempre "Girls"
     search: '',
     location: ''
   });

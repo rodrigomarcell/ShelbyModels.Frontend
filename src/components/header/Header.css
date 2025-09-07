@@ -55,19 +55,19 @@
 }
 
 .btn-publish {
-  background: var(--color-primary);
-  color: var(--color-bg);
+  background-color: var(--color-primary);
+  color: #fff;
   padding: 0.6rem 1.2rem;
   border-radius: var(--radius-sm);
   font-weight: 600;
   text-decoration: none;
-  border: none;
+  border: 1px solid var(--color-primary);
   font-size: 0.875rem;
-  transition: background var(--transition-smooth);
+  transition: background-color var(--transition-quick);
 }
 
 .btn-publish:hover {
-  background: linear-gradient(45deg, var(--color-primary), var(--color-primary-hover));
+  background-color: var(--color-primary-hover);
 }
 
 .favorites-container {
@@ -292,6 +292,11 @@
     display: inline-flex;
     padding: 0.5rem 0.8rem;
     font-size: 0.8rem;
+    transition: background-color var(--transition-quick);
+  }
+
+  .header-top .header-top-content .header-actions .btn-publish:hover {
+    background-color: var(--color-primary-hover);
   }
 
   /* Regra unificada e corrigida para ícones */

@@ -47,14 +47,20 @@
 }
 
 .tag.active {
+  background-color: var(--color-primary);
+  color: #fff;
   border-color: var(--color-primary);
-  color: var(--color-primary);
-  background-color: rgba(136, 1, 8, 0.1);
+  font-weight: 600;
+  transition: background-color var(--transition-quick);
 }
 
 .tag:hover {
   border-color: var(--color-primary);
   color: var(--color-primary);
+}
+
+.tag.active:hover {
+  background-color: var(--color-primary-hover);
 }
 
 /* Cápsula composta */
