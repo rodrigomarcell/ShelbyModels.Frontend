@@ -1,0 +1,162 @@
+/* FilterBar usando o mesmo padrão do sistema existente */
+.filters-bar {
+  padding: 12px;
+  margin-bottom: 0;
+  background-color: var(--color-bg);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.filters-row {
+  display: grid;
+  grid-template-columns: 3fr 1.5fr 1fr;
+  gap: 12px;
+  align-items: center;
+  padding: 10px;
+}
+
+.filters-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.filters-label {
+  font-size: .8rem;
+  color: var(--color-dark-soft);
+}
+
+.gender-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tag {
+  border: 1px solid var(--color-border);
+  padding: 6px 10px;
+  border-radius: 12px;
+  background: none;
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--color-dark-soft);
+  transition: all var(--transition-quick);
+}
+
+.tag.active {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  background-color: rgba(136, 1, 8, 0.1);
+}
+
+.tag:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+/* Cápsula composta */
+.capsule {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  overflow: hidden;
+  height: 40px;
+}
+
+.capsule-field {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 10px;
+  height: 100%;
+}
+
+.capsule-city {
+  min-width: 180px;
+}
+
+.capsule-search {
+  flex: 1;
+}
+
+.capsule-divider {
+  width: 1px;
+  background: var(--color-border);
+  height: 100%;
+}
+
+/* Input dentro da cápsula */
+.capsule .form-control {
+  border: none;
+  background: none;
+  padding: 0;
+  font-size: 0.8rem;
+  height: 100%;
+  outline: none;
+  box-shadow: none;
+}
+
+.capsule .form-control:focus {
+  border: none;
+  box-shadow: none;
+  outline: none;
+}
+
+.capsule:focus-within {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(136, 1, 8, 0.1);
+}
+
+/* Botão de filtros avançados */
+.btn-outline {
+  background: none;
+  border: 1px solid var(--color-border);
+  color: var(--color-dark-soft);
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  height: 40px;
+  transition: all var(--transition-quick);
+}
+
+.btn-outline:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.advanced-filters-panel {
+  width: 100%;
+  background-color: #f9f9f9;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mobile responsivo */
+@media (max-width: 768px) {
+  .filters-row {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .filters-bar {
+    padding: 8px;
+  }
+
+  .capsule-city {
+    min-width: 120px;
+  }
+}

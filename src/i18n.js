@@ -8,7 +8,7 @@ const resources = {
     translation: {
       // Header
       header: {
-        publish: "Publicar anúncio"
+        publish: "Anunciar"
       },
 
       // Search Bar

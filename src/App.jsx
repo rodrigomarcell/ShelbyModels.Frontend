@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react';
-import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
-import { useTranslation, Trans } from 'react-i18next';
+import { Routes, Route } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import Header from './components/header/Header';
-import FiltersBar from './components/filters/FiltersBar';
 import HomePage from './pages/HomePage';
 import ModelPage from './pages/ModelPage';
 import AgeGate from './pages/AgeGate';
@@ -18,7 +17,6 @@ import './App.css';
 function App() {
   const { t } = useTranslation();
   const [favorites, setFavorites] = useState([]);
-  const location = useLocation();
   const [ageConfirmed, setAgeConfirmed] = useState(typeof localStorage !== 'undefined' && localStorage.getItem('ageConfirmed') === '1');
 
   useEffect(() => {
@@ -45,11 +43,6 @@ function App() {
     <ModelProvider>
       <div className="app">
         <Header favoritesCount={favorites.length} />
-        {location.pathname === '/' && (
-          <div className="container" style={{marginTop:16}}>
-            <FiltersBar />
-          </div>
-        )}
         <main className="main-content">
           <Routes>
             <Route path="/age" element={<AgeGate />} />

@@ -29,6 +29,7 @@ export default function CityAutocomplete({ value, onChange, placeholder }){
   const [activeIndex, setActiveIndex] = useState(-1)
   const listRef = useRef(null)
   const inputRef = useRef(null)
+  const listId = 'city-autocomplete-listbox'
 
   useEffect(() => {
     setInputValue(value?.name || '')
@@ -40,8 +41,8 @@ export default function CityAutocomplete({ value, onChange, placeholder }){
       const res = await fetchCities(inputValue)
       if (!cancelled) setOptions(res)
     }
-    load()
-    return () => { cancelled = true }
+    const h = setTimeout(load, 250)
+    return () => { cancelled = true; clearTimeout(h) }
   }, [inputValue])
 
   const confirmEnabled = useMemo(() => !!value?.id, [value?.id])
@@ -52,7 +53,11 @@ export default function CityAutocomplete({ value, onChange, placeholder }){
   }
 
   const handleSelect = (opt) => {
+    if (!opt) return
+    try { localStorage.setItem('lastCity', JSON.stringify(opt)) } catch {}
     onChange?.(opt)
+    setInputValue(opt.name)
+    setActiveIndex(-1)
     setOpen(false)
   }
 
@@ -101,33 +106,33 @@ export default function CityAutocomplete({ value, onChange, placeholder }){
           onChange={handleInput}
           onFocus={() => setOpen(true)}
           onKeyDown={handleKeyDown}
+          role="combobox"
           aria-autocomplete="list"
           aria-expanded={open ? 'true' : 'false'}
+          aria-controls={listId}
+          aria-activedescendant={activeIndex>=0 && options[activeIndex] ? `opt-${options[activeIndex].id}` : undefined}
         />
-        <button
-          className="btn btn-primary"
-          disabled={!confirmEnabled}
-          onClick={() => setOpen(false)}
-        >OK</button>
+        {(inputValue || value?.id) && (
+          <button
+            type="button"
+            className="btn btn-icon"
+            aria-label="Limpar cidade"
+            onClick={() => { setInputValue(''); setActiveIndex(-1); setOptions([]); onChange?.(null); setOpen(false) }}
+          >×</button>
+        )}
       </div>
 
       {open && options.length > 0 && (
-        <div className="options" role="listbox" ref={listRef}>
+        <div className="options" role="listbox" id={listId} ref={listRef}>
           {options.map((opt, idx) => (
             <button
               key={opt.id}
+              id={`opt-${opt.id}`}
               role="option"
+              aria-selected={idx===activeIndex ? 'true' : 'false'}
               className={`option ${idx === activeIndex ? 'active' : ''}`}
               onMouseDown={(e) => { e.preventDefault(); handleSelect(opt) }}
             >{opt.name}</button>
-          ))}
-        </div>
-      )}
-
-      {!value?.id && (
-        <div className="popular-chips">
-          {POPULAR.map(c => (
-            <button key={c.id} className="chip" onClick={() => onChange?.(c)}>{c.name}</button>
           ))}
         </div>
       )}

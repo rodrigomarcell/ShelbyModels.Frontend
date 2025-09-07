@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { FaHeart, FaUser } from 'react-icons/fa';
 import { useTranslation } from 'react-i18next';
 import Logo from '../Logo/Logo';
+import FilterBar from '../FilterBar/FilterBar';
 import LanguageSwitcher from '../LanguageSwitcher/LanguageSwitcher';
 import './Header.css';
 
@@ -47,6 +48,13 @@ function Header({ favoritesCount = 0 }) {
               </div>
             </div>
           </div>
+        </div>
+      </div>
+
+      {/* Nova FilterBar */}
+      <div className="header-bottom">
+        <div className="container">
+          <FilterBar />
         </div>
       </div>
     </header>

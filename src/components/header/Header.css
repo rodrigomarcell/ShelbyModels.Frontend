@@ -127,12 +127,14 @@
   display: none; /* Completely hidden - no longer needed */
 }
 
-.header-bottom { display:none; }
+.header-bottom {
+  display: block;
+  background-color: var(--color-bg);
+  border-bottom: 1px solid var(--color-border);
+}
 
 .header-bottom > .container {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+  padding: 0;
 }
 
 .filter-section {
