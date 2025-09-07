@@ -37,7 +37,7 @@
 .tag {
   border: 1px solid var(--color-border);
   padding: 6px 10px;
-  border-radius: 12px;
+  border-radius: var(--radius-sm);
   background: none;
   cursor: pointer;
   font-size: 0.8rem;
@@ -62,7 +62,7 @@
   display: flex;
   align-items: center;
   border: 1px solid var(--color-border);
-  border-radius: 12px;
+  border-radius: var(--radius-sm);
   overflow: hidden;
   height: 40px;
 }
@@ -152,7 +152,7 @@
   border: 1px solid var(--color-border);
   color: var(--color-dark-soft);
   padding: 6px 12px;
-  border-radius: 8px;
+  border-radius: var(--radius-sm);
   font-size: 0.8rem;
   cursor: pointer;
   height: 40px;

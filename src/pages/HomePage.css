@@ -19,7 +19,7 @@
   width: 3.5rem; /* Levemente maior */
   height: 4px;
   background: var(--color-primary); /* Cor primária sólida */
-  border-radius: 3px;
+  border-radius: var(--radius-sm);
 }
 
 .models-section {
