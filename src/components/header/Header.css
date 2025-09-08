@@ -268,7 +268,7 @@
 
   /* Aumentando a especificidade para garantir a sobreposição */
   .header-top .header-top-content .header-actions {
-    gap: 0.75rem; /* Espaçamento ajustado entre os ícones */
+    gap: 1rem; /* Espaçamento mais visível */
     align-items: center;
   }
 
@@ -282,38 +282,108 @@
   .header-top .header-top-content .header-actions .btn-publish:hover {
     background-color: var(--color-primary-hover);
   }
-}
 
-/* Breakpoint intermediário - reduzir fonte quando espaço limitado */
-@media (max-width: 500px) {
-  .btn-publish {
-    font-size: 0.75rem !important;
-    padding: 0.5rem 0.9rem !important;
-  }
-}
-
-/* Breakpoint muito pequeno - fonte ainda menor */
-@media (max-width: 380px) {
-  .btn-publish {
-    font-size: 0.7rem !important;
-    padding: 0.45rem 0.8rem !important;
-  }
-
-  /* Regra unificada e corrigida para ícones */
+  /* Reduzir tamanho dos ícones no mobile, mas coração e menu um pouco maiores */
   .header-top .header-top-content .header-actions .btn-icon,
   .header-top .header-top-content .header-actions .btn-icon svg {
-    font-size: 1.3rem !important;
+    font-size: 1.2rem !important;
     color: var(--color-dark) !important;
     opacity: 0.7;
-    width: 1.3rem !important;
-    height: 1.3rem !important;
+    width: 1.2rem !important;
+    height: 1.2rem !important;
     transition: all var(--transition-quick);
+  }
+
+  /* Coração e menu do usuário maiores */
+  .header-top .header-top-content .header-actions .favorites-container .btn-icon,
+  .header-top .header-top-content .header-actions .favorites-container .btn-icon svg,
+  .header-top .header-top-content .header-actions .user-menu-toggle,
+  .header-top .header-top-content .header-actions .user-menu-toggle svg {
+    font-size: 1.4rem !important;
+    width: 1.4rem !important;
+    height: 1.4rem !important;
   }
 
   .header-top .header-top-content .header-actions .btn-icon:hover,
   .header-top .header-top-content .header-actions .btn-icon:hover svg {
     color: var(--color-primary) !important;
     opacity: 1;
+  }
+}
+
+/* Breakpoint intermediário - reduzir fonte quando espaço limitado */
+@media (max-width: 500px) {
+  .header-top .header-top-content .header-actions {
+    gap: 0.8rem; /* Gap mais visível no 500px */
+  }
+
+  .btn-publish {
+    font-size: 0.75rem !important;
+    padding: 0.45rem 0.7rem !important; /* Padding mais compacto */
+  }
+
+  /* Ícones menores, mas coração e menu um tick maiores */
+  .header-top .header-top-content .header-actions .btn-icon,
+  .header-top .header-top-content .header-actions .btn-icon svg {
+    font-size: 1.1rem !important;
+    width: 1.1rem !important;
+    height: 1.1rem !important;
+  }
+
+  /* Coração e menu do usuário maiores no 500px */
+  .header-top .header-top-content .header-actions .favorites-container .btn-icon,
+  .header-top .header-top-content .header-actions .favorites-container .btn-icon svg,
+  .header-top .header-top-content .header-actions .user-menu-toggle,
+  .header-top .header-top-content .header-actions .user-menu-toggle svg {
+    font-size: 1.3rem !important;
+    width: 1.3rem !important;
+    height: 1.3rem !important;
+  }
+}
+
+/* Breakpoint muito pequeno - fonte ainda menor */
+@media (max-width: 380px) {
+  .header-top .header-top-content .header-actions {
+    gap: 0.7rem; /* Gap mais visível no 380px */
+  }
+
+  .btn-publish {
+    font-size: 0.65rem !important;
+    padding: 0.4rem 0.6rem !important; /* Padding mínimo */
+  }
+
+  /* Ícones ainda menores para telas muito pequenas, mas coração e menu um tick maiores */
+  .header-top .header-top-content .header-actions .btn-icon,
+  .header-top .header-top-content .header-actions .btn-icon svg {
+    font-size: 1rem !important;
+    color: var(--color-dark) !important;
+    opacity: 0.7;
+    width: 1rem !important;
+    height: 1rem !important;
+    transition: all var(--transition-quick);
+  }
+
+  /* Coração e menu do usuário maiores no 380px */
+  .header-top .header-top-content .header-actions .favorites-container .btn-icon,
+  .header-top .header-top-content .header-actions .favorites-container .btn-icon svg,
+  .header-top .header-top-content .header-actions .user-menu-toggle,
+  .header-top .header-top-content .header-actions .user-menu-toggle svg {
+    font-size: 1.2rem !important;
+    width: 1.2rem !important;
+    height: 1.2rem !important;
+  }
+
+  .header-top .header-top-content .header-actions .btn-icon:hover,
+  .header-top .header-top-content .header-actions .btn-icon:hover svg {
+    color: var(--color-primary) !important;
+    opacity: 1;
+  }
+
+  /* Ajustar contador de favoritos proporcionalmente */
+  .favorites-count {
+    width: 1rem !important;
+    height: 1rem !important;
+    font-size: 0.65rem !important;
   }
 
 
