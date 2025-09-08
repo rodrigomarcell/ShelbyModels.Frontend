@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import Header from './components/header/Header';
 import HomePage from './pages/HomePage';
 import ModelPage from './pages/ModelPage';
+import FavoritesPage from './pages/FavoritesPage';
 import AgeGate from './pages/AgeGate';
 import AgeGuard from './components/AgeGuard';
 import Wizard from './pages/Dashboard/Wizard';
@@ -53,6 +54,10 @@ function App() {
                   favorites={favorites}
                   toggleFavorite={toggleFavorite}
                 />}
+              />
+              <Route
+                path="/favorites"
+                element={<FavoritesPage />}
               />
               <Route path="/model/:id" element={<ModelPage />} />
               <Route path="/dashboard" element={<Wizard />} />

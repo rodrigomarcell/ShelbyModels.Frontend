@@ -30,6 +30,19 @@ const resources = {
       gender: { F: "Garotas", M: "Homens", TW: "Mulher trans", TM: "Homem trans" },
       home: { loadMore: "Carregar mais", noResults: "Nenhum perfil encontrado", selectCity: "Selecione uma cidade" },
       card: { video: "Vídeo", view: "Ver perfil", priceHour: "R$/h", verified: "Verificada", notVerified: "Não verificada", favAdd: "Adicionar aos favoritos", favRemove: "Remover dos favoritos" },
+      favorites: {
+        title: "Seus Favoritos",
+        subtitle: "Aqui estão todos os modelos que você marcou como favoritos",
+        backToHome: "Voltar",
+        model: "modelo",
+        models: "modelos",
+        empty: {
+          title: "Nenhum favorito ainda",
+          message: "Você ainda não adicionou nenhum modelo aos seus favoritos.",
+          tip: "Navegue pelos modelos e clique no coração para adicionar aos favoritos!",
+          explore: "Explorar Modelos"
+        }
+      },
       profile: { services: "Serviços", bio: "Sobre", whatsapp: "Chamar no WhatsApp", report: "Denunciar" },
       legal: { disclaimer: "O ShelbyModels não intermedeia pagamentos ou encontros. Responsabilidade do anunciante." },
       modal: { advancedTitle: "Filtros avançados", close: "Fechar" },
@@ -169,6 +182,19 @@ const resources = {
       gender: { F: "Girls", M: "Men", TW: "Trans woman", TM: "Trans man" },
       home: { loadMore: "Load more", noResults: "No profiles found", selectCity: "Select a city" },
       card: { video: "Video", view: "View profile", priceHour: "R$/h", verified: "Verified", notVerified: "Not verified", favAdd: "Add to favorites", favRemove: "Remove from favorites" },
+      favorites: {
+        title: "Your Favorites",
+        subtitle: "Here are all the models you marked as favorites",
+        backToHome: "Back to Home",
+        model: "model",
+        models: "models",
+        empty: {
+          title: "No favorites yet",
+          message: "You haven't added any models to your favorites yet.",
+          tip: "Browse through models and click the heart to add to favorites!",
+          explore: "Explore Models"
+        }
+      },
       profile: { services: "Services", bio: "About", whatsapp: "Chat on WhatsApp", report: "Report" },
       legal: { disclaimer: "ShelbyModels does not intermediate payments or meetings. Advertisers are responsible." },
       modal: { advancedTitle: "Advanced filters", close: "Close" },

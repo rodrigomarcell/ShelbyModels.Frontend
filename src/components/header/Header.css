@@ -81,11 +81,11 @@
   top: -0.3rem;
   right: -0.6rem;
   background-color: var(--color-primary); /* Cor primária para destaque */
-  color: white;
+  color: white !important;
   border-radius: 50%;
   width: 1.25rem;
   height: 1.25rem;
-  font-size: 0.75rem;
+  font-size: 0.50rem;
   font-weight: 500;
   display: flex;
   align-items: center;
@@ -339,6 +339,11 @@
     width: 1.3rem !important;
     height: 1.3rem !important;
   }
+
+  /* Contador de favoritos no 500px */
+  .favorites-count {
+    font-size: 0.52rem !important;
+  }
 }
 
 /* Breakpoint muito pequeno - fonte ainda menor */
@@ -383,7 +388,8 @@
   .favorites-count {
     width: 1rem !important;
     height: 1rem !important;
-    font-size: 0.65rem !important;
+    font-size: 0.55rem !important;
+    color: white !important;
   }
 
 
