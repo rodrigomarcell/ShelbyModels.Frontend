@@ -24,10 +24,6 @@ function Header({ favoritesCount = 0 }) {
               <Logo />
             </Link>
 
-            <div className="version-label">
-              v1.0.0
-            </div>
-
             <div className="header-actions">
               <LanguageSwitcher />
               <Link to={(localStorage.getItem('auth.logged')==='1' ? '/dashboard' : '/signup')} className="btn btn-publish">
