@@ -64,6 +64,9 @@
   border: 1px solid var(--color-primary);
   font-size: 0.875rem;
   transition: background-color var(--transition-quick);
+  white-space: nowrap; /* Impede quebra de linha */
+  overflow: hidden; /* Evita transbordamento */
+  text-overflow: ellipsis; /* Adiciona ... se necessário */
 }
 
 .btn-publish:hover {
@@ -297,6 +300,22 @@
 
   .header-top .header-top-content .header-actions .btn-publish:hover {
     background-color: var(--color-primary-hover);
+  }
+}
+
+/* Breakpoint intermediário - reduzir fonte quando espaço limitado */
+@media (max-width: 500px) {
+  .btn-publish {
+    font-size: 0.75rem !important;
+    padding: 0.5rem 0.9rem !important;
+  }
+}
+
+/* Breakpoint muito pequeno - fonte ainda menor */
+@media (max-width: 380px) {
+  .btn-publish {
+    font-size: 0.7rem !important;
+    padding: 0.45rem 0.8rem !important;
   }
 
   /* Regra unificada e corrigida para ícones */
