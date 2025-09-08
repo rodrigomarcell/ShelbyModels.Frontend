@@ -56,7 +56,7 @@ function Footer() {
           </div>
 
           <div className="footer-copyright">
-            <p>© {currentYear} - {t('footer.copyright')} • v1.0.0</p>
+            <p>© {currentYear} - {t('footer.copyright')} • v1.0.1</p>
           </div>
         </div>
       </div>
