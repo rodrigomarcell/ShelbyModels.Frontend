@@ -54,7 +54,23 @@ function FilterBar() {
   return (
     <div className="filters-bar">
       <div className="filters-row">
-        {/* Cápsula composta: Cidade | Busca */}
+        {/* Gênero - PRIMEIRO */}
+        <div className="gender-filters">
+          <div className="gender-row">
+            {genderOptions.map(option => (
+              <button
+                key={option.value}
+                className={`tag ${selectedGender === option.value ? 'active' : ''}`}
+                onClick={() => handleGenderChange(option.value)}
+                type="button"
+              >
+                {option.label}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* Cápsula composta: Cidade | Busca - SEGUNDO */}
         <div className="capsule">
           <div className="capsule-field capsule-city">
             <input
@@ -86,23 +102,7 @@ function FilterBar() {
           </div>
         </div>
 
-        {/* Gênero */}
-        <div className="gender-filters">
-          <div className="gender-row">
-            {genderOptions.map(option => (
-              <button
-                key={option.value}
-                className={`tag ${selectedGender === option.value ? 'active' : ''}`}
-                onClick={() => handleGenderChange(option.value)}
-                type="button"
-              >
-                {option.label}
-              </button>
-            ))}
-          </div>
-        </div>
-
-        {/* Avançados */}
+        {/* Avançados - TERCEIRO */}
         <div className="advanced-filters">
           <button
             type="button"

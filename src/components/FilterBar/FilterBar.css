@@ -8,7 +8,7 @@
 
 .filters-row {
   display: grid;
-  grid-template-columns: 3fr 1.5fr 1fr;
+  grid-template-columns: auto 1fr auto;
   gap: 12px;
   align-items: center;
   padding: 10px;
@@ -69,7 +69,6 @@
   align-items: center;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-sm);
-  overflow: hidden;
   height: 40px;
 }
 
@@ -121,7 +120,7 @@
   box-shadow: 0 0 0 3px rgba(136, 1, 8, 0.1);
 }
 
-/* Botão de buscar integrado */
+/* Botão de buscar integrado (absoluto dentro do campo de busca) */
 .search-button {
   position: absolute;
   right: 6px;
@@ -129,25 +128,25 @@
   transform: translateY(-50%);
   background-color: var(--color-primary);
   color: white;
-  border: none;
+  border: 1px solid var(--color-primary);
   border-radius: var(--radius-sm);
   padding: 4px 8px;
   font-size: 0.75rem;
   cursor: pointer;
-  transition: all var(--transition-quick);
+  transition: background-color var(--transition-quick);
   height: 28px;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 4px;
+  min-width: 35px;
 }
 
 .search-button:hover {
   background-color: var(--color-primary-hover);
-  transform: translateY(-50%) scale(1.02);
 }
 
 /* Ajustar padding do input para dar espaço ao botão */
+/* Dar espaço interno para o botão absoluto */
 .capsule-search .form-control {
   padding-right: 60px !important;
 }
@@ -189,7 +188,33 @@
   }
 }
 
-/* Mobile responsivo */
+/* Tablet grande */
+@media (max-width: 992px) {
+  .filters-row {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  /* Centralizar gender filters */
+  .gender-filters {
+    display: flex;
+    justify-content: center;
+  }
+
+  .gender-row {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .search-button {
+    height: 30px;
+    min-width: 35px;
+    padding: 4px 6px;
+    font-size: 0.75rem;
+  }
+}
+
+/* Tablet */
 @media (max-width: 768px) {
   .filters-row {
     grid-template-columns: 1fr;
@@ -200,23 +225,54 @@
     padding: 8px;
   }
 
+  /* Centralizar gender filters no mobile */
+  .gender-filters {
+    display: flex;
+    justify-content: center;
+  }
+
+  .gender-row {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
   .capsule-city {
     flex: 0 0 40%;
     min-width: 0;
   }
 
   .search-button {
-    height: 28px;
+    height: 30px;
+    min-width: 40px;
     padding: 4px 8px;
     font-size: 0.75rem;
-    right: 6px;
-    min-width: 40px;
-    display: flex !important;
-    align-items: center;
-    justify-content: center;
   }
 
   .capsule-search .form-control {
     padding-right: 60px !important;
+  }
+}
+
+/* Mobile pequeno */
+@media (max-width: 480px) {
+  .search-button {
+    height: 26px;
+    min-width: 32px;
+    padding: 3px 6px;
+    font-size: 0.7rem;
+    right: 4px;
+  }
+
+  .capsule-search .form-control {
+    padding-right: 50px !important;
+  }
+
+  .gender-row {
+    gap: 6px;
+  }
+
+  .tag {
+    font-size: 0.75rem;
+    padding: 4px 8px;
   }
 }
